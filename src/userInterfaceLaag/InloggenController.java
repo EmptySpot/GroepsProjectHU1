@@ -21,7 +21,6 @@ public class InloggenController {
 
         Scene homePage = new Scene(root);
         Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        appStage.hide();
         appStage.setScene(homePage);
         appStage.show();
     }
