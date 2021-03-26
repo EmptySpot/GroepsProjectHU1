@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.InloggenController">
+   <children>
+      <VBox layoutX="177.0" layoutY="129.0" prefHeight="200.0" prefWidth="247.0">
+         <children>
+            <HBox prefHeight="35.0" prefWidth="269.0" spacing="5.0">
+               <children>
+                  <Label text="Gebruikersnaam" />
+                  <TextField />
+               </children>
+            </HBox>
+            <HBox prefHeight="35.0" prefWidth="269.0" spacing="20.0">
+               <children>
+                  <Label text="Wachtwoord:" />
+                  <TextField />
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="247.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Log in" />
+                  <Hyperlink text="Wachtwoord vergeten" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="322.0" fitWidth="312.0" layoutX="144.0" layoutY="-90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Pictures/aaaa.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
