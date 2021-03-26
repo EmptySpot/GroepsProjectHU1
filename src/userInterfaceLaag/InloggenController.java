@@ -2,9 +2,9 @@ package userInterfaceLaag;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,11 +19,10 @@ public class InloggenController {
                 new FXMLLoader(getClass().getResource("Afmelden.fxml"));
         Parent root = loader.load();
 
-        Stage newStage = new Stage();
-        newStage.setScene(new Scene(root));
-        newStage.initModality(Modality.APPLICATION_MODAL);
-        newStage.showAndWait();
-        initialize();
-
+        Scene homePage = new Scene(root);
+        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        appStage.hide();
+        appStage.setScene(homePage);
+        appStage.show();
     }
 }
