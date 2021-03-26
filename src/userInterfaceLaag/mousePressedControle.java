@@ -16,7 +16,6 @@ public class mousePressedControle {
 
         Scene homePage = new Scene(root);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        appStage.hide();
         appStage.setScene(homePage);
         appStage.show();
     }
