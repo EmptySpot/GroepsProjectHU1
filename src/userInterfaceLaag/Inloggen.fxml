@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.InloggenController">
    <children>
-      <VBox layoutX="177.0" layoutY="129.0" prefHeight="200.0" prefWidth="247.0">
+      <VBox layoutX="177.0" layoutY="129.0" prefHeight="115.0" prefWidth="247.0">
          <children>
             <HBox prefHeight="35.0" prefWidth="269.0" spacing="5.0">
                <children>
@@ -22,7 +22,7 @@
             </HBox>
             <HBox prefHeight="38.0" prefWidth="247.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Log in" />
+                  <Button mnemonicParsing="false" onAction="#inloggen" prefHeight="25.0" prefWidth="66.0" text="Log in" />
                   <Hyperlink text="Wachtwoord vergeten" />
                </children>
             </HBox>
