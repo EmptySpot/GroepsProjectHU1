@@ -15,23 +15,23 @@
                                 <Image url="@../Pictures/cropped-cropped-hogeschool-utrecht-logo.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="51.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="51.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" onMousePressed="#mousePressedDashboard">
                             <image>
                                 <Image url="@../Pictures/Dashboard%20geselecteerd.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" onMousePressed="#mousePressedKalender">
                             <image>
                                 <Image url="@../Pictures/Kalender.png" />
                             </image>
                         </ImageView>
-                        <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" onMousePressed="#mousePressedGeschiedenis">
                             <image>
                                 <Image url="@../Pictures/Geschiedenis.png" />
                             </image>
                         </ImageView>
                         <Region prefHeight="94.0" prefWidth="73.0" />
-                        <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="10.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="10.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" onMousePressed="#mousePressedUitloggen">
                             <image>
                                 <Image url="@../Pictures/Afmelden.png" />
                             </image>

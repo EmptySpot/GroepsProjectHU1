@@ -5,7 +5,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class AfmeldenController {
+public class GeschiedenisController {
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);

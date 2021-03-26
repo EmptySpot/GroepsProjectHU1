@@ -3,7 +3,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.GeschiedenisController">
     <children>
         <HBox layoutX="9.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
             <children>
@@ -27,7 +27,7 @@
                         </ImageView>
                         <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="137.0" onMousePressed="#mousePressedGeschiedenis" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Pictures/Geschiedenis.png" />
+                                <Image url="@../Pictures/Geschiedenis%20geselecteerd.png" />
                             </image>
                         </ImageView>
                         <Region prefHeight="94.0" prefWidth="73.0" />
