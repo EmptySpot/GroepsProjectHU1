@@ -16,7 +16,7 @@ public class InloggenController {
     public void inloggen(ActionEvent actionEvent) throws IOException {
         //if gebruikersnaam == txt.gebruikersnaam en wachtwoord = wachtwoord.text
         FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+                new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent root = loader.load();
 
         Scene homePage = new Scene(root);
