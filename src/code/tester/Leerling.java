@@ -1,8 +1,8 @@
 package code.tester;
 
-import com.sun.javafx.collections.ImmutableObservableList;
-
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Leerling {
     private int leerlingnummer;
@@ -18,9 +18,9 @@ public class Leerling {
         aanwezigheidlist.add(a);
     }
 
-    public ArrayList<Aanwezigheid> getAanwezigheidlist() {
+    public List<Aanwezigheid> getAanwezigheidlist() {
 
-        return ImmutableObservableList(aanwezigheidlist);
+        return Collections.unmodifiableList(aanwezigheidlist);
     }
 
     public void setLeerlingnummer(int leerlingnummer) {
