@@ -39,7 +39,9 @@ public class AfmeldenController {
             docentNaam.setText(("Hello"));
         }
     }
-
+//
+//    String extrainformatie = redeneringTextArea.getText();
+//    leerling.setAanwezigheid(l, extrainformatie, aanwezigheid);
 
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
@@ -63,4 +65,8 @@ public class AfmeldenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
+    public void cancelButton(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
 }

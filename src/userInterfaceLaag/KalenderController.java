@@ -22,19 +22,21 @@ public class KalenderController {
     public Label testLabel;
 
     public void initialize(){
+        //TODO: Lessen getten
         LocalDate datum = LocalDate.now().plusWeeks(2);
-        OnlineLes les = new OnlineLes(datum, "VB1", true, "OOPles1", "OOP" );
+        OnlineLes les = new OnlineLes(datum, "VB1", false, "OOPles1", "OOP" );
         ObservableList<OnlineLes> data = FXCollections.observableArrayList(les);
         listViewTest.setItems(data);
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
         OnlineLes l = listViewTest.getSelectionModel().getSelectedItem();
-        System.out.println(l.getVakNaam());
-        SelectedStatics.setLes(l);
-        testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+        if(l!=null){
+            SelectedStatics.setLes(l);
+            testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+        }
     }
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
