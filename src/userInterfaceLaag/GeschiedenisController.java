@@ -12,8 +12,7 @@ public class GeschiedenisController {
     }
 
     public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
-        //TODO: Moet kalender worden ipv afmelden.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
