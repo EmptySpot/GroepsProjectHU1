@@ -27,21 +27,7 @@ public class InloggenController {
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader =
-                            new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-                    Parent root = loader.load();
-
-                    Scene homePage = new Scene(root);
-                    Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    appStage.setScene(homePage);
-                    appStage.show();
-
-//        BufferedReader reader = new BufferedReader(new FileReader("src/textfiles/leerlingen.txt")) ;
-//        String line;
-//        while ((line = reader.readLine()) != null) {
-//                String[] splitted = line.split(":");
-//                if (gebruikersnaamInput.getText().equals(splitted[0]) && wachtwoordInput.getText().equals(splitted[1])) {
-//                    FXMLLoader loader =
+//        FXMLLoader loader =
 //                            new FXMLLoader(getClass().getResource("Dashboard.fxml"));
 //                    Parent root = loader.load();
 //
@@ -49,10 +35,24 @@ public class InloggenController {
 //                    Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 //                    appStage.setScene(homePage);
 //                    appStage.show();
-//                } else {
-//                    foutmeldingLabel.setText("verkeerd wachtwoord");
-//                }
-//            }
+
+        BufferedReader reader = new BufferedReader(new FileReader("src/textfiles/leerlingen.txt")) ;
+        String line;
+        while ((line = reader.readLine()) != null) {
+                String[] splitted = line.split(":");
+                if (gebruikersnaamInput.getText().equals(splitted[0]) && wachtwoordInput.getText().equals(splitted[1])) {
+                    FXMLLoader loader =
+                            new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                    Parent root = loader.load();
+
+                    Scene homePage = new Scene(root);
+                    Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                    appStage.setScene(homePage);
+                    appStage.show();
+                } else {
+                    foutmeldingLabel.setText("verkeerd wachtwoord");
+                }
+            }
         }
     }
 

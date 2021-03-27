@@ -139,7 +139,7 @@
                      <children>
                         <Region prefHeight="33.0" prefWidth="108.0" />
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Opslaan" />
-                        <Button layoutX="138.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
+                        <Button layoutX="138.0" layoutY="10.0" mnemonicParsing="false" onMousePressed="#cancelButton" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
                      </children>
                   </HBox>
                </children></VBox>
