@@ -8,9 +8,11 @@ public class Leerling {
     private String leerlingnummer;
     private String klas;
     private ArrayList<Aanwezigheid> aanwezigheidlist = new ArrayList<>();
+
     public Leerling(String lN, String kl){
         this.leerlingnummer = lN;
         this.klas = kl;
+
     }
 
     public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
@@ -21,6 +23,10 @@ public class Leerling {
 
     public String getLeerlingnummer() {
         return leerlingnummer;
+    }
+
+    public String getKlas() {
+        return klas;
     }
 
     public List<Aanwezigheid> getAanwezigheidlist() {
