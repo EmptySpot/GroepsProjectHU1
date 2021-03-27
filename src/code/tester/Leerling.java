@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class Leerling {
-    private int leerlingnummer;
+    private String leerlingnummer;
     private String klas;
     private ArrayList<Aanwezigheid> aanwezigheidlist = new ArrayList<>();
-    public Leerling(int lN, String kl){
+    public Leerling(String lN, String kl){
         this.leerlingnummer = lN;
         this.klas = kl;
     }
@@ -16,6 +16,11 @@ public class Leerling {
     public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
         Aanwezigheid a = new Aanwezigheid(this, extraI, aanw, les);
         aanwezigheidlist.add(a);
+        System.out.println(a);
+    }
+
+    public String getLeerlingnummer() {
+        return leerlingnummer;
     }
 
     public List<Aanwezigheid> getAanwezigheidlist() {
@@ -23,7 +28,12 @@ public class Leerling {
         return Collections.unmodifiableList(aanwezigheidlist);
     }
 
-    public void setLeerlingnummer(int leerlingnummer) {
+    public void setLeerlingnummer(String leerlingnummer) {
         this.leerlingnummer = leerlingnummer;
+    }
+
+    @Override
+    public String toString() {
+        return "Leerling: " + leerlingnummer;
     }
 }

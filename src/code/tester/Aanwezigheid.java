@@ -16,6 +16,14 @@ public class Aanwezigheid {
         this.onlineLes = les;
     }
 
-
+    @Override
+    public String toString() {
+        return "Aanwezigheid{" +
+                "l=" + l +
+                ", extraInformatie='" + extraInformatie + '\'' +
+                ", aanwezig='" + aanwezig + '\'' +
+                ", onlineLes=" + onlineLes +
+                '}';
+    }
 }
 //arraylist van leerlingen lessen reden en aanwezigheid

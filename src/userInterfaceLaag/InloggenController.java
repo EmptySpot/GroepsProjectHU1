@@ -1,5 +1,7 @@
 package userInterfaceLaag;
 
+import code.tester.Leerling;
+import code.tester.SelectedStatics;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +42,13 @@ public class InloggenController {
         String line;
         while ((line = reader.readLine()) != null) {
                 String[] splitted = line.split(":");
-                if (gebruikersnaamInput.getText().equals(splitted[0]) && wachtwoordInput.getText().equals(splitted[1])) {
+                String inlognaam = gebruikersnaamInput.getText();
+                if(inlognaam.equals(splitted[0]) && wachtwoordInput.getText().equals(splitted[1])) {
+                    for(Leerling l: leerlingen){
+                        if(l.getLeerlingnummer().equals(inlognaam)){
+                            SelectedStatics.setLeerling(l);
+                        }
+                    }
                     FXMLLoader loader =
                             new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                     Parent root = loader.load();
@@ -53,6 +61,11 @@ public class InloggenController {
                     foutmeldingLabel.setText("verkeerd wachtwoord");
                 }
             }
+//        for(Leerling l: leerlingen){
+//            if(l.getLeerlingnummer() == inlognaam){
+//                SelectedStatics.setLeerling(l);
+//            }
+//        }
         }
     }
 

@@ -2,6 +2,7 @@ package code.tester;
 
 public class SelectedStatics {
     private static OnlineLes les;
+    private static Leerling leerling;
 
     public static void setLes(OnlineLes les){
         SelectedStatics.les = les;
@@ -9,5 +10,9 @@ public class SelectedStatics {
 
     public static OnlineLes getLes(){
         return les;
+    }
+
+    public static void setLeerling(Leerling leerling){
+        SelectedStatics.leerling = leerling;
     }
 }
