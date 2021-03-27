@@ -43,9 +43,6 @@ public class AfmeldenController {
             docentNaam.setText(("Hello"));
         }
     }
-//
-//    String extrainformatie = redeneringTextArea.getText();
-//    leerling.setAanwezigheid(l, extrainformatie, aanwezigheid);
 
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
@@ -75,14 +72,17 @@ public class AfmeldenController {
     }
 
     public void opslaanButton(MouseEvent mouseEvent) throws IOException {
+
+        //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
         OnlineLes l = SelectedStatics.getLes();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-        Leerling leerling = new Leerling("392822238", "VB1");
         String extrainformatie = redeneringTextArea.getText();
         RadioButton selectedRadioButton = (RadioButton) aanwezigheid.getSelectedToggle();
         String aanwezigheidTekst = selectedRadioButton.getText();
         System.out.println(aanwezigheidTekst);
-        leerling.setAanwezigheid(extrainformatie, aanwezigheidTekst, l) ;
+        Leerling huidigeGebruiker = SelectedStatics.getLeerling();
+        huidigeGebruiker.setAanwezigheid(extrainformatie, aanwezigheidTekst, l) ;
+        //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
     }
 }

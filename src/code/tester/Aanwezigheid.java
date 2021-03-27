@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Aanwezigheid {
     private Leerling l;
     private String extraInformatie;
-    private String aanwezig = "aanwezig";
+    private String aanwezig = "Aanwezig";
     private OnlineLes onlineLes;
 
 

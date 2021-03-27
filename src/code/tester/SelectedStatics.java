@@ -15,4 +15,8 @@ public class SelectedStatics {
     public static void setLeerling(Leerling leerling){
         SelectedStatics.leerling = leerling;
     }
+
+    public static Leerling getLeerling(){
+        return leerling;
+    }
 }
