@@ -1,8 +1,6 @@
 package code.tester;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 
 public class OnlineLes {
     private LocalDate datum;
@@ -10,16 +8,15 @@ public class OnlineLes {
     private boolean verplicht;
     private String lesNaam;
     private String vakNaam;
-    private Klas klas;
+    private Leerling l;
+    private boolean aanwezig = true;
 
-
-    public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas k){
+    public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN){
         this.datum = date;
         this.lesCode = lesC;
         this.verplicht = verpl;
         this.lesNaam = lesN;
         this.vakNaam = vakN;
-        this.klas = k;
     }
 
     public LocalDate getDatum() {
@@ -37,6 +34,12 @@ public class OnlineLes {
     public String getVakNaam() {
         return vakNaam;
     }
+
+    public boolean getVerplicht() {
+        return verplicht;
+    }
+
+
 
     @Override
     public String toString() {

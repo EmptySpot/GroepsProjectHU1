@@ -2,45 +2,40 @@ package userInterfaceLaag;
 
 import code.tester.OnlineLes;
 import code.tester.SelectedStatics;
-import javafx.fxml.FXML;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
-public class AfmeldenController {
-    @FXML private Label vakNaam;
-    @FXML private Label lesNaam;
-    @FXML private Label verplicht;
-    @FXML private Label lesgetal;
-    @FXML private Label datum;
-    @FXML private Label docentNaam;
-    @FXML private Label klasNaam;
-    @FXML private TextArea redeneringTextArea;
+public class KalenderController {
 
-    public void initialize() {
-        OnlineLes l = SelectedStatics.getLes();
-        if (l != null) {
-            vakNaam.setText(l.getVakNaam());
-            lesNaam.setText(l.getLesNaam());
-            lesgetal.setText(l.getLesCode());
-            datum.setText(l.getDatum().toString());
-            boolean verplichting = l.getVerplicht();
-            if (verplichting) {
-                verplicht.setText("Ja");
-                verplicht.setStyle("-fx-text-fill: red;");
-            } else {
-                verplicht.setText("Nee");
-                verplicht.setStyle("-fx-text-fill: green;");
-            }
 
-            docentNaam.setText(("Hello"));
-        }
+    public ListView<OnlineLes> listViewTest;
+    public Label testLabel;
+
+    public void initialize(){
+        LocalDate datum = LocalDate.now().plusWeeks(2);
+        OnlineLes les = new OnlineLes(datum, "VB1", true, "OOPles1", "OOP" );
+        ObservableList<OnlineLes> data = FXCollections.observableArrayList(les);
+        listViewTest.setItems(data);
     }
 
-
+    public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
+        OnlineLes l = listViewTest.getSelectionModel().getSelectedItem();
+        System.out.println(l.getVakNaam());
+        SelectedStatics.setLes(l);
+        testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
@@ -64,3 +59,5 @@ public class AfmeldenController {
     }
 
 }
+
+
