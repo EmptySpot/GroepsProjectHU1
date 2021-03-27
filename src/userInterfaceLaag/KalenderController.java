@@ -1,5 +1,7 @@
 package userInterfaceLaag;
 
+import code.tester.OnlineLes;
+import code.tester.SelectedStatics;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -11,20 +13,26 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class KalenderController {
 
 
-    public ListView<String> listViewTest;
+    public ListView<OnlineLes> listViewTest;
     public Label testLabel;
 
     public void initialize(){
-        ObservableList<String> data = FXCollections.observableArrayList("Chomp", "Dave");
+        LocalDate datum = LocalDate.now().plusWeeks(2);
+        OnlineLes les = new OnlineLes(datum, "VB1", true, "OOPles1", "OOP" );
+        ObservableList<OnlineLes> data = FXCollections.observableArrayList(les);
         listViewTest.setItems(data);
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
-        testLabel.setText(listViewTest.getSelectionModel().getSelectedItem());
+        OnlineLes l = listViewTest.getSelectionModel().getSelectedItem();
+        System.out.println(l.getVakNaam());
+        SelectedStatics.setLes(l);
+        testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
@@ -35,7 +43,6 @@ public class KalenderController {
     }
 
     public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
-        //TODO: Moet kalender worden ipv afmelden.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }

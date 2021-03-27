@@ -1,5 +1,7 @@
 package userInterfaceLaag;
 
+import code.tester.OnlineLes;
+import code.tester.SelectedStatics;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -18,8 +20,24 @@ public class AfmeldenController {
     @FXML private Label klasNaam;
     @FXML private TextArea redeneringTextArea;
 
-    public void initialize(){
-        docentNaam.setText(("Hello"));
+    public void initialize() {
+        OnlineLes l = SelectedStatics.getLes();
+        if (l != null) {
+            vakNaam.setText(l.getVakNaam());
+            lesNaam.setText(l.getLesNaam());
+            lesgetal.setText(l.getLesCode());
+            datum.setText(l.getDatum().toString());
+            boolean verplichting = l.getVerplicht();
+            if (verplichting) {
+                verplicht.setText("Ja");
+                verplicht.setStyle("-fx-text-fill: red;");
+            } else {
+                verplicht.setText("Nee");
+                verplicht.setStyle("-fx-text-fill: green;");
+            }
+
+            docentNaam.setText(("Hello"));
+        }
     }
 
 
@@ -30,7 +48,6 @@ public class AfmeldenController {
     }
 
     public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
-        //TODO: Moet kalender worden ipv afmelden.
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
