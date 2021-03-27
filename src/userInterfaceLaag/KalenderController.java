@@ -1,28 +1,33 @@
 package userInterfaceLaag;
 
-import javafx.fxml.FXML;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class AfmeldenController {
-    @FXML private Label vakNaam;
-    @FXML private Label lesNaam;
-    @FXML private Label verplicht;
-    @FXML private Label lesgetal;
-    @FXML private Label datum;
-    @FXML private Label docentNaam;
-    @FXML private Label klasNaam;
-    @FXML private TextArea redeneringTextArea;
+public class KalenderController {
+
+
+    public ListView<String> listViewTest;
+    public Label testLabel;
 
     public void initialize(){
-        docentNaam.setText(("Hello"));
+        ObservableList<String> data = FXCollections.observableArrayList("Chomp", "Dave");
+        listViewTest.setItems(data);
     }
 
-
+    public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
+        testLabel.setText(listViewTest.getSelectionModel().getSelectedItem());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
@@ -47,3 +52,5 @@ public class AfmeldenController {
     }
 
 }
+
+
