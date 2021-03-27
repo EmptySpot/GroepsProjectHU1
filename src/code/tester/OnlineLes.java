@@ -1,26 +1,28 @@
 package code.tester;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class OnlineLes {
-    private Date datum;
+    private LocalDate datum;
     private String lesCode;
     private boolean verplicht;
     private String lesNaam;
     private String vakNaam;
-    private Leerling l;
-    private boolean aanwezig = true;
+    private Klas klas;
 
-    public OnlineLes (Date date, String lesC, boolean verpl, String lesN, String vakN){
+
+    public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas k){
         this.datum = date;
         this.lesCode = lesC;
         this.verplicht = verpl;
         this.lesNaam = lesN;
         this.vakNaam = vakN;
+        this.klas = k;
     }
 
-    public Date getDatum() {
+    public LocalDate getDatum() {
         return datum;
     }
 
