@@ -10,4 +10,7 @@ public class Klas {
     public ArrayList<Leerling> getLeerlingen() {
         return leerlingen;
     }
+    public void leerlingAppenden(Leerling leerling){
+
+    }
 }

@@ -44,11 +44,11 @@ public class InloggenController {
                 String[] splitted = line.split(":");
                 String inlognaam = gebruikersnaamInput.getText();
                 if(inlognaam.equals(splitted[0]) && wachtwoordInput.getText().equals(splitted[1])) {
-                    for(Leerling l: leerlingen){
-                        if(l.getLeerlingnummer().equals(inlognaam)){
-                            SelectedStatics.setLeerling(l);
-                        }
-                    }
+//                    for(Leerling l: leerlingen){
+//                        if(l.getLeerlingnummer().equals(inlognaam)){
+//                            SelectedStatics.setLeerling(l);
+//                        }
+//                    }
                     FXMLLoader loader =
                             new FXMLLoader(getClass().getResource("Dashboard.fxml"));
                     Parent root = loader.load();

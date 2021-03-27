@@ -78,7 +78,7 @@ public class AfmeldenController {
         OnlineLes l = SelectedStatics.getLes();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-        Leerling leerling = new Leerling(392822238, "VB1");
+        Leerling leerling = new Leerling("392822238", "VB1");
         String extrainformatie = redeneringTextArea.getText();
         RadioButton selectedRadioButton = (RadioButton) aanwezigheid.getSelectedToggle();
         String aanwezigheidTekst = selectedRadioButton.getText();
