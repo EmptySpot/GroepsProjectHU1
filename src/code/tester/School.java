@@ -6,6 +6,7 @@ import java.util.List;
 
 public class School {
     private static ArrayList<Klas> klassen = new ArrayList<>();
+    private static ArrayList<Docent> docenten = new ArrayList<>();
     private static School HU;
 
     public static School getSchool() {
@@ -18,6 +19,14 @@ public class School {
 
     public static List<Klas> getKlassen() {
         return Collections.unmodifiableList(klassen);
+    }
+
+    public static void docentenAppenden(Docent docent){
+        docenten.add(docent);
+    }
+
+    public static List<Docent> getDocenten() {
+        return Collections.unmodifiableList(docenten);
     }
 
 }

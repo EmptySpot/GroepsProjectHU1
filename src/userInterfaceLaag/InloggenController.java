@@ -1,9 +1,6 @@
 package userInterfaceLaag;
 
-import code.tester.Klas;
-import code.tester.Leerling;
-import code.tester.School;
-import code.tester.SelectedStatics;
+import code.tester.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +29,7 @@ public class InloggenController {
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException {
+        SelectedStatics.setPersoon(null);
 //        FXMLLoader loader =
 //                            new FXMLLoader(getClass().getResource("Dashboard.fxml"));
 //                    Parent root = loader.load();
@@ -52,7 +50,26 @@ public class InloggenController {
                         List<Leerling> leerlingen = klas.getLeerlingen();
                         for (Leerling leerling : leerlingen) {
                             if (leerling.getLeerlingnummer().equals(inlognaam)) {
-                                SelectedStatics.setLeerling(leerling);
+                                SelectedStatics.setStatus("Leerling");
+                                SelectedStatics.setPersoon(leerling);
+                                System.out.println("Brrr");
+                                break;
+                            }
+                        }
+                    }
+                    System.out.println(SelectedStatics.getPersoon());
+                    System.out.println("brrrrrr");
+                    if(SelectedStatics.getPersoon() == null){
+                        System.out.println("ASHJhnjedrfdjh");
+                        List<Docent> docenten = School.getDocenten();
+                        System.out.println(docenten);
+                        for(Docent docent : docenten){
+                            System.out.println("fffufufuufufufu");
+                            if(docent.getDocentCode().equals(inlognaam)) {
+                                System.out.println("Docent");
+                                SelectedStatics.setStatus("Docent");
+                                SelectedStatics.setPersoon(docent);
+                                break;
                             }
                         }
                     }
