@@ -1,11 +1,14 @@
 package userInterfaceLaag;
 
+import code.tester.Leerling;
 import code.tester.OnlineLes;
 import code.tester.SelectedStatics;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -19,6 +22,7 @@ public class AfmeldenController {
     @FXML private Label docentNaam;
     @FXML private Label klasNaam;
     @FXML private TextArea redeneringTextArea;
+    @FXML private ToggleGroup aanwezigheid;
 
     public void initialize() {
         OnlineLes l = SelectedStatics.getLes();
@@ -39,7 +43,6 @@ public class AfmeldenController {
             docentNaam.setText(("Hello"));
         }
     }
-
 
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
@@ -63,4 +66,23 @@ public class AfmeldenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
+    public void cancelButton(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
+
+    public void opslaanButton(MouseEvent mouseEvent) throws IOException {
+
+        //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
+        OnlineLes l = SelectedStatics.getLes();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+        String extrainformatie = redeneringTextArea.getText();
+        RadioButton selectedRadioButton = (RadioButton) aanwezigheid.getSelectedToggle();
+        String aanwezigheidTekst = selectedRadioButton.getText();
+        System.out.println(aanwezigheidTekst);
+        Leerling huidigeGebruiker = SelectedStatics.getLeerling();
+        huidigeGebruiker.setAanwezigheid(extrainformatie, aanwezigheidTekst, l) ;
+        //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
+    }
 }
