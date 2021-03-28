@@ -7,10 +7,13 @@ public class Docent {
     private String docentCode;
     private ArrayList<OnlineLes>lessen= new ArrayList<>();
 
-    public Docent(String docentNaam, String docentCode, ArrayList<OnlineLes>lessen){
+    public Docent(String docentNaam, String docentCode){
         this.docentNaam=docentNaam;
         this.docentCode=docentCode;
-        this.lessen=lessen;
+    }
+
+    public void setLessen(OnlineLes les){
+        lessen.add(les);
     }
 
     public String getDocentNaam() {
