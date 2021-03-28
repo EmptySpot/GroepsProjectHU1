@@ -30,5 +30,8 @@ public class Docent {
         return Collections.unmodifiableList(lessen);
     }
 
-
+    @Override
+    public String toString() {
+        return docentNaam;
+    }
 }

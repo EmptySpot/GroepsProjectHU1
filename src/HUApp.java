@@ -7,6 +7,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
 
 public class HUApp extends Application {
@@ -22,9 +25,12 @@ public class HUApp extends Application {
 
         Docent Stef = new Docent("Stef", "112");
 
-        OnlineLes projectLes1= new OnlineLes(datum, "SD", true, "projectLes1", "project", k2, Stef);
-        OnlineLes projectLes2= new OnlineLes(datum, "SD", true, "projectLes2", "project", k2, Stef);
-        OnlineLes projectLes3= new OnlineLes(datum, "SD", true, "projectLes3", "project", k1, Stef);
+        LocalTime time = LocalTime.parse("03:18");
+        System.out.println(time);
+
+        OnlineLes projectLes1= new OnlineLes(datum, "SD", true, "Project les 1", "project", k2, Stef, time);
+        OnlineLes projectLes2= new OnlineLes(datum.plusWeeks(2), "SD", true, "Project les 2", "project", k2, Stef, time);
+        OnlineLes projectLes3= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
 
         List<Klas> klappen = School.getKlassen();
 

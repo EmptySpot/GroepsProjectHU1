@@ -30,7 +30,9 @@ public class AfmeldenController {
             vakNaam.setText(l.getVakNaam());
             lesNaam.setText(l.getLesNaam());
             lesgetal.setText(l.getLesCode());
-            datum.setText(l.getDatum().toString());
+            datum.setText(l.getDatum().toString() + " " + l.getTime());
+            docentNaam.setText(l.getDocent().toString());
+            klasNaam.setText(l.getKlas().toString());
             boolean verplichting = l.getVerplicht();
             if (verplichting) {
                 verplicht.setText("Ja");
@@ -39,8 +41,6 @@ public class AfmeldenController {
                 verplicht.setText("Nee");
                 verplicht.setStyle("-fx-text-fill: green;");
             }
-
-            docentNaam.setText(("Hello"));
         }
     }
 

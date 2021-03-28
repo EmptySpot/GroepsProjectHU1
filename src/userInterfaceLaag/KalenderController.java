@@ -27,19 +27,10 @@ public class KalenderController {
     public void initialize(){
         Leerling leerling = SelectedStatics.getLeerling();
         List<OnlineLes> lessen = leerling.getKlas().getLessen();
-
         ObservableList<OnlineLes> data = FXCollections.observableArrayList();
-        for(OnlineLes les: lessen){
-            data.add(les);
-        }
+        data.addAll(lessen);
         listViewTest.setItems(data);
         System.out.println(lessen);
-
-        //TODO: Lessen getten
-        LocalDate datum = LocalDate.now().plusWeeks(2);
-//        OnlineLes les = new OnlineLes(datum, "VB1", false, "OOPles1", "OOP" , "VB1", );
-//        ObservableList<OnlineLes> data = FXCollections.observableArrayList(les);
-//        listViewTest.setItems(data);
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {

@@ -1,6 +1,7 @@
 package code.tester;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class OnlineLes {
     private LocalDate datum;
@@ -10,8 +11,9 @@ public class OnlineLes {
     private String vakNaam;
     private Klas klas;
     private Docent docent;
+    private LocalTime time;
 
-    public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent){
+    public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, LocalTime time){
         this.datum = date;
         this.lesCode = lesC;
         this.verplicht = verpl;
@@ -21,6 +23,7 @@ public class OnlineLes {
         this.docent = docent;
         docent.lessenAppenden(this);
         klas.lessenAppenden(this);
+        this.time = time;
     }
 
     public LocalDate getDatum() {
@@ -43,7 +46,17 @@ public class OnlineLes {
         return verplicht;
     }
 
+    public Klas getKlas() {
+        return klas;
+    }
 
+    public Docent getDocent() {
+        return docent;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
 
     @Override
     public String toString() {

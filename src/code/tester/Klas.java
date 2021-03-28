@@ -29,4 +29,9 @@ public class Klas {
     public void leerlingAppenden(Leerling leerling){
         leerlingen.add(leerling);
     }
+
+    @Override
+    public String toString() {
+        return naam;
+    }
 }
