@@ -44,11 +44,20 @@
             <VBox prefHeight="400.0" prefWidth="434.0">
                <children>
                   <Region prefHeight="20.0" prefWidth="431.0" />
-                  <Label fx:id="vakNaam" prefHeight="33.0" prefWidth="222.0" text="vakNaam">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
+                  <HBox prefHeight="35.0" prefWidth="431.0">
+                     <children>
+                        <Label fx:id="vakNaam" prefHeight="33.0" prefWidth="222.0" text="vakNaam">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="statusLabel" layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="207.0" textFill="RED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                   <Label fx:id="lesNaam" layoutX="10.0" layoutY="59.0" prefHeight="33.0" prefWidth="222.0" text="lesNaam">
                      <font>
                         <Font name="System Bold" size="20.0" />

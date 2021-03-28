@@ -1,8 +1,6 @@
 package userInterfaceLaag;
 
-import code.tester.Leerling;
-import code.tester.OnlineLes;
-import code.tester.SelectedStatics;
+import code.tester.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -21,6 +19,7 @@ public class AfmeldenController {
     @FXML private Label datum;
     @FXML private Label docentNaam;
     @FXML private Label klasNaam;
+    @FXML private Label statusLabel;
     @FXML private TextArea redeneringTextArea;
     @FXML private ToggleGroup aanwezigheid;
 
@@ -33,6 +32,9 @@ public class AfmeldenController {
             datum.setText(l.getDatum().toString() + " " + l.getTime());
             docentNaam.setText(l.getDocent().toString());
             klasNaam.setText(l.getKlas().toString());
+            if(l.getStatus()!=null){
+                statusLabel.setText(l.getStatus());
+            }
             boolean verplichting = l.getVerplicht();
             if (verplichting) {
                 verplicht.setText("Ja");
@@ -74,15 +76,22 @@ public class AfmeldenController {
     public void opslaanButton(MouseEvent mouseEvent) throws IOException {
 
         //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
-        OnlineLes l = SelectedStatics.getLes();
+        OnlineLes les = SelectedStatics.getLes();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
         String extrainformatie = redeneringTextArea.getText();
         RadioButton selectedRadioButton = (RadioButton) aanwezigheid.getSelectedToggle();
         String aanwezigheidTekst = selectedRadioButton.getText();
         System.out.println(aanwezigheidTekst);
-        Leerling huidigeGebruiker = SelectedStatics.getLeerling();
-        huidigeGebruiker.setAanwezigheid(extrainformatie, aanwezigheidTekst, l) ;
+        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
+        try{
+            Leerling huidigeLeerling = (Leerling) huidigeGebruiker;
+            huidigeLeerling.setAanwezigheid(extrainformatie, aanwezigheidTekst, les) ;
+        } catch(Exception e){
+            Docent huidigeDocent = (Docent) huidigeGebruiker;
+
+
+        }
         //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
     }
 }

@@ -2,7 +2,8 @@ package code.tester;
 
 public class SelectedStatics {
     private static OnlineLes les;
-    private static Leerling leerling;
+    private static Persoon persoon;
+    private static String status;
 
     public static void setLes(OnlineLes les){
         SelectedStatics.les = les;
@@ -12,11 +13,19 @@ public class SelectedStatics {
         return les;
     }
 
-    public static void setLeerling(Leerling leerling){
-        SelectedStatics.leerling = leerling;
+    public static void setPersoon(Persoon persoon){
+        SelectedStatics.persoon = persoon;
     }
 
-    public static Leerling getLeerling(){
-        return leerling;
+    public static Persoon getPersoon(){
+        return persoon;
+    }
+
+    public static void setStatus(String status){
+        SelectedStatics.status = status;
+    }
+
+    public static String getStatus(){
+        return status;
     }
 }

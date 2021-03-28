@@ -12,6 +12,7 @@ public class OnlineLes {
     private Klas klas;
     private Docent docent;
     private LocalTime time;
+    private String status;
 
     public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, LocalTime time){
         this.datum = date;
@@ -56,6 +57,14 @@ public class OnlineLes {
 
     public LocalTime getTime() {
         return time;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
