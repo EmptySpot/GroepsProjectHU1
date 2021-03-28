@@ -19,6 +19,8 @@ public class OnlineLes {
         this.vakNaam = vakN;
         this.klas = klas;
         this.docent = docent;
+        docent.lessenAppenden(this);
+        klas.lessenAppenden(this);
     }
 
     public LocalDate getDatum() {

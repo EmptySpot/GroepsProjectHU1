@@ -1,6 +1,8 @@
 package code.tester;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Docent {
     private String docentNaam;
@@ -12,7 +14,7 @@ public class Docent {
         this.docentCode=docentCode;
     }
 
-    public void setLessen(OnlineLes les){
+    public void lessenAppenden(OnlineLes les){
         lessen.add(les);
     }
 
@@ -24,8 +26,8 @@ public class Docent {
         return docentCode;
     }
 
-    public ArrayList<OnlineLes> getLessen() {
-        return lessen;
+    public List<OnlineLes> getLessen() {
+        return Collections.unmodifiableList(lessen);
     }
 
 
