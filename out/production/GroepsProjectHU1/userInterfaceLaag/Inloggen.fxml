@@ -14,7 +14,7 @@
          </image>
       </ImageView>
       <Label fx:id="foutmeldingLabel" layoutX="177.0" layoutY="260.0" textFill="#ee0101" />
-      <GridPane alignment="CENTER_RIGHT" layoutX="90.0" layoutY="181.0" prefHeight="141.0" prefWidth="421.0">
+      <GridPane alignment="CENTER_RIGHT" layoutX="113.0" layoutY="159.0" prefHeight="128.0" prefWidth="367.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="161.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="206.0" />
@@ -29,7 +29,10 @@
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin></TextField>
-            <Label text="Gebruikersnaam:"/>
+            <Label text="Gebruikersnaam:">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
             <Label text="Wachtwoord:" GridPane.rowIndex="1" />
             <PasswordField fx:id="wachtwoordInput" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>

@@ -4,10 +4,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class DashboardController {
 
@@ -28,8 +31,17 @@ public class DashboardController {
 
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("HU agenda");
+        alert.setContentText("Weet je zeker dat je wilt uitloggen?");
+        alert.setHeaderText(null);
 
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.CANCEL) {
+            alert.hide();
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
+            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+        }
+    }
 }
