@@ -43,7 +43,6 @@ public class Leerling {
 
         return Collections.unmodifiableList(aanwezigheidlist);
     }
-
     public void setLeerlingnummer(String leerlingnummer) {
         this.leerlingnummer = leerlingnummer;
     }

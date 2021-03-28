@@ -7,8 +7,6 @@ import java.util.List;
 public class Klas {
     private String naam;
     private ArrayList<Leerling> leerlingen = new ArrayList<>();
-//    private Docent d;
-
 
     public Klas(String naam) {
         this.naam = naam;

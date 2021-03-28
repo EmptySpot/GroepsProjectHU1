@@ -13,10 +13,10 @@ import java.util.List;
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
         Klas k1 = new Klas("BOB");
-        Leerling l1 = new Leerling("123411", k1, "ww");
-        Leerling l2 = new Leerling("432122", k1, "bob");
+        Leerling l1 = new Leerling("1234", k1, "ww");
+        Leerling l2 = new Leerling("4321", k1, "bob");
         Klas k2 = new Klas("VB2");
-        Leerling l3 = new Leerling("djdj33", k2, "bobbie");
+        Leerling l3 = new Leerling("djdj", k2, "bobbie");
         List<Klas> klappen = School.getKlassen();
         System.out.println(klappen);
         for(Klas k : klappen){
