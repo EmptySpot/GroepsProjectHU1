@@ -1,3 +1,4 @@
+import code.tester.Docent;
 import code.tester.Klas;
 import code.tester.Leerling;
 import code.tester.School;
@@ -17,6 +18,7 @@ public class HUApp extends Application {
         Leerling l2 = new Leerling("4321", k1, "bob");
         Klas k2 = new Klas("VB2");
         Leerling l3 = new Leerling("djdj", k2, "bobbie");
+        Docent Stef = new Docent("Stef", "112");
         List<Klas> klappen = School.getKlassen();
         System.out.println(klappen);
         for(Klas k : klappen){
