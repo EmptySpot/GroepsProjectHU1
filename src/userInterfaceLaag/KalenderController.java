@@ -1,5 +1,7 @@
 package userInterfaceLaag;
 
+import code.tester.Klas;
+import code.tester.Leerling;
 import code.tester.OnlineLes;
 import code.tester.SelectedStatics;
 import javafx.beans.value.ChangeListener;
@@ -14,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class KalenderController {
 
@@ -22,11 +25,12 @@ public class KalenderController {
     public Label testLabel;
 
     public void initialize(){
-        //TODO: Lessen getten
-        LocalDate datum = LocalDate.now().plusWeeks(2);
-        OnlineLes les = new OnlineLes(datum, "VB1", false, "OOPles1", "OOP" );
-        ObservableList<OnlineLes> data = FXCollections.observableArrayList(les);
+        Leerling leerling = SelectedStatics.getLeerling();
+        List<OnlineLes> lessen = leerling.getKlas().getLessen();
+        ObservableList<OnlineLes> data = FXCollections.observableArrayList();
+        data.addAll(lessen);
         listViewTest.setItems(data);
+        System.out.println(lessen);
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
