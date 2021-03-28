@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -28,8 +29,13 @@ public class DashboardController {
 
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
+        //TODO moet later bij elk scherm staan
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("HU agenda");
+        alert.setContentText("Je bent succesvol uitgelogd");
+        alert.setHeaderText(null);
+        alert.showAndWait();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
-
 }
