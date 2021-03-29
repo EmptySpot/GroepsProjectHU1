@@ -5,7 +5,13 @@
 
 package userInterfaceLaag;
 
+import code.tester.*;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -31,15 +37,15 @@ public class GeschiedenisController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-
-//    private appAccount account = new account.getHuidigeUser();
+//    private HUApp account = new account.getHuidigeUser();
 //
-//    public void initialize(){
+//    public void initialize() {
 //        textField.setText("" + account.getAfwezigheid.size()); // aantal keren afwezig
+//    }
 
 //    Met een for-loop door de aanwezigheid, moet zoeken naar "student" in "rooster"
-//    Allemaal in de initializer.
-
-//    }
-}
+//    Allemaal in de initializer
+//
+//    <fx.id Label.text("Aantal keren afwezig: ") + getAanwezigheid().size();
+    }
 
