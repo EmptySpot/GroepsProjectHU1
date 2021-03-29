@@ -33,7 +33,7 @@ public class AfmeldenController {
             docentNaam.setText(l.getDocent().toString());
             klasNaam.setText(l.getKlas().toString());
             if(l.getStatus()!=null){
-                statusLabel.setText(l.getStatus());
+                statusLabel.setText("Docent is: " + l.getStatus());
             }
             boolean verplichting = l.getVerplicht();
             if (verplichting) {
@@ -82,15 +82,15 @@ public class AfmeldenController {
         String extrainformatie = redeneringTextArea.getText();
         RadioButton selectedRadioButton = (RadioButton) aanwezigheid.getSelectedToggle();
         String aanwezigheidTekst = selectedRadioButton.getText();
-        System.out.println(aanwezigheidTekst);
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
-        try{
+
+        if(huidigeGebruiker instanceof Leerling){
             Leerling huidigeLeerling = (Leerling) huidigeGebruiker;
             huidigeLeerling.setAanwezigheid(extrainformatie, aanwezigheidTekst, les) ;
-        } catch(Exception e){
+        }
+        else if(huidigeGebruiker instanceof Docent){
             Docent huidigeDocent = (Docent) huidigeGebruiker;
-
-
+            les.setStatus(aanwezigheidTekst);
         }
         //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
     }
