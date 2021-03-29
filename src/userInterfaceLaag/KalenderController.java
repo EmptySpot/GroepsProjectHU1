@@ -46,6 +46,7 @@ public class KalenderController {
             SelectedStatics.setLes(l);
             testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+
             mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
         }
     }
