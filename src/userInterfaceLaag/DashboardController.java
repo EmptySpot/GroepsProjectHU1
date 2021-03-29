@@ -14,34 +14,5 @@ import java.util.Optional;
 
 public class DashboardController {
 
-    public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
 
-    public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
-
-    public void mousePressedGeschiedenis(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Geschiedenis.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
-
-
-    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("HU agenda");
-        alert.setContentText("Weet je zeker dat je wilt uitloggen?");
-        alert.setHeaderText(null);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.CANCEL) {
-            alert.hide();
-        } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
-            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-        }
-    }
 }

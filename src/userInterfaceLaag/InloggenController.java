@@ -74,7 +74,7 @@ public class InloggenController {
                         }
                     }
                     FXMLLoader loader =
-                            new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+                            new FXMLLoader(getClass().getResource("MainView.fxml"));
                     Parent root = loader.load();
 
                     //TODO: Mensen aanmaken weer aanzetten + unieke personen codes.
