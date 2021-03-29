@@ -37,15 +37,18 @@ public class GeschiedenisController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-//    private HUApp account = new account.getHuidigeUser();
-//
+
 //    public void initialize() {
+//        leerling student = student.getUser();
 //        textField.setText("" + account.getAfwezigheid.size()); // aantal keren afwezig
 //    }
 
-//    Met een for-loop door de aanwezigheid, moet zoeken naar "student" in "rooster"
+//    Met een for-loop door de aanwezigheid, moet zoeken naar "student" in "rooster" & lessen
 //    Allemaal in de initializer
 //
 //    <fx.id Label.text("Aantal keren afwezig: ") + getAanwezigheid().size();
+
+
+
     }
 
