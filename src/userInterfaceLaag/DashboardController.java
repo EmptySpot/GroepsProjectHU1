@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -32,10 +34,12 @@ public class DashboardController {
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("HU agenda");
+        alert.setTitle("Agenda");
         alert.setContentText("Weet je zeker dat je wilt uitloggen?");
         alert.setHeaderText(null);
-
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("Pictures/cropped-cropped-hogeschool-utrecht-logo.png"));
+        
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.CANCEL) {
             alert.hide();
