@@ -45,8 +45,14 @@ public class KalenderController {
         if(l!=null){
             SelectedStatics.setLes(l);
             testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
-            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+            if(SelectedStatics.getStatus().equals("Docent")){
+                System.out.println("Brrrr");
+                FXMLLoader loader = new FXMLLoader((getClass().getResource("DocentKeuzeAfmelden.fxml")));
+                mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+            } else {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+                mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+            }
         }
     }
 

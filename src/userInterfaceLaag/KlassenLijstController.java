@@ -1,4 +1,4 @@
-package sample;
+package userInterfaceLaag;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -6,12 +6,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import userInterfaceLaag.mousePressedControle;
 
 import java.io.IOException;
 import java.util.Optional;
 
-public class Controller {
+public class KlassenLijstController {
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
