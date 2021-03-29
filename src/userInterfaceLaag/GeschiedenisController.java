@@ -37,6 +37,9 @@ public class GeschiedenisController {
 //    public void initialize(){
 //        textField.setText("" + account.getAfwezigheid.size()); // aantal keren afwezig
 
-    }
+//    Met een for-loop door de aanwezigheid, moet zoeken naar "student" in "rooster"
+//    Allemaal in de initializer.
+
+//    }
 }
 
