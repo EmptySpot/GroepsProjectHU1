@@ -7,12 +7,19 @@ import java.util.List;
 public class Klas {
     private String naam;
     private ArrayList<Leerling> leerlingen = new ArrayList<>();
-//    private Docent d;
-
+    private ArrayList<OnlineLes> lessen = new ArrayList<>();
 
     public Klas(String naam) {
         this.naam = naam;
         School.klassenAppenden(this);
+    }
+
+    public List<OnlineLes> getLessen() {
+        return Collections.unmodifiableList(lessen);
+    }
+
+    public void lessenAppenden(OnlineLes les){
+        lessen.add(les);
     }
 
     public List<Leerling> getLeerlingen() {
@@ -21,5 +28,10 @@ public class Klas {
 
     public void leerlingAppenden(Leerling leerling){
         leerlingen.add(leerling);
+    }
+
+    @Override
+    public String toString() {
+        return naam;
     }
 }

@@ -5,10 +5,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class DashboardController {
 
@@ -29,13 +31,17 @@ public class DashboardController {
 
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
-        //TODO moet later bij elk scherm staan
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("HU agenda");
-        alert.setContentText("Je bent succesvol uitgelogd");
+        alert.setContentText("Weet je zeker dat je wilt uitloggen?");
         alert.setHeaderText(null);
-        alert.showAndWait();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.CANCEL) {
+            alert.hide();
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
+            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+        }
     }
 }
