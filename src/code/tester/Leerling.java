@@ -10,11 +10,13 @@ import java.util.List;
 
 public class Leerling extends Persoon{
     private Klas klas;
+    private String naam;
     private ArrayList<Aanwezigheid> aanwezigheidlist = new ArrayList<>();
 
-    public Leerling(String leerlingNummer, Klas klas, String wachtWoord) throws IOException {
+    public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam) throws IOException {
         super(leerlingNummer);
         this.klas = klas;
+        this.naam = naam;
         klas.leerlingAppenden(this);
 //        BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
 //        writeLeerling.write(leerlingnummer + ":" + wachtWoord);
@@ -36,6 +38,8 @@ public class Leerling extends Persoon{
     public Klas getKlas() {
         return klas;
     }
+
+    public String getLeerlingNaam() {return naam;}
 
     public List<Aanwezigheid> getAanwezigheidlist() {
 

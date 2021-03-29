@@ -4,9 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.InloggenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.InloggenController">
    <children>
       <ImageView fitHeight="129.0" fitWidth="427.0" layoutX="83.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,14 +28,14 @@
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin></TextField>
-            <Label text="Gebruikersnaam:"/>
+            <Label text="Gebruikersnaam:" />
             <Label text="Wachtwoord:" GridPane.rowIndex="1" />
             <PasswordField fx:id="wachtwoordInput" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin></PasswordField>
             <Button defaultButton="true" mnemonicParsing="false" onAction="#inloggen" prefHeight="25.0" prefWidth="66.0" text="Log in" GridPane.rowIndex="2" />
-            <Hyperlink alignment="CENTER_RIGHT" text="Wachtwoord vergeten" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Hyperlink alignment="CENTER_RIGHT" onMousePressed="#tempAccountAanmaken" text="Wachtwoord vergeten" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
