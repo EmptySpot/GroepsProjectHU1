@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.AfmeldenController">
+   <children>
+      <HBox layoutX="9.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
+         <children>
+            <VBox prefHeight="296.0" prefWidth="72.0" spacing="5.0">
+               <children>
+                  <Region prefHeight="5.0" prefWidth="72.0" />
+                  <ImageView fitHeight="69.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@../Pictures/cropped-cropped-hogeschool-utrecht-logo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="73.0" onMousePressed="#mousePressedDashboard" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/Dashboard.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="84.0" onMousePressed="#mousePressedKalender" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/Kalender%20geselecteerd.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="137.0" onMousePressed="#mousePressedGeschiedenis" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/Geschiedenis.png" />
+                     </image>
+                  </ImageView>
+                  <Region prefHeight="94.0" prefWidth="73.0" />
+                  <ImageView fitHeight="62.0" fitWidth="74.0" layoutX="10.0" layoutY="139.0" onMousePressed="#mousePressedUitloggen" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/Afmelden.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox prefHeight="400.0" prefWidth="90.0" />
+            <VBox prefHeight="400.0" prefWidth="434.0">
+               <children>
+                  <Region prefHeight="20.0" prefWidth="431.0" />
+                  <HBox prefHeight="35.0" prefWidth="431.0">
+                     <children>
+                        <Label fx:id="vakNaam" prefHeight="33.0" prefWidth="222.0" text="vakNaam">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="statusLabel" layoutX="10.0" layoutY="10.0" prefHeight="33.0" prefWidth="207.0" textFill="RED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lesNaam" layoutX="10.0" layoutY="59.0" prefHeight="33.0" prefWidth="222.0" text="lesNaam">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <VBox prefHeight="126.0" prefWidth="431.0">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="76.0" text="Verplicht:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="verplicht" prefHeight="27.0" prefWidth="177.0" text="verplicht">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="76.0" text="Les:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lesgetal" prefHeight="27.0" prefWidth="177.0" text="lesgetal">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="40.0" prefHeight="30.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="76.0" text="Datum:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="datum" prefHeight="27.0" prefWidth="177.0" text="datum">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="70.0" prefHeight="30.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="76.0" text="Docent:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="docentNaam" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="177.0" text="docentNaam">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="91.0" prefHeight="30.0" prefWidth="431.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="76.0" text="Klas:">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="klasNaam" layoutX="10.0" layoutY="10.0" prefHeight="27.0" prefWidth="177.0" text="klasNaam">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TextArea fx:id="redeneringTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="122.0" prefWidth="401.0" />
+                  <HBox prefHeight="22.0" prefWidth="431.0" spacing="20.0">
+                     <children>
+                        <RadioButton fx:id="absentKnop" mnemonicParsing="false" selected="true" text="Absent">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="aanwezigheid" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="vertraagdKnop" mnemonicParsing="false" text="Vertraagd" toggleGroup="$aanwezigheid" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="33.0" prefWidth="431.0" spacing="20.0">
+                     <children>
+                        <Region prefHeight="33.0" prefWidth="108.0" />
+                        <Button mnemonicParsing="false" onMousePressed="#opslaanButton" prefHeight="25.0" prefWidth="69.0" text="Opslaan" />
+                        <Button layoutX="138.0" layoutY="10.0" mnemonicParsing="false" onMousePressed="#cancelButton" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
+                     </children>
+                  </HBox>
+               </children></VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
