@@ -37,9 +37,8 @@ public class HUApp extends Application {
         OnlineLes projectLes3= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
         OnlineLes projectLes4= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
 
-        l1.setAanwezigheid("","Absent", projectLes3);
-        l1.setAanwezigheid("","Absent", projectLes4);
-
+        l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes3), "Absent");
+        l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes4), "Absent");
 
         List<Klas> klappen = School.getKlassen();
 

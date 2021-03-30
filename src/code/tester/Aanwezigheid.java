@@ -33,17 +33,21 @@ public class Aanwezigheid {
         return aanwezig;
     }
 
-    public void updateAanwezig(String input){
-        leerlingInfo.updateAanwezigheid(this, input);
-    }
-
     public void setAanwezig(String input){
         this.aanwezig = input;
     }
 
+    public String getExtraInformatie() {
+        return extraInformatie;
+    }
+
+    public void setExtraInformatie(String extraInformatie) {
+        this.extraInformatie = extraInformatie;
+    }
+
     public Button getButtonAanwezig() {
         buttonAanwezig.setOnAction((ActionEvent event) -> {
-            updateAanwezig("Absent");
+            leerlingInfo.updateAanwezigheid(this, "Absent");
         });
         return buttonAanwezig;
     }
