@@ -19,6 +19,9 @@ public class Klas {
     }
 
     public void lessenAppenden(OnlineLes les){
+        for(Leerling leerling : leerlingen){
+            leerling.setAanwezigheid(les);
+        }
         lessen.add(les);
     }
 

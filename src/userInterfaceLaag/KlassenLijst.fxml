@@ -3,13 +3,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.KlassenLijstController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.KlassenLijstController">
     <children>
-       <TableView fx:id="leerlingenInLes" prefHeight="400.0" prefWidth="427.0">
+       <TableView fx:id="leerlingenInLes" prefHeight="400.0" prefWidth="600.0">
           <columns>
              <TableColumn fx:id="naamTabel" editable="false" prefWidth="150.0" text="Leerling naam" />
               <TableColumn fx:id="leerlingnummerTabel" editable="false" prefWidth="150.0" text="Leerlingnummer" />
               <TableColumn fx:id="aanwezigheid" editable="false" prefWidth="150.0" text="Aanwezigheid" />
+            <TableColumn fx:id="buttonTableColumn" editable="false" prefWidth="150.0" text="Button boy" />
           </columns>
       </TableView>
     </children>

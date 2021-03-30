@@ -28,9 +28,22 @@ public class Leerling extends Persoon{
 
     }
 
+    public void setAanwezigheid(OnlineLes les){
+        setAanwezigheid("","Aanwezig", les);
+    }
+
     public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
+
         Aanwezigheid a = new Aanwezigheid(this, extraI, aanw, les);
         aanwezigheidlist.add(a);
+    }
+
+    public void updateAanwezigheid(Aanwezigheid updatendeAanwezigheid, String nieuweAanwezigheid){
+        if(aanwezigheidlist.contains(updatendeAanwezigheid)){
+            int arrayListIndex = aanwezigheidlist.indexOf(updatendeAanwezigheid);
+            updatendeAanwezigheid.setAanwezig(nieuweAanwezigheid);
+            aanwezigheidlist.set(arrayListIndex, updatendeAanwezigheid);
+        }
     }
 
     public String getLeerlingnummer() {
@@ -53,6 +66,6 @@ public class Leerling extends Persoon{
 
     @Override
     public String toString() {
-        return "Leerling: " + super.persoonCode;
+        return super.persoonCode;
     }
 }

@@ -1,29 +1,61 @@
 package code.tester;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+
 import java.util.ArrayList;
 
 public class Aanwezigheid {
-    private Leerling leerling;
+    private Leerling leerlingInfo;
     private String extraInformatie;
-    private String aanwezig = "Aanwezig";
+    private String aanwezig;
     private OnlineLes onlineLes;
+    private Button buttonAanwezig;
 
 
     public Aanwezigheid(Leerling leerling, String extraI, String aanw, OnlineLes les){
-        this.leerling = leerling;
+        this.leerlingInfo = leerling;
         this.extraInformatie = extraI;
         this.aanwezig = aanw;
         this.onlineLes = les;
+        this.buttonAanwezig = new Button("Absent");
+    }
+
+    public Leerling getLeerlingInfo() {
+        return leerlingInfo;
+    }
+
+    public String getLeerlingNaam() {
+        return leerlingInfo.getLeerlingNaam();
     }
 
     public String getAanwezig() {
         return aanwezig;
     }
 
+    public void updateAanwezig(String input){
+        leerlingInfo.updateAanwezigheid(this, input);
+    }
+
+    public void setAanwezig(String input){
+        this.aanwezig = input;
+    }
+
+    public Button getButtonAanwezig() {
+        buttonAanwezig.setOnAction((ActionEvent event) -> {
+            updateAanwezig("Absent");
+        });
+        return buttonAanwezig;
+    }
+
+    public OnlineLes getOnlineLes() {
+        return onlineLes;
+    }
+
     @Override
     public String toString() {
         return "Aanwezigheid{" +
-                "l=" + leerling +
+                "l=" + leerlingInfo +
                 ", extraInformatie='" + extraInformatie + '\'' +
                 ", aanwezig='" + aanwezig + '\'' +
                 ", onlineLes=" + onlineLes +
