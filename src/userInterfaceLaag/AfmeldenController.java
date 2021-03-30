@@ -86,7 +86,7 @@ public class AfmeldenController {
 
         if(huidigeGebruiker instanceof Leerling){
             Leerling huidigeLeerling = (Leerling) huidigeGebruiker;
-            huidigeLeerling.setAanwezigheid(extrainformatie, aanwezigheidTekst, les) ;
+            huidigeLeerling.updateAanwezigheid(huidigeLeerling.getAanwezigheidLes(les), aanwezigheidTekst, extrainformatie);
         }
         else if(huidigeGebruiker instanceof Docent){
             Docent huidigeDocent = (Docent) huidigeGebruiker;
