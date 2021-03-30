@@ -30,8 +30,11 @@ public class KlassenLijstController {
         ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
         for(Leerling leerlingAanwezig : leerlingenHuidigeKlas){
             for(Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()){
+                System.out.println(data);
                 if(aanwezigheidPerLes.getOnlineLes() == les){
                     data.add(aanwezigheidPerLes);
+                    break;
+//                    && !data.contains(aanwezigheidPerLes
                 }
             }
 
