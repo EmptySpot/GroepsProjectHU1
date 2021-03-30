@@ -1,0 +1,21 @@
+#anchor {
+    -fx-background-color: white;
+}
+
+#logoutButton {
+      -fx-border-color: black ;
+      -fx-border-width: 1 ;
+      -fx-border-radius: 2px;
+      -fx-background-color: LightPink;
+      -fx-cursor: pointer;
+      -fx-transition: 0.5s;
+      -fx-padding: 5px;
+      -fx-border-insets: 5px;
+      -fx-background-insets: 5px;
+}
+
+#logoutButton:hover {
+     -fx-background-color:red;
+     -fx-text-fill: white;
+     -fx-cursor: hand;
+}
