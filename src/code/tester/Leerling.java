@@ -18,7 +18,7 @@ public class Leerling extends Persoon{
     public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam) throws IOException {
         super(leerlingNummer);
         this.klas = klas;
-        this.naam.set(naam);
+        this.naam = new SimpleStringProperty(naam);
         klas.leerlingAppenden(this);
 //        BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
 //        writeLeerling.write(leerlingnummer + ":" + wachtWoord);
