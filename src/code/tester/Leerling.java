@@ -12,13 +12,13 @@ import java.util.List;
 
 public class Leerling extends Persoon{
     private Klas klas;
-    private SimpleStringProperty naam;
+    private SimpleStringProperty leerlingNaam;
     private ArrayList<Aanwezigheid> aanwezigheidlist = new ArrayList<>();
 
     public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam) throws IOException {
         super(leerlingNummer);
         this.klas = klas;
-        this.naam = new SimpleStringProperty(naam);
+        this.leerlingNaam = new SimpleStringProperty(naam);
         klas.leerlingAppenden(this);
 //        BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
 //        writeLeerling.write(leerlingnummer + ":" + wachtWoord);
@@ -40,7 +40,7 @@ public class Leerling extends Persoon{
         return klas;
     }
 
-    public String getLeerlingNaam() {return naam.get();}
+    public String getLeerlingNaam() {return leerlingNaam.get();}
 
     public List<Aanwezigheid> getAanwezigheidlist() {
 

@@ -13,6 +13,7 @@ public class OnlineLes {
     private Docent docent;
     private LocalTime time;
     private String status;
+//    private List<Aanwezigheid>presentie;
 
     public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, LocalTime time){
         this.datum = date;

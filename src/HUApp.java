@@ -18,7 +18,7 @@ public class HUApp extends Application {
         Klas k2 = new Klas("VB2");
 
         Leerling l1 = new Leerling("1234", k1, "ww", "Jan");
-        Leerling l2 = new Leerling("4321", k1, "bob", "Bram,");
+        Leerling l2 = new Leerling("4321", k1, "bob", "Bram");
         Leerling l3 = new Leerling("djdj", k2, "bobbie", "Bobbie");
 
         Docent Stef = new Docent("Stef", "112");
