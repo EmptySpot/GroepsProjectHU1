@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DocentKeuzeAfmeldenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.KlassenLijstController">
     <children>
         <HBox layoutX="9.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
             <children>
@@ -22,7 +23,7 @@
                         </ImageView>
                         <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="84.0" onMousePressed="#mousePressedKalender" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Pictures/Kalender%20geselecteerd.png" />
+                                <Image url="@../Pictures/Kalender.png" />
                             </image>
                         </ImageView>
                         <ImageView fitHeight="51.0" fitWidth="73.0" layoutX="10.0" layoutY="137.0" onMousePressed="#mousePressedGeschiedenis" pickOnBounds="true" preserveRatio="true">
@@ -38,26 +39,12 @@
                         </ImageView>
                     </children>
                 </VBox>
-            <Region prefHeight="400.0" prefWidth="123.0" />
-                <VBox prefHeight="400.0" prefWidth="244.0">
+                <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="400.0" prefWidth="265.0">
                <children>
-                  <Region prefHeight="100.0" prefWidth="211.0" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fitHeight="98.0" fitWidth="123.0" onMousePressed="#mousePressedKlas" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/noun_people_1168360.png" />
-                           </image>
-                        </ImageView>
-                        <Region prefHeight="100.0" prefWidth="34.0" />
-                        <ImageView fitHeight="100.0" fitWidth="113.0" onMousePressed="#mousePressedSelf" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/noun_person_2733078.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-               </children></VBox>
+                  <ListView fx:id="tester" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
             </children>
         </HBox>
     </children>

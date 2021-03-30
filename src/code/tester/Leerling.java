@@ -28,7 +28,6 @@ public class Leerling extends Persoon{
     public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
         Aanwezigheid a = new Aanwezigheid(this, extraI, aanw, les);
         aanwezigheidlist.add(a);
-        System.out.println(a);
     }
 
     public String getLeerlingnummer() {
