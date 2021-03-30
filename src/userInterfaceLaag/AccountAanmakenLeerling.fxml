@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.AccountAanmakenLeerlingController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
             <GridPane layoutX="173.0" layoutY="95.0" prefHeight="183.0" prefWidth="282.0">
               <columnConstraints>
@@ -21,21 +22,26 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="cancelButtonAccountMaken" mnemonicParsing="false" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Button mnemonicParsing="false" text="Aanmaken" GridPane.rowIndex="5" />
                   <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="42.0" text="Naam:" />
                   <Label text="Studentnummer:" GridPane.rowIndex="1" />
                   <Label text="Klas:" GridPane.rowIndex="2" />
                   <Label text="Wachtwoord:" GridPane.rowIndex="3" />
                   <Label text="Herhaal wachtwoord:" GridPane.rowIndex="4" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField prefHeight="26.0" prefWidth="146.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <ChoiceBox prefHeight="26.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="invoerNaamAanmaken" GridPane.columnIndex="1" />
+                  <TextField fx:id="StundentnummerInvoerAanmaken" prefHeight="26.0" prefWidth="146.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="invoerEersteWachtwoordAanmaken" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="herhaalWachtwoordInvoer" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ChoiceBox fx:id="selecteerKlasVakjes" prefHeight="26.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Label layoutX="172.0" layoutY="294.0" prefHeight="26.0" prefWidth="0.0" />
+            <Label fx:id="wachtwoordVerkeerdFoutmelding" layoutX="172.0" layoutY="294.0" prefHeight="26.0" prefWidth="0.0" />
+            <ImageView fitHeight="91.0" fitWidth="375.0" layoutX="157.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Pictures/HU%20Logo%20Groot.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </children>
 </AnchorPane>
