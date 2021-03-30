@@ -13,6 +13,7 @@ public class OnlineLes {
     private Docent docent;
     private LocalTime time;
     private String status;
+//    private List<Aanwezigheid>presentie;
 
     public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, LocalTime time){
         this.datum = date;
@@ -69,12 +70,7 @@ public class OnlineLes {
 
     @Override
     public String toString() {
-        return "OnlineLes{" +
-                "datum=" + datum +
-                ", lesGetal=" + lesCode +
-                ", verplicht=" + verplicht +
-                ", lesNaam='" + lesNaam + '\'' +
-                ", vakNaam='" + vakNaam + '\'' +
-                '}';
+        String onlineles = String.format("%tR %s %s", time, lesNaam, docent);
+        return onlineles;
     }
 }
