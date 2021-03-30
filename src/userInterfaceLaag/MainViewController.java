@@ -22,7 +22,8 @@ public class MainViewController {
     public ListView<OnlineLes> listViewTest;
     public Label testLabel;
 
-    public void initialize(){
+    public void initialize() throws IOException {
+        mousePressedDashboard(null);
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
