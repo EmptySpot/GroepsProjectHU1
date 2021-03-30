@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,13 @@ public class MainViewController {
 
     public void initialize() throws IOException {
         mousePressedDashboard(null);
+        Pane dbvbox = (Pane) dashBoardVbox.getChildren().get(0);
+        Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
+        Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
+
+        dbvbox.setId("dashboardShape");
+        cdvbox.setId("calendarShape");
+        hsvbox.setId("historyShape");
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
@@ -48,6 +56,7 @@ public class MainViewController {
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Dashboard.fxml"));
         System.out.println("Set main view to Dashboard");
         ViewContainer.getChildren().setAll(node);
+        setIconColor(0);
     }
 
     public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
@@ -56,6 +65,7 @@ public class MainViewController {
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Kalender.fxml"));
         System.out.println("Set main view to Kalender");
         ViewContainer.getChildren().setAll(node);
+        setIconColor(1);
     }
 
     public void mousePressedGeschiedenis(MouseEvent mouseEvent) throws IOException {
@@ -63,6 +73,7 @@ public class MainViewController {
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Geschiedenis.fxml"));
         System.out.println("Set main view to Geschiedenis");
         ViewContainer.getChildren().setAll(node);
+        setIconColor(2);
     }
 
 
@@ -82,8 +93,27 @@ public class MainViewController {
     }
 
     public void setIconColor(int opt){
+        Pane dbvbox = (Pane) dashBoardVbox.getChildren().get(0);
+        Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
+        Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
 
-    }
+        dbvbox.setId("dashboardShape");
+        cdvbox.setId("calendarShape");
+        hsvbox.setId("historyShape");
+
+
+       if(opt == 0) {
+           dbvbox.setId("dashboardShapeSelected");
+       } else{
+           if (opt == 1) {
+               cdvbox.setId("calendarShapeSelected");
+           } else{
+               if(opt == 2){
+                   hsvbox.setId("historyShapeSelected");
+               }
+           }
+       }
+  }
 
 }
 
