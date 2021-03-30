@@ -69,7 +69,7 @@ public class OnlineLes {
 
     @Override
     public String toString() {
-        String onlineles = String.format("%tD %s", datum, lesNaam);
+        String onlineles = String.format("%tR %s %s", time, lesNaam, docent);
         return onlineles;
     }
 }

@@ -7,8 +7,8 @@
     <children>
         <HBox layoutX="9.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
             <children>
-            <ListView fx:id="listViewTest" onMouseClicked="#handleMouseClick" prefHeight="400.0" prefWidth="256.0" />
-            <Label fx:id="testLabel" prefHeight="75.0" prefWidth="83.0" text="Label" />
+                <ListView fx:id="listViewTest" onMouseClicked="#handleMouseClick" prefHeight="400.0" prefWidth="256.0" />
+                <Label fx:id="testLabel" prefHeight="75.0" prefWidth="83.0" text="Label" />
             </children>
         </HBox>
     </children>
