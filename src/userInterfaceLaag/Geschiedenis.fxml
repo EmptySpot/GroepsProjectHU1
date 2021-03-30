@@ -20,6 +20,7 @@
                <children>
                   <Label prefHeight="57.0" prefWidth="126.0" text="  Aantal keren afwezig: " />
                   <ListView prefHeight="313.0" prefWidth="198.0" GridPane.rowIndex="2" />
+                  <Label fx:id="afwezigCounterLabel" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             </children>

@@ -21,17 +21,17 @@ public class KlassenLijstController {
     @FXML private TableView leerlingenInLes;
 
     public void initialize() {
-        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
-        Docent docent = (Docent) huidigeGebruiker;
-        OnlineLes les = SelectedStatics.getLes();
-        List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
-        ObservableList<Leerling> data = FXCollections.observableArrayList();
-        data.addAll(leerlingenHuidigeKlas);
-        System.out.println(data);
-        TableColumn leerlingNaam = new TableColumn("Naam");
-        for(Leerling leerling: leerlingenHuidigeKlas){
-            leerlingNaam.setCellValueFactory(new PropertyValue<Leerling leerling, String>("naam"));
-        }
+//        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
+//        Docent docent = (Docent) huidigeGebruiker;
+//        OnlineLes les = SelectedStatics.getLes();
+//        List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
+//        ObservableList<Leerling> data = FXCollections.observableArrayList();
+//        data.addAll(leerlingenHuidigeKlas);
+//        System.out.println(data);
+//        TableColumn leerlingNaam = new TableColumn("Naam");
+//        for(Leerling leerling: leerlingenHuidigeKlas){
+//            leerlingNaam.setCellValueFactory(new PropertyValue<Leerling leerling, String>("naam"));
+//        }
 //        TableColumn leerlingCode = new TableColumn("Leerlingnummer");
 //        leerlingCode.setCellValueFactory(
 //                new PropertyValueFactory<Leerling,String>("persoonCode")
@@ -42,7 +42,7 @@ public class KlassenLijstController {
 //        );
 
 //        leerlingenInLes.getColumns().addAll(leerlingNaam, leerlingCode, leerlingAfwezig);
-        leerlingenInLes.getColumns().addAll(leerlingNaam);
+//        leerlingenInLes.getColumns().addAll(leerlingNaam);
         }
 }
 
