@@ -63,7 +63,6 @@ public class MainViewController {
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Geschiedenis.fxml"));
         System.out.println("Set main view to Geschiedenis");
         ViewContainer.getChildren().setAll(node);
-        r2.run();
     }
 
 
