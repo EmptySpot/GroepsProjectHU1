@@ -32,13 +32,7 @@ public class MainViewController {
 
     public void initialize() throws IOException {
         mousePressedDashboard(null);
-        Pane dbvbox = (Pane) dashBoardVbox.getChildren().get(0);
-        Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
-        Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
-
-        dbvbox.setId("dashboardShape");
-        cdvbox.setId("calendarShape");
-        hsvbox.setId("historyShape");
+        setIconColor(0);
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
@@ -101,15 +95,22 @@ public class MainViewController {
         cdvbox.setId("calendarShape");
         hsvbox.setId("historyShape");
 
+        ((Label) dashBoardVbox.getChildren().get(1)).setStyle("-fx-text-fill: CornflowerBlue");
+        ((Label) calendarVbox.getChildren().get(1)).setStyle("-fx-text-fill: CornflowerBlue");
+        ((Label) historyVbox.getChildren().get(1)).setStyle("-fx-text-fill: CornflowerBlue");
+
 
        if(opt == 0) {
            dbvbox.setId("dashboardShapeSelected");
+           ((Label) dashBoardVbox.getChildren().get(1)).setStyle("-fx-text-fill: red");
        } else{
            if (opt == 1) {
                cdvbox.setId("calendarShapeSelected");
+               ((Label) calendarVbox.getChildren().get(1)).setStyle("-fx-text-fill: red");
            } else{
                if(opt == 2){
                    hsvbox.setId("historyShapeSelected");
+                   ((Label) historyVbox.getChildren().get(1)).setStyle("-fx-text-fill: red");
                }
            }
        }
