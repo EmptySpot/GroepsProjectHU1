@@ -29,19 +29,36 @@ public class Leerling extends Persoon{
     }
 
     public void setAanwezigheid(OnlineLes les){
-        setAanwezigheid("","Aanwezig", les);
-    }
-
-    public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
-
-        Aanwezigheid a = new Aanwezigheid(this, extraI, aanw, les);
+        Aanwezigheid a = new Aanwezigheid(this, "", "Aanwezig", les);
         aanwezigheidlist.add(a);
     }
 
-    public void updateAanwezigheid(Aanwezigheid updatendeAanwezigheid, String nieuweAanwezigheid){
+//    public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
+//
+//        Aanwezigheid a = new Aanwezigheid(this, extraI, aanw, les);
+//        aanwezigheidlist.add(a);
+//    }
+
+    public Aanwezigheid getAanwezigheidLes(OnlineLes gevraagdeLes) {
+        for (Aanwezigheid aanwezigheidLes : aanwezigheidlist) {
+            if (aanwezigheidLes.getOnlineLes() == gevraagdeLes) {
+                return aanwezigheidLes;
+            }
+        }
+        return null;
+    }
+
+    public void updateAanwezigheid(Aanwezigheid updatendeAanwezigheid, String nieuweAanwezigheid) {
+        this.updateAanwezigheid(updatendeAanwezigheid, nieuweAanwezigheid, "");
+    }
+
+    public void updateAanwezigheid(Aanwezigheid updatendeAanwezigheid, String nieuweAanwezigheid, String extraInformatie){
         if(aanwezigheidlist.contains(updatendeAanwezigheid)){
             int arrayListIndex = aanwezigheidlist.indexOf(updatendeAanwezigheid);
             updatendeAanwezigheid.setAanwezig(nieuweAanwezigheid);
+            if(!extraInformatie.equals("")){
+                updatendeAanwezigheid.setExtraInformatie(extraInformatie);
+            }
             aanwezigheidlist.set(arrayListIndex, updatendeAanwezigheid);
         }
     }
