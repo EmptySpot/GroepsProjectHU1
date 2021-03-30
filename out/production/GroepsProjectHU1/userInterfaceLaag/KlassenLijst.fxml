@@ -9,7 +9,7 @@
             <children>
             <VBox prefHeight="400.0" prefWidth="492.0">
                <children>
-                  <TableView fx:id="leerlingenInLes" prefHeight="400.0" prefWidth="427.0" />
+                  <TableView fx:id="leerlingenInLes" prefHeight="400.0" prefWidth="427.0"/>
                </children>
             </VBox>
             </children>

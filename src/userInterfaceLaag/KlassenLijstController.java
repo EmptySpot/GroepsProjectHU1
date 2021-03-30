@@ -29,8 +29,12 @@ public class KlassenLijstController {
         data.addAll(leerlingenHuidigeKlas);
         System.out.println(data);
         TableColumn leerlingNaam = new TableColumn("Naam");
-        for(Leerling leerling: leerlingenHuidigeKlas){
-            leerlingNaam.setCellValueFactory(new PropertyValue<Leerling leerling, String>("naam"));
+        leerlingenInLes.getColumns().addAll(leerlingNaam);
+
+        leerlingNaam.setCellValueFactory(new PropertyValueFactory<Leerling,String>("naam"));
+        leerlingenInLes.setItems(data);
+
+//            leerlingNaam.setCellValueFactory(new PropertyValue<Leerling,String>("naam"));
         }
 //        TableColumn leerlingCode = new TableColumn("Leerlingnummer");
 //        leerlingCode.setCellValueFactory(
@@ -42,7 +46,6 @@ public class KlassenLijstController {
 //        );
 
 //        leerlingenInLes.getColumns().addAll(leerlingNaam, leerlingCode, leerlingAfwezig);
-        leerlingenInLes.getColumns().addAll(leerlingNaam);
-        }
 }
+
 
