@@ -69,12 +69,7 @@ public class OnlineLes {
 
     @Override
     public String toString() {
-        return "OnlineLes{" +
-                "datum=" + datum +
-                ", lesGetal=" + lesCode +
-                ", verplicht=" + verplicht +
-                ", lesNaam='" + lesNaam + '\'' +
-                ", vakNaam='" + vakNaam + '\'' +
-                '}';
+        String onlineles = String.format("%tD %s", datum, lesNaam);
+        return onlineles;
     }
 }
