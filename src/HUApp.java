@@ -6,13 +6,19 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
         LocalDate datum = LocalDate.now().plusWeeks(2);
+
 
         Klas k1 = new Klas("BOB");
         Klas k2 = new Klas("VB2");
