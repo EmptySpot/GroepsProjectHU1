@@ -3,9 +3,9 @@ package code.tester;
 
 import javafx.beans.property.SimpleStringProperty;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,11 +15,12 @@ public class Leerling extends Persoon{
     private SimpleStringProperty leerlingNaam;
     private ArrayList<Aanwezigheid> aanwezigheidlist = new ArrayList<>();
 
-    public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam) throws IOException {
+    public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam) throws IOException, ClassNotFoundException {
         super(leerlingNummer);
         this.klas = klas;
         this.leerlingNaam = new SimpleStringProperty(naam);
         klas.leerlingAppenden(this);
+
 //        BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
 //        writeLeerling.write(leerlingnummer + ":" + wachtWoord);
 //        writeLeerling.newLine();

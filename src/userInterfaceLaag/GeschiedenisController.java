@@ -17,7 +17,18 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class GeschiedenisController {
-
+    @FXML
+    private Label afwezigCounterLabel;
+    public void initialize() {
+        if (SelectedStatics.getStatus().equals("Leerling")) {
+            Leerling leerling = (Leerling) SelectedStatics.getPersoon();
+            int size = leerling.getAanwezigheidlist().size();
+            String size1 = String.valueOf(size);
+            afwezigCounterLabel.setText(size1);
+        } else if (SelectedStatics.getStatus().equals("Docent")) {
+            Docent docent = (Docent) SelectedStatics.getPersoon();
+        }
+    }
 
 //    public void initialize() {
 //        leerling student = student.getUser();
