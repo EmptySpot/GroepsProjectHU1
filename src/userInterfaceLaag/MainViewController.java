@@ -23,28 +23,7 @@ public class MainViewController {
     public Label testLabel;
 
     public void initialize(){
-        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
-        List<OnlineLes> lessen;
-        try{
-            Leerling leerling = (Leerling) huidigeGebruiker;
-            lessen = leerling.getKlas().getLessen();
-            ObservableList<OnlineLes> data = FXCollections.observableArrayList();
-            data.addAll(lessen);
-            listViewTest.setItems(data);
-            System.out.println(lessen);
-        } catch (Exception e) {
-            try {
-                Docent docent = (Docent) huidigeGebruiker;
-                assert docent != null;
-                lessen = docent.getLessen();
-                ObservableList<OnlineLes> data = FXCollections.observableArrayList();
-                data.addAll(lessen);
-                listViewTest.setItems(data);
-                System.out.println(lessen);
-            } catch (Exception e2){
-                System.out.println("Code broke" + e2);
-            }
-        }
+
     }
 
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
