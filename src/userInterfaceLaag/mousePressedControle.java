@@ -31,4 +31,13 @@ public class mousePressedControle {
         }
 
     }
+
+    public static void mousePressedVerwerkerFIX(MouseEvent mouseEvent, FXMLLoader loader) throws IOException {
+        Parent root = loader.load();
+
+        Scene homePage = new Scene(root);
+        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        appStage.setScene(homePage);
+        appStage.show();
+    }
 }
