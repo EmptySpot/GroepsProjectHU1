@@ -43,14 +43,19 @@ public class KalenderController {
     public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
         OnlineLes l = listViewTest.getSelectionModel().getSelectedItem();
         if(l!=null){
+            Persoon huidigeGebruiker = SelectedStatics.getPersoon();
             SelectedStatics.setLes(l);
-            testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
 
-            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+            if(huidigeGebruiker instanceof  Leerling){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
+                mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+            }
+            else if(huidigeGebruiker instanceof Docent) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("DocentKeuzeAfmelden.fxml"));
+                mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+            }
         }
     }
-
 }
 
 

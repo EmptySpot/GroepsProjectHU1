@@ -22,7 +22,7 @@ public class MainViewController {
     public ListView<OnlineLes> listViewTest;
     public Label testLabel;
 
-    public void initialize() throws IOException{
+    public void initialize() throws IOException {
         mousePressedDashboard(null);
     }
 
@@ -45,6 +45,7 @@ public class MainViewController {
 
     public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
         Node node;
+        System.out.println("brrr");
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Kalender.fxml"));
         System.out.println("Set main view to Kalender");
         ViewContainer.getChildren().setAll(node);
