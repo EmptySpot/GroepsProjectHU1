@@ -29,10 +29,13 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                        <ImageView fitHeight="69.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                        <ImageView fitHeight="69.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
                             <image>
                                 <Image url="@../Pictures/cropped-cropped-hogeschool-utrecht-logo.png" />
                             </image>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                         </ImageView>
                   <VBox fx:id="dashBoardVbox" alignment="CENTER" onMousePressed="#mousePressedDashboard" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
@@ -64,7 +67,7 @@
                            <Label alignment="CENTER" contentDisplay="CENTER" text="Geschiedenis" textAlignment="CENTER" />
                        </children>
                    </VBox>
-                  <Button id="logoutButton" mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" styleClass="logoutButton" text="Afmelden" GridPane.rowIndex="5" />
+                  <Button id="logoutButton" mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" styleClass="logoutButton" text="Afmelden" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                </children>
             </GridPane>
             <AnchorPane fx:id="ViewContainer" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
