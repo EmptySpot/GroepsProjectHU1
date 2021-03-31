@@ -1,48 +1,47 @@
 package userInterfaceLaag;
 
 import code.tester.*;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 public class KlassenLijstController {
-    @FXML private TableView leerlingenInLes;
+    @FXML
+    public TableView<Aanwezigheid> leerlingenInLes;
+    @FXML
+    TableColumn<Aanwezigheid, String> naamTabel;
+    @FXML
+    TableColumn<Aanwezigheid, String> leerlingnummerTabel;
+    @FXML
+    TableColumn<Aanwezigheid, String> aanwezigheid;
+    @FXML
+    TableColumn<Aanwezigheid, Button> buttonTableColumn;
 
-    public void initialize() {
+    public void initialize() throws IOException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         Docent docent = (Docent) huidigeGebruiker;
         OnlineLes les = SelectedStatics.getLes();
         List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
-        ObservableList<Leerling> data = FXCollections.observableArrayList();
-        data.addAll(leerlingenHuidigeKlas);
-        System.out.println(data);
-        TableColumn leerlingNaam = new TableColumn("Naam");
-//        for(Leerling leerling: leerlingenHuidigeKlas){
-//            leerlingNaam.setCellValueFactory(new PropertyValue<Leerling leerling, String>("naam"));
-//        }
-//        TableColumn leerlingCode = new TableColumn("Leerlingnummer");
-//        leerlingCode.setCellValueFactory(
-//                new PropertyValueFactory<Leerling,String>("persoonCode")
-//        );
-//        TableColumn leerlingAfwezig = new TableColumn("Afwezig");
-//        leerlingAfwezig.setCellValueFactory(
-//                new PropertyValueFactory<Leerling,String>("naam")
-//        );
+        ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
+        for(Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
+            for (Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()) {
+                if (aanwezigheidPerLes.getOnlineLes() == les) {
+                    data.add(aanwezigheidPerLes);
+                    break;
+                }
+            }
 
-//        leerlingenInLes.getColumns().addAll(leerlingNaam, leerlingCode, leerlingAfwezig);
-        leerlingenInLes.getColumns().addAll(leerlingNaam);
+            naamTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingNaam"));
+            leerlingnummerTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingInfo"));
+            aanwezigheid.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("aanwezig"));
+            buttonTableColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, Button>("buttonAanwezig"));
+            leerlingenInLes.setItems(data);
         }
+    }
 }
 

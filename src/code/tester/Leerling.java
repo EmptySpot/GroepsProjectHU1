@@ -71,12 +71,14 @@ public class Leerling extends Persoon{
         return klas;
     }
 
-    public String getLeerlingNaam() {return leerlingNaam.get();}
+    public String getLeerlingNaam() {
+        return leerlingNaam.get();
+    }
 
     public List<Aanwezigheid> getAanwezigheidlist() {
-
         return Collections.unmodifiableList(aanwezigheidlist);
     }
+
     public void setLeerlingnummer(String leerlingnummer) {
         super.persoonCode = leerlingnummer;
     }
