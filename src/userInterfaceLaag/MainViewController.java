@@ -91,26 +91,29 @@ public class MainViewController {
         Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
         Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
 
+        Label dbvlabel = (Label) dashBoardVbox.getChildren().get(1);
+        Label cdvlabel = (Label) calendarVbox.getChildren().get(1);
+        Label hsvlabel = (Label) historyVbox.getChildren().get(1);
+
         dbvbox.setId("dashboardShape");
         cdvbox.setId("calendarShape");
         hsvbox.setId("historyShape");
 
-        ((Label) dashBoardVbox.getChildren().get(1)).setStyle("-fx-text-fill: CornflowerBlue");
-        ((Label) calendarVbox.getChildren().get(1)).setStyle("-fx-text-fill: CornflowerBlue");
-        ((Label) historyVbox.getChildren().get(1)).setStyle("-fx-text-fill: CornflowerBlue");
-
+        dbvlabel.setId("fontNotSelected");
+        cdvlabel.setId("fontNotSelected");
+        hsvlabel.setId("fontNotSelected");
 
        if(opt == 0) {
            dbvbox.setId("dashboardShapeSelected");
-           ((Label) dashBoardVbox.getChildren().get(1)).setStyle("-fx-text-fill: red");
+           dbvlabel.setId("fontSelected");
        } else{
            if (opt == 1) {
                cdvbox.setId("calendarShapeSelected");
-               ((Label) calendarVbox.getChildren().get(1)).setStyle("-fx-text-fill: red");
+               cdvlabel.setId("fontSelected");
            } else{
                if(opt == 2){
                    hsvbox.setId("historyShapeSelected");
-                   ((Label) historyVbox.getChildren().get(1)).setStyle("-fx-text-fill: red");
+                   hsvlabel.setId("fontSelected");
                }
            }
        }
