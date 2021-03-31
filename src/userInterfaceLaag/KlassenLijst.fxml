@@ -11,6 +11,7 @@
               <TableColumn fx:id="leerlingnummerTabel" editable="false" prefWidth="150.0" text="Leerlingnummer" />
               <TableColumn fx:id="aanwezigheid" editable="false" prefWidth="150.0" text="Aanwezigheid" />
             <TableColumn fx:id="buttonTableColumn" editable="false" prefWidth="150.0" text="Button boy" />
+              <TableColumn fx:id="RadioButtonColumn" editable="false" prefWidth="150.0" text="Aanwezig" />
           </columns>
       </TableView>
     </children>

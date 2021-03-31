@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,7 +23,8 @@ public class KlassenLijstController {
     TableColumn<Aanwezigheid, String> aanwezigheid;
     @FXML
     TableColumn<Aanwezigheid, Button> buttonTableColumn;
-
+    @FXML
+    TableColumn<Aanwezigheid, ButtonGroup> RadioButtonColumn;
     public void initialize() throws IOException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         Docent docent = (Docent) huidigeGebruiker;
@@ -35,17 +38,26 @@ public class KlassenLijstController {
                     break;
                 }
             }
-
             naamTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingNaam"));
             leerlingnummerTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingInfo"));
             aanwezigheid.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("aanwezig"));
             buttonTableColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, Button>("buttonAanwezig"));
+            RadioButtonColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, ButtonGroup>("aanwezigAfwezig"));
             leerlingenInLes.setEditable(true);
             leerlingenInLes.setItems(data);
 
 
+
         }
+//    public void handleButtonActionUpdate(ActionEvent event){
+//            System.out.println("update");
+//            updateTable();
+//        }
 
     }
+    public void updateTable(){
+        leerlingenInLes.refresh();
+    }
+
 }
 
