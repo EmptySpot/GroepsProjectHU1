@@ -6,14 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
@@ -39,13 +34,6 @@ public class HUApp extends Application {
 
         l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes3), "Absent");
         l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes4), "Absent");
-
-        List<Klas> klappen = School.getKlassen();
-
-        System.out.println(klappen);
-        for(Klas k : klappen){
-            System.out.println(k.getLeerlingen());
-        }
         launch(args);
     }
 

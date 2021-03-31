@@ -49,16 +49,13 @@ public class MainViewController {
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         Node node;
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Dashboard.fxml"));
-        System.out.println("Set main view to Dashboard");
         ViewContainer.getChildren().setAll(node);
         setIconColor(0);
     }
 
     public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
         Node node;
-        System.out.println("brrr");
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Kalender.fxml"));
-        System.out.println("Set main view to Kalender");
         ViewContainer.getChildren().setAll(node);
         setIconColor(1);
     }
@@ -66,7 +63,6 @@ public class MainViewController {
     public void mousePressedGeschiedenis(MouseEvent mouseEvent) throws IOException {
         Node node;
         node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Geschiedenis.fxml"));
-        System.out.println("Set main view to Geschiedenis");
         ViewContainer.getChildren().setAll(node);
         setIconColor(2);
     }

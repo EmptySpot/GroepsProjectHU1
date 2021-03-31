@@ -56,21 +56,14 @@ public class InloggenController {
                             if (leerling.getLeerlingnummer().equals(inlognaam)) {
                                 SelectedStatics.setStatus("Leerling");
                                 SelectedStatics.setPersoon(leerling);
-                                System.out.println("Brrr");
                                 break;
                             }
                         }
                     }
-                    System.out.println(SelectedStatics.getPersoon());
-                    System.out.println("brrrrrr");
                     if(SelectedStatics.getPersoon() == null){
-                        System.out.println("ASHJhnjedrfdjh");
                         List<Docent> docenten = School.getDocenten();
-                        System.out.println(docenten);
                         for(Docent docent : docenten){
-                            System.out.println("fffufufuufufufu");
                             if(docent.getDocentCode().equals(inlognaam)) {
-                                System.out.println("Docent");
                                 SelectedStatics.setStatus("Docent");
                                 SelectedStatics.setPersoon(docent);
                                 break;
@@ -86,7 +79,7 @@ public class InloggenController {
                     Scene homePage = new Scene(root);
                     Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     appStage.setScene(homePage);
-                    appStage.setMinWidth(appStage.getWidth()+100);
+                    appStage.setMinWidth(appStage.getWidth());
                     appStage.setMinHeight(appStage.getHeight());
                     appStage.show();
                 } else {
