@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,6 +23,8 @@ public class KlassenLijstController {
     TableColumn<Aanwezigheid, String> aanwezigheid;
     @FXML
     TableColumn<Aanwezigheid, Button> buttonTableColumn;
+    @FXML
+    TableColumn<Aanwezigheid, ComboBox> RadioButtonColumn;
 
     public void initialize() throws IOException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
@@ -28,20 +32,28 @@ public class KlassenLijstController {
         OnlineLes les = SelectedStatics.getLes();
         List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
         ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
-        for(Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
+        for (Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
             for (Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()) {
                 if (aanwezigheidPerLes.getOnlineLes() == les) {
                     data.add(aanwezigheidPerLes);
                     break;
                 }
             }
-
             naamTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingNaam"));
             leerlingnummerTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingInfo"));
             aanwezigheid.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("aanwezig"));
             buttonTableColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, Button>("buttonAanwezig"));
+            RadioButtonColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, ComboBox>("aanwezigheidComboBox"));
+            leerlingenInLes.setEditable(true);
             leerlingenInLes.setItems(data);
+
+
         }
     }
+
+    public void updateTable(){
+        leerlingenInLes.refresh();
+    }
+
 }
 
