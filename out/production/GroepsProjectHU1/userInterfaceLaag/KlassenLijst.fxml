@@ -5,12 +5,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.KlassenLijstController">
     <children>
-       <TableView fx:id="leerlingenInLes" prefHeight="400.0" prefWidth="600.0">
+       <TableView fx:id="leerlingenInLes" prefHeight="400.0" prefWidth="485.0">
           <columns>
-             <TableColumn fx:id="naamTabel" editable="false" prefWidth="150.0" text="Leerling naam" />
-              <TableColumn fx:id="leerlingnummerTabel" editable="false" prefWidth="150.0" text="Leerlingnummer" />
-              <TableColumn fx:id="aanwezigheid" editable="false" prefWidth="150.0" text="Aanwezigheid" />
-            <TableColumn fx:id="buttonTableColumn" editable="false" prefWidth="150.0" text="Button boy" />
+             <TableColumn fx:id="naamTabel" editable="false" prefWidth="75.0" text="Leerling naam" />
+              <TableColumn fx:id="leerlingnummerTabel" editable="false" prefWidth="75.0" text="Leerlingnummer" />
+                <TableColumn fx:id="aanwezigheid" editable="false" prefWidth="120.0" text="Aanwezigheid" />
+                <TableColumn fx:id="buttonTableColumn" editable="false" prefWidth="65.0" text="Button boy" />
+                <TableColumn fx:id="RadioButtonColumn" editable="false" prefWidth="150.0" text="Aanwezig" />
           </columns>
       </TableView>
     </children>

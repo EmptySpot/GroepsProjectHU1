@@ -86,7 +86,7 @@ public class InloggenController {
                     Scene homePage = new Scene(root);
                     Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     appStage.setScene(homePage);
-                    appStage.setMinWidth(appStage.getWidth());
+                    appStage.setMinWidth(appStage.getWidth()+100);
                     appStage.setMinHeight(appStage.getHeight());
                     appStage.show();
                 } else {

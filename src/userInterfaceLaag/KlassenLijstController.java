@@ -24,14 +24,15 @@ public class KlassenLijstController {
     @FXML
     TableColumn<Aanwezigheid, Button> buttonTableColumn;
     @FXML
-    TableColumn<Aanwezigheid, ButtonGroup> RadioButtonColumn;
+    TableColumn<Aanwezigheid, ComboBox> RadioButtonColumn;
+
     public void initialize() throws IOException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         Docent docent = (Docent) huidigeGebruiker;
         OnlineLes les = SelectedStatics.getLes();
         List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
         ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
-        for(Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
+        for (Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
             for (Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()) {
                 if (aanwezigheidPerLes.getOnlineLes() == les) {
                     data.add(aanwezigheidPerLes);
@@ -42,19 +43,14 @@ public class KlassenLijstController {
             leerlingnummerTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingInfo"));
             aanwezigheid.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("aanwezig"));
             buttonTableColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, Button>("buttonAanwezig"));
-            RadioButtonColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, ButtonGroup>("aanwezigAfwezig"));
+            RadioButtonColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, ComboBox>("aanwezigheidComboBox"));
             leerlingenInLes.setEditable(true);
             leerlingenInLes.setItems(data);
 
 
-
         }
-//    public void handleButtonActionUpdate(ActionEvent event){
-//            System.out.println("update");
-//            updateTable();
-//        }
-
     }
+
     public void updateTable(){
         leerlingenInLes.refresh();
     }
