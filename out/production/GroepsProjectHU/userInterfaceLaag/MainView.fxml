@@ -41,7 +41,7 @@
                      <children>
                         <Pane id="dashboardShape" fx:id="dashboardShape" prefHeight="200.0" prefWidth="14.0">
                            <VBox.margin>
-                               <Insets bottom="6.0" left="26.0" right="26.0" top="14.0" />
+                               <Insets bottom="8.0" left="26.0" right="26.0" top="16.0" />
                            </VBox.margin>
                         </Pane>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="Dashboard" textAlignment="CENTER" />
@@ -51,7 +51,7 @@
                        <children>
                            <Pane id="calendarShape" fx:id="calendarShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
-                                   <Insets bottom="6.0" left="26.0" right="26.0" top="14.0" />
+                                   <Insets bottom="6.0" left="28.0" right="28.0" top="14.0" />
                                </VBox.margin>
                            </Pane>
                            <Label alignment="CENTER" contentDisplay="CENTER" text="Kalender" textAlignment="CENTER" />
@@ -61,7 +61,7 @@
                        <children>
                            <Pane id="historyShape" fx:id="historyShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
-                                   <Insets bottom="6.0" left="26.0" right="26.0" top="14.0" />
+                                   <Insets bottom="8.0" left="29.0" right="29.0" top="16.0" />
                                </VBox.margin>
                            </Pane>
                            <Label alignment="CENTER" contentDisplay="CENTER" text="Geschiedenis" textAlignment="CENTER" />
