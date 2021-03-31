@@ -12,16 +12,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class MainViewController {
     @FXML private AnchorPane ViewContainer;
+    @FXML private GridPane sideBarGrid;
     @FXML private VBox dashBoardVbox;
     @FXML private VBox calendarVbox;
     @FXML private VBox historyVbox;
@@ -87,6 +88,7 @@ public class MainViewController {
     }
 
     public void setIconColor(int opt){
+
         Pane dbvbox = (Pane) dashBoardVbox.getChildren().get(0);
         Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
         Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
