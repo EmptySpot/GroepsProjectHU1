@@ -16,7 +16,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane prefHeight="400.0" prefWidth="69.0">
+            <GridPane fx:id="sideBarGrid" prefHeight="400.0" prefWidth="69.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
