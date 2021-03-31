@@ -27,6 +27,9 @@ public class InloggenController {
     private Label foutmeldingLabel;
 
     public void initialize() {
+        //VERWIJDEREN BIJ RELEASE
+        gebruikersnaamInput.setText("1234");
+        wachtwoordInput.setText("ww");
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException {
