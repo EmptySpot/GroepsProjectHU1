@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="129.0" fitWidth="427.0" layoutX="83.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/HU%20Logo%20Groot.png" />
+            <Image url="@../Pictures/HU-Logo-Groot.png" />
          </image>
       </ImageView>
       <Label fx:id="foutmeldingLabel" layoutX="105.0" layoutY="322.0" prefHeight="17.0" prefWidth="126.0" textFill="#ee0101" />
