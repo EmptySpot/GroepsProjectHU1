@@ -1,5 +1,6 @@
 package code.tester;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
@@ -8,15 +9,15 @@ import java.util.ArrayList;
 public class Aanwezigheid {
     private Leerling leerlingInfo;
     private String extraInformatie;
-    private String aanwezig;
+    private SimpleStringProperty aanwezig;
     private OnlineLes onlineLes;
     private Button buttonAanwezig;
 
 
-    public Aanwezigheid(Leerling leerling, String extraI, String aanw, OnlineLes les){
+    public Aanwezigheid(Leerling leerling, String extraI, String aanwezigheid, OnlineLes les){
         this.leerlingInfo = leerling;
         this.extraInformatie = extraI;
-        this.aanwezig = aanw;
+        this.aanwezig = new SimpleStringProperty(aanwezigheid);
         this.onlineLes = les;
         this.buttonAanwezig = new Button("Absent");
     }
@@ -30,11 +31,11 @@ public class Aanwezigheid {
     }
 
     public String getAanwezig() {
-        return aanwezig;
+        return aanwezig.get();
     }
 
     public void setAanwezig(String input){
-        this.aanwezig = input;
+        this.aanwezig = new SimpleStringProperty(input);
     }
 
     public String getExtraInformatie() {

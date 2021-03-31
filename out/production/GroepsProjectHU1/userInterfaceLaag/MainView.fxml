@@ -37,7 +37,7 @@
                         <Insets />
                      </GridPane.margin>
                         </ImageView>
-                  <VBox fx:id="dashBoardVbox" alignment="CENTER" onMousePressed="#mousePressedDashboard" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                  <VBox id="vboxStyle" fx:id="dashBoardVbox" alignment="CENTER" onMousePressed="#mousePressedDashboard" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                      <children>
                         <Pane id="dashboardShape" fx:id="dashboardShape" prefHeight="200.0" prefWidth="14.0">
                            <VBox.margin>
@@ -47,7 +47,7 @@
                         <Label alignment="CENTER" contentDisplay="CENTER" text="Dashboard" textAlignment="CENTER" />
                      </children>
                   </VBox>
-                   <VBox fx:id="calendarVbox" alignment="CENTER" onMousePressed="#mousePressedKalender" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                   <VBox id="vboxStyle" fx:id="calendarVbox" alignment="CENTER" onMousePressed="#mousePressedKalender" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                        <children>
                            <Pane id="calendarShape" fx:id="calendarShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
@@ -57,9 +57,9 @@
                            <Label alignment="CENTER" contentDisplay="CENTER" text="Kalender" textAlignment="CENTER" />
                        </children>
                    </VBox>
-                   <VBox fx:id="historyVbox" alignment="CENTER" onMousePressed="#mousePressedGeschiedenis" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                   <VBox id="vboxStyle" fx:id="historyVbox" alignment="CENTER" onMousePressed="#mousePressedGeschiedenis" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                        <children>
-                           <Pane id="historyShape" fx:id="calendarShape" prefHeight="200.0" prefWidth="14.0">
+                           <Pane id="historyShape" fx:id="historyShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
                                    <Insets bottom="6.0" left="26.0" right="26.0" top="14.0" />
                                </VBox.margin>

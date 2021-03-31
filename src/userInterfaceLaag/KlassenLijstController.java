@@ -40,8 +40,12 @@ public class KlassenLijstController {
             leerlingnummerTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingInfo"));
             aanwezigheid.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("aanwezig"));
             buttonTableColumn.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, Button>("buttonAanwezig"));
+            leerlingenInLes.setEditable(true);
             leerlingenInLes.setItems(data);
+
+
         }
+
     }
 }
 
