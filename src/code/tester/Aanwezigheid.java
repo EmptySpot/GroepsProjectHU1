@@ -77,5 +77,9 @@ public class Aanwezigheid {
                 ", onlineLes=" + onlineLes +
                 '}';
     }
+
+    public String aanwezigheidComboBoxGetSelected() {
+        return aanwezigheidComboBox.getSelectionModel().getSelectedItem();
+    }
 }
 //arraylist van leerlingen lessen reden en aanwezigheid

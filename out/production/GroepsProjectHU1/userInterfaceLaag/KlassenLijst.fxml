@@ -14,5 +14,6 @@
                 <TableColumn fx:id="RadioButtonColumn" editable="false" prefWidth="150.0" text="Aanwezig" />
           </columns>
       </TableView>
+      <Button layoutX="508.0" layoutY="99.0" mnemonicParsing="false" onAction="#buttonOk" text="Ok" />
     </children>
 </AnchorPane>
