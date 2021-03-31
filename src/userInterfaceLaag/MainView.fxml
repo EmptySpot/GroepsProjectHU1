@@ -9,8 +9,8 @@
     <children>
       <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="90.0" />
-          <ColumnConstraints hgrow="ALWAYS" maxWidth="528.0" minWidth="10.0" prefWidth="510.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="104.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="528.0" minWidth="10.0" prefWidth="496.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
@@ -41,7 +41,7 @@
                      <children>
                         <Pane id="dashboardShape" fx:id="dashboardShape" prefHeight="200.0" prefWidth="14.0">
                            <VBox.margin>
-                               <Insets bottom="8.0" left="26.0" right="26.0" top="18.0" />
+                               <Insets bottom="8.0" left="32.0" right="32.0" top="18.0" />
                            </VBox.margin>
                         </Pane>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="Dashboard" textAlignment="CENTER" />
@@ -51,7 +51,7 @@
                        <children>
                            <Pane id="calendarShape" fx:id="calendarShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
-                                   <Insets bottom="6.0" left="28.0" right="28.0" top="14.0" />
+                                   <Insets bottom="6.0" left="35.0" right="35.0" top="14.0" />
                                </VBox.margin>
                            </Pane>
                            <Label alignment="CENTER" contentDisplay="CENTER" text="Kalender" textAlignment="CENTER" />
@@ -61,7 +61,7 @@
                        <children>
                            <Pane id="historyShape" fx:id="historyShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
-                                   <Insets bottom="8.0" left="29.0" right="29.0" top="16.0" />
+                                   <Insets bottom="8.0" left="35.0" right="35.0" top="16.0" />
                                </VBox.margin>
                            </Pane>
                            <Label alignment="CENTER" contentDisplay="CENTER" text="Geschiedenis" textAlignment="CENTER" />

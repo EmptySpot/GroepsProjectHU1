@@ -19,7 +19,6 @@ public class KalenderController {
 
 
     public ListView<OnlineLes> listViewTest;
-    public Label testLabel;
 
     public void initialize(){
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
