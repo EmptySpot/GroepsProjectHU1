@@ -86,6 +86,8 @@ public class InloggenController {
                     Scene homePage = new Scene(root);
                     Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     appStage.setScene(homePage);
+                    appStage.setMinWidth(appStage.getWidth());
+                    appStage.setMinHeight(appStage.getHeight());
                     appStage.show();
                 } else {
                     foutmeldingLabel.setText("verkeerd wachtwoord");
@@ -95,7 +97,7 @@ public class InloggenController {
 
     public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountAanmakenLeerling.fxml"));
-        mousePressedControle.mousePressedVerwerkerFIX(mouseEvent, loader);
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 }
 
