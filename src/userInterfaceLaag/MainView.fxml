@@ -59,7 +59,7 @@
                    </VBox>
                    <VBox id="vboxStyle" fx:id="historyVbox" alignment="CENTER" onMousePressed="#mousePressedGeschiedenis" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                        <children>
-                           <Pane id="historyShape" fx:id="calendarShape" prefHeight="200.0" prefWidth="14.0">
+                           <Pane id="historyShape" fx:id="historyShape" prefHeight="200.0" prefWidth="14.0">
                                <VBox.margin>
                                    <Insets bottom="6.0" left="26.0" right="26.0" top="14.0" />
                                </VBox.margin>
