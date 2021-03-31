@@ -97,7 +97,7 @@ public class InloggenController {
 
     public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountAanmakenLeerling.fxml"));
-        mousePressedControle.mousePressedVerwerkerFIX(mouseEvent, loader);
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 }
 
