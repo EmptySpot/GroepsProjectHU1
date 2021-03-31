@@ -58,7 +58,8 @@ public class KlassenLijstController {
     public void buttonOk(ActionEvent actionEvent) {
         for(Aanwezigheid aanwezigheid : leerlingenInLes.getItems()){
             aanwezigheid.getLeerlingInfo().updateAanwezigheid(aanwezigheid, aanwezigheid.aanwezigheidComboBoxGetSelected());
-        }
+            }
+        updateTable();
     }
 }
 

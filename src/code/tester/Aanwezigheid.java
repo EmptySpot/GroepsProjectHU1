@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
-public class Aanwezigheid<aanwezigheidComboBox> {
+public class Aanwezigheid {
     private Leerling leerlingInfo;
     private String extraInformatie;
     private SimpleStringProperty aanwezig;
@@ -22,6 +22,13 @@ public class Aanwezigheid<aanwezigheidComboBox> {
         this.onlineLes = les;
         this.buttonAanwezig = new Button("Absent");
         this.aanwezigheidComboBox = new ComboBox<String>();
+    }
+
+    public ComboBox<String> getAanwezigheidComboBox() {
+        ObservableList<String> data = FXCollections.observableArrayList("Aanwezig","Absent", "Vertraagd");
+        aanwezigheidComboBox.setItems(data);
+        aanwezigheidComboBox.setValue(getAanwezig());
+        return aanwezigheidComboBox;
     }
 
     public Leerling getLeerlingInfo() {

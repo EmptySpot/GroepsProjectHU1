@@ -78,4 +78,7 @@
 #vboxStyle{
         -fx-cursor: hand;
 }
+#vboxStyle:hover{
+        -fx-background-color: #E8E8E8;
+}
 
