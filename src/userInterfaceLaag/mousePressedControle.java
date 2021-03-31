@@ -25,8 +25,8 @@ public class mousePressedControle {
         } else {
             Node node;
             node = (Node)loader.load();
-            var test = ((Node)mouseEvent.getTarget()).getScene().getWindow();
-            AnchorPane pane = (AnchorPane) test.getScene().lookup("#ViewContainer");
+            var parentWindow = ((Node)mouseEvent.getTarget()).getScene().getWindow();
+            AnchorPane pane = (AnchorPane) parentWindow.getScene().lookup("#ViewContainer");
             pane.getChildren().setAll(node);
         }
 

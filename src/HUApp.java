@@ -57,7 +57,7 @@ public class HUApp extends Application {
 
         Parent root = loader.load();
 
-        stage.setTitle("Agenda");
+        stage.setTitle("HU-rooster hulpprogramma");
         stage.setScene(new Scene(root));
         stage.getIcons().add(new Image("Pictures/cropped-cropped-hogeschool-utrecht-logo.png"));
         stage.show();
