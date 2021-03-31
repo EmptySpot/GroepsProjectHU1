@@ -1,41 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.AccountAanmakenLeerlingController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.AccountAanmakenLeerlingController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+      <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.4" minWidth="10.0" prefWidth="126.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.4" minWidth="10.0" prefWidth="168.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="235.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="108.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <GridPane layoutX="173.0" layoutY="95.0" prefHeight="183.0" prefWidth="282.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.4" minWidth="10.0" prefWidth="126.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="157.2" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" onMousePressed="#mousePressedAanmaken" text="Aanmaken" GridPane.rowIndex="5" />
-                  <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="42.0" text="Naam:" />
-                  <Label text="Studentnummer:" GridPane.rowIndex="1" />
-                  <Label text="Klas:" GridPane.rowIndex="2" />
-                  <Label text="Wachtwoord:" GridPane.rowIndex="3" />
-                  <Label text="Herhaal wachtwoord:" GridPane.rowIndex="4" />
-                  <TextField fx:id="naam" GridPane.columnIndex="1" />
-                  <TextField fx:id="studentnummer" prefHeight="26.0" prefWidth="146.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="wachtwoord" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="wachtwoordHerhaal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <ChoiceBox fx:id="klassenList" prefHeight="26.0" prefWidth="156.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-               </children>
-            </GridPane>
-            <Label fx:id="errorLocatie" layoutX="172.0" layoutY="294.0" prefHeight="26.0" prefWidth="282.0" textFill="RED" />
-         </children></AnchorPane>
+            <Button mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" prefWidth="9999999.0" text="Cancel" GridPane.columnIndex="2" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="50.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMousePressed="#mousePressedAanmaken" prefHeight="27.0" prefWidth="9999999.0" text="Aanmaken" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </Button>
+            <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="42.0" text="Naam:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Studentnummer:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Klas:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Wachtwoord:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Herhaal wachtwoord:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="naam" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="studentnummer" prefHeight="26.0" prefWidth="146.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="wachtwoord" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="wachtwoordHerhaal" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ChoiceBox fx:id="klassenList" prefHeight="27.0" prefWidth="9999.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="errorLocatie" prefHeight="26.0" prefWidth="9999.0" textFill="RED" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

@@ -3,12 +3,12 @@ package userInterfaceLaag;
 import code.tester.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.List;
 
@@ -55,6 +55,10 @@ public class KlassenLijstController {
         leerlingenInLes.refresh();
     }
 
-
+    public void buttonOk(ActionEvent actionEvent) {
+        for(Aanwezigheid aanwezigheid : leerlingenInLes.getItems()){
+            aanwezigheid.getLeerlingInfo().updateAanwezigheid(aanwezigheid, aanwezigheid.aanwezigheidComboBoxGetSelected());
+        }
+    }
 }
 
