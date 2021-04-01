@@ -42,3 +42,6 @@ public class GeschiedenisController {
         }
     }
 }
+// student kan zelf zien welke lessen hij/zij afwezig was + hoeveel % v/d lessen die afwezig was
+// docent moet vak, daarna klas kunnen kiezen
+// .
