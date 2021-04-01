@@ -33,6 +33,7 @@ public class KalenderController {
             listViewTest.setItems(data);
         }
         else if(huidigeGebruiker instanceof Docent) {
+            DatabaseInfo.lessenDocent();
             Docent docent = (Docent) huidigeGebruiker;
             lessen = docent.getLessen();
             ObservableList<OnlineLes> data = FXCollections.observableArrayList();

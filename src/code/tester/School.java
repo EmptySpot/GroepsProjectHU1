@@ -37,4 +37,13 @@ public class School {
         }
         return null;
     }
+
+    public static Klas getKlas(String string) {
+        for(Klas klas : klassen){
+            if(klas.getNaam().equals(string)){
+                return klas;
+            }
+        }
+        return null;
+    }
 }

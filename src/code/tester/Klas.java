@@ -45,16 +45,7 @@ public class Klas {
     }
 
     public OnlineLes getLes(String string) {
-        for(OnlineLes les : lessen){
-            if(les.getLesCode().equals(string)){
-                return les;
-            }
-        }
-        return null;
-    }
-
-    public boolean controleLes(OnlineLes les, Date date, Time time) {
-        return (les.getTime() == time && les.getDatum() == date);
+        return SelectedStatics.getLes(string, lessen);
     }
 
     public void updateLes(OnlineLes les, Date date, Time time) {
