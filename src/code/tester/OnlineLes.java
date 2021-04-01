@@ -1,20 +1,22 @@
 package code.tester;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class OnlineLes {
-    private LocalDate datum;
+    private Date datum;
     private String lesCode;
     private boolean verplicht;
     private String lesNaam;
     private String vakNaam;
     private Klas klas;
     private Docent docent;
-    private LocalTime time;
+    private Time time;
     private String status;
 
-    public OnlineLes (LocalDate date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, LocalTime time){
+    public OnlineLes (Date date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, Time time){
         this.datum = date;
         this.lesCode = lesC;
         this.verplicht = verpl;
@@ -27,7 +29,7 @@ public class OnlineLes {
         this.time = time;
     }
 
-    public LocalDate getDatum() {
+    public Date getDatum() {
         return datum;
     }
 
@@ -55,7 +57,7 @@ public class OnlineLes {
         return docent;
     }
 
-    public LocalTime getTime() {
+    public Time getTime() {
         return time;
     }
 
@@ -69,7 +71,6 @@ public class OnlineLes {
 
     @Override
     public String toString() {
-        String onlineles = String.format("%tR %s %s", time, lesNaam, docent);
-        return onlineles;
+        return String.format("%tR %s %s", time, lesNaam, docent);
     }
 }

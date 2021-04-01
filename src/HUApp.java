@@ -35,15 +35,6 @@ public class HUApp extends Application {
         LocalTime time = LocalTime.parse("03:18");
         System.out.println(time);
 
-        OnlineLes projectLes1= new OnlineLes(datum, "SD", true, "Project les 1", "project", k2, Stef, time);
-        OnlineLes projectLes2= new OnlineLes(datum.plusWeeks(2), "SD", true, "Project les 2", "project", k2, Stef, time);
-        OnlineLes projectLes3= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
-        OnlineLes projectLes4= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
-        System.out.println(projectLes1.getDatum());
-
-        l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes3), "Absent");
-        l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes4), "Absent");
-
         List<Klas> klappen = School.getKlassen();
 
         System.out.println(klappen);

@@ -14,6 +14,10 @@ public class Klas {
         School.klassenAppenden(this);
     }
 
+    public String getNaam() {
+        return naam;
+    }
+
     public List<OnlineLes> getLessen() {
         return Collections.unmodifiableList(lessen);
     }
@@ -36,5 +40,14 @@ public class Klas {
     @Override
     public String toString() {
         return naam;
+    }
+
+    public OnlineLes getLes(String string) {
+        for(OnlineLes les : lessen){
+            if(les.getLesCode().equals(string)){
+                return les;
+            }
+        }
+        return null;
     }
 }

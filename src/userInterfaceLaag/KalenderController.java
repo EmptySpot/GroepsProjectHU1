@@ -12,6 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,10 +21,11 @@ public class KalenderController {
 
     public ListView<OnlineLes> listViewTest;
 
-    public void initialize(){
+    public void initialize() throws SQLException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         List<OnlineLes> lessen;
         if(huidigeGebruiker instanceof  Leerling){
+            DatabaseInfo.lessenLeerling();
             Leerling leerling = (Leerling) huidigeGebruiker;
             lessen = leerling.getKlas().getLessen();
             ObservableList<OnlineLes> data = FXCollections.observableArrayList();
