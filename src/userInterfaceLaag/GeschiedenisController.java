@@ -25,13 +25,10 @@ public class GeschiedenisController {
     public void initialize() {
         if(SelectedStatics.getStatus().equals("Leerling")){
             Leerling leerling = (Leerling) SelectedStatics.getPersoon();
-            System.out.println(leerling);
             List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
-            System.out.println(aanwezigheidslist);
             int afwezigheidCounter = 0;
             for(Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
                 if(aanwezigheidInList.getAanwezig().equals("Absent")){
-                    System.out.println(aanwezigheidInList);
                     afwezigheidCounter += 1;
                 }
             }
