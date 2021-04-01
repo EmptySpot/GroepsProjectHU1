@@ -41,14 +41,13 @@ public class InloggenController {
     public void inloggen(ActionEvent actionEvent) throws IOException {
         SelectedStatics.setPersoon(null);
 
-        String jdbcURL = "jdbc:postgresql://tai.db.elephantsql.com:5432/drekyaap";
-        //TODO: portforwarding van raspi naar port 5432
-        String username = "drekyaap";
-        String password = "xau6hudGv93WaILgmj_dk8MedlnhC4Uf";
-
         String inlognaam = gebruikersnaamInput.getText();
         String wachtwoord = wachtwoordInput.getText();
-        try (Connection connection = getConnection(jdbcURL, username, password)) {
+
+        try {
+            DatabaseQuerry.setDBConnection();
+            Connection connection = DatabaseQuerry.getDBConnection();
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * from persoon WHERE persoonID = '" + inlognaam + "'");
             resultSet.next();
@@ -62,22 +61,26 @@ public class InloggenController {
                     Leerling leerling = new Leerling(resultSet.getString(1), klas, resultSet.getString(3), resultSet.getString(2));
                     SelectedStatics.setPersoon(leerling);
                 }
+                FXMLLoader loader =
+                        new FXMLLoader(getClass().getResource("MainView.fxml"));
+                Parent root = loader.load();
+                Scene homePage = new Scene(root);
+                Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                appStage.setScene(homePage);
+                appStage.setMinWidth(appStage.getWidth());
+                appStage.setMinHeight(appStage.getHeight());
+                appStage.show();
             } else {
                 foutmeldingLabel.setText("Wachtwoord / inlognaam onjuist.");
             }
         } catch (SQLException e) {
+            try {
+                DatabaseQuerry.closeDBConnection();
+            } catch (SQLException throwables) {
+                foutmeldingLabel.setText("Error met de database");
+            }
             foutmeldingLabel.setText("Wachtwoord / inlognaam onjuist.");
         }
-
-        FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("MainView.fxml"));
-        Parent root = loader.load();
-        Scene homePage = new Scene(root);
-        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        appStage.setScene(homePage);
-        appStage.setMinWidth(appStage.getWidth());
-        appStage.setMinHeight(appStage.getHeight());
-        appStage.show();
     }
 
     public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException {

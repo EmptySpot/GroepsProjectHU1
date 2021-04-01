@@ -17,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.util.*;
 
@@ -72,7 +73,7 @@ public class MainViewController {
     }
 
 
-    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
+    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException, SQLException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("HU agenda");
         alert.setContentText("Weet je zeker dat je wilt uitloggen?");
@@ -82,6 +83,7 @@ public class MainViewController {
         if (result.get() == ButtonType.CANCEL) {
             alert.hide();
         } else {
+            DatabaseQuerry.closeDBConnection();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
             mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
         }

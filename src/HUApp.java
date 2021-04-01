@@ -21,22 +21,8 @@ import static java.sql.DriverManager.getConnection;
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
 //        String jdbcURL = "jdbc:postgresql://[82.197.208.233]:5432/postgres";
-        String jdbcURL = "jdbc:postgresql://tai.db.elephantsql.com:5432/drekyaap";
-        //TODO: portforwarding van raspi naar port 5432
-        String username = "drekyaap";
-        String password = "xau6hudGv93WaILgmj_dk8MedlnhC4Uf";
-        try (Connection connection = getConnection(jdbcURL, username, password)){
-            System.out.println("werkt");
-            Statement statement = connection.createStatement();
-            String naam = "1";
-            ResultSet resultSet = statement.executeQuery("SELECT * from docent WHERE docentid = '" + naam + "'");
-            resultSet.next();
-            System.out.println(resultSet.getArray(2));
-            connection.close();
-        }catch(SQLException e){
-            System.out.println("ging fout"+e);
-        }
-        LocalDate datum = LocalDate.now().plusWeeks(2);
+
+        LocalDate datum = LocalDate.parse("3020-12-17");
         Klas k1 = new Klas("BOB");
         Klas k2 = new Klas("VB2");
 
@@ -53,6 +39,7 @@ public class HUApp extends Application {
         OnlineLes projectLes2= new OnlineLes(datum.plusWeeks(2), "SD", true, "Project les 2", "project", k2, Stef, time);
         OnlineLes projectLes3= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
         OnlineLes projectLes4= new OnlineLes(datum.plusDays(1), "SD", true, "Project les 1", "project", k1, Stef, time);
+        System.out.println(projectLes1.getDatum());
 
         l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes3), "Absent");
         l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes4), "Absent");
