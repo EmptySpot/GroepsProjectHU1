@@ -25,11 +25,9 @@ public class DashboardController {
         if (SelectedStatics.getStatus().equals("Leerling")) {
             Leerling leerling = (Leerling) SelectedStatics.getPersoon();
             persoonNaam.setText(leerling.getLeerlingNaam());
-            System.out.println(leerling.getLeerlingnummer());
         } else if (SelectedStatics.getStatus().equals("Docent")) {
             Docent docent = (Docent) SelectedStatics.getPersoon();
             persoonNaam.setText(docent.getDocentNaam());
-            System.out.println(docent.getDocentNaam());
         }
     }
 }
