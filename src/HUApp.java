@@ -10,9 +10,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -22,7 +20,6 @@ import static java.sql.DriverManager.getConnection;
 
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
-//        String jdbcURL = "jdbc:postgresql://[127.0.0.1:54775]:5433/HU_App";
 //        String jdbcURL = "jdbc:postgresql://[82.197.208.233]:5432/postgres";
         String jdbcURL = "jdbc:postgresql://tai.db.elephantsql.com:5432/drekyaap";
         //TODO: portforwarding van raspi naar port 5432
@@ -30,6 +27,11 @@ public class HUApp extends Application {
         String password = "xau6hudGv93WaILgmj_dk8MedlnhC4Uf";
         try (Connection connection = getConnection(jdbcURL, username, password)){
             System.out.println("werkt");
+            Statement statement = connection.createStatement();
+            String naam = "1";
+            ResultSet resultSet = statement.executeQuery("SELECT * from docent WHERE docentid = '" + naam + "'");
+            resultSet.next();
+            System.out.println(resultSet.getArray(2));
             connection.close();
         }catch(SQLException e){
             System.out.println("ging fout"+e);
