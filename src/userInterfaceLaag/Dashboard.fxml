@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DashboardController">
     <children>
         <HBox layoutX="9.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
             <children>
@@ -12,32 +12,58 @@
             </children>
         </HBox>
     </children>
-   <HBox layoutX="14.0" layoutY="8.0" prefHeight="49.0" prefWidth="200.0">
+   <GridPane layoutX="6.0" layoutY="8.0" prefHeight="9999.0" prefWidth="9999.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+     <columnConstraints>
+         <ColumnConstraints hgrow="NEVER" maxWidth="452.0" minWidth="10.0" prefWidth="76.0" />
+       <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="493.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="158.0" />
+     </columnConstraints>
+     <rowConstraints>
+         <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="NEVER" />
+       <RowConstraints maxHeight="57.0" minHeight="57.0" prefHeight="57.0" vgrow="NEVER" />
+       <RowConstraints maxHeight="49.0" minHeight="49.0" prefHeight="49.0" vgrow="NEVER" />
+       <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="257.0" vgrow="ALWAYS" />
+         <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="28.0" vgrow="NEVER" />
+     </rowConstraints>
       <children>
-          <Label text="Welkom ">
-              <font>
-                  <Font size="32.0" />
-              </font>
-          </Label>
-          <Label fx:id="persoonNaam">
-              <font>
-                  <Font size="32.0" />
-              </font>
-          </Label>
-      </children></HBox>
-   <Label layoutX="15.0" layoutY="374.0" text="Klik         voor hulp">
-      <font>
-         <Font name="System Italic" size="12.0" />
-      </font>
-   </Label>
-   <Hyperlink layoutX="33.0" layoutY="371.0" text=" hier">
-      <font>
-         <Font name="System Italic" size="12.0" />
-      </font>
-   </Hyperlink>
-   <Label layoutX="18.0" layoutY="57.0" text="Met deze applicatie kan je je zelf afmelden voor lessen">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Label>
+         <HBox prefHeight="96.0" prefWidth="451.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <children>
+                <Label text="Welkom ">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Label>
+                <Label fx:id="persoonNaam">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Label>
+            </children>
+         </HBox>
+         <Label text="Met deze applicatie kan je je zelf afmelden voor lessen" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <children>
+               <TextFlow prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                     <Label text="Klik">
+                        <font>
+                           <Font name="System Italic" size="12.0" />
+                        </font>
+                     </Label>
+                     <Hyperlink text="hier">
+                        <font>
+                           <Font name="System Italic" size="12.0" />
+                        </font>
+                     </Hyperlink>
+                     <Label text="voor hulp" />
+                  </children>
+               </TextFlow>
+            </children>
+         </HBox>
+      </children>
+   </GridPane>
 </AnchorPane>
