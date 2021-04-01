@@ -65,6 +65,14 @@ public class OnlineLes {
         return status;
     }
 
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+
     public void setStatus(String status) {
         this.status = status;
     }
