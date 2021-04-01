@@ -28,8 +28,8 @@ public class InloggenController {
 
     public void initialize() {
         //VERWIJDEREN BIJ RELEASE
-        gebruikersnaamInput.setText("1234");
-        wachtwoordInput.setText("ww");
+        gebruikersnaamInput.setText("112");
+        wachtwoordInput.setText("bb");
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException {
@@ -56,21 +56,16 @@ public class InloggenController {
                             if (leerling.getLeerlingnummer().equals(inlognaam)) {
                                 SelectedStatics.setStatus("Leerling");
                                 SelectedStatics.setPersoon(leerling);
-                                System.out.println("Brrr");
                                 break;
                             }
                         }
                     }
                     System.out.println(SelectedStatics.getPersoon());
-                    System.out.println("brrrrrr");
                     if(SelectedStatics.getPersoon() == null){
-                        System.out.println("ASHJhnjedrfdjh");
                         List<Docent> docenten = School.getDocenten();
                         System.out.println(docenten);
                         for(Docent docent : docenten){
-                            System.out.println("fffufufuufufufu");
                             if(docent.getDocentCode().equals(inlognaam)) {
-                                System.out.println("Docent");
                                 SelectedStatics.setStatus("Docent");
                                 SelectedStatics.setPersoon(docent);
                                 break;
