@@ -6,20 +6,35 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import static java.sql.DriverManager.getConnection;
 
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
+//        String jdbcURL = "jdbc:postgresql://[127.0.0.1:54775]:5433/HU_App";
+//        String jdbcURL = "jdbc:postgresql://[82.197.208.233]:5432/postgres";
         String jdbcURL = "jdbc:postgresql://tai.db.elephantsql.com:5432/drekyaap";
         //TODO: portforwarding van raspi naar port 5432
         String username = "drekyaap";
         String password = "xau6hudGv93WaILgmj_dk8MedlnhC4Uf";
-
+        try (Connection connection = getConnection(jdbcURL, username, password)){
+            System.out.println("werkt");
+            connection.close();
+        }catch(SQLException e){
+            System.out.println("ging fout"+e);
+        }
         LocalDate datum = LocalDate.now().plusWeeks(2);
-
-
         Klas k1 = new Klas("BOB");
         Klas k2 = new Klas("VB2");
 
@@ -39,6 +54,13 @@ public class HUApp extends Application {
 
         l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes3), "Absent");
         l1.updateAanwezigheid(l1.getAanwezigheidLes(projectLes4), "Absent");
+
+        List<Klas> klappen = School.getKlassen();
+
+        System.out.println(klappen);
+        for(Klas k : klappen){
+            System.out.println(k.getLeerlingen());
+        }
         launch(args);
     }
 

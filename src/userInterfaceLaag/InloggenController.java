@@ -28,8 +28,8 @@ public class InloggenController {
 
     public void initialize() {
         //VERWIJDEREN BIJ RELEASE
-        gebruikersnaamInput.setText("1234");
-        wachtwoordInput.setText("ww");
+        gebruikersnaamInput.setText("112");
+        wachtwoordInput.setText("bb");
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException {
@@ -60,8 +60,10 @@ public class InloggenController {
                             }
                         }
                     }
+                    System.out.println(SelectedStatics.getPersoon());
                     if(SelectedStatics.getPersoon() == null){
                         List<Docent> docenten = School.getDocenten();
+                        System.out.println(docenten);
                         for(Docent docent : docenten){
                             if(docent.getDocentCode().equals(inlognaam)) {
                                 SelectedStatics.setStatus("Docent");
@@ -79,7 +81,7 @@ public class InloggenController {
                     Scene homePage = new Scene(root);
                     Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                     appStage.setScene(homePage);
-                    appStage.setMinWidth(appStage.getWidth());
+                    appStage.setMinWidth(appStage.getWidth()+100);
                     appStage.setMinHeight(appStage.getHeight());
                     appStage.show();
                 } else {
