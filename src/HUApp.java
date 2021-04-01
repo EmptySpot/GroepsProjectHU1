@@ -12,6 +12,11 @@ import java.time.LocalTime;
 
 public class HUApp extends Application {
     public static void main(String[] args) throws Exception {
+        String jdbcURL = "jdbc:postgresql://tai.db.elephantsql.com:5432/drekyaap";
+        //TODO: portforwarding van raspi naar port 5432
+        String username = "drekyaap";
+        String password = "xau6hudGv93WaILgmj_dk8MedlnhC4Uf";
+
         LocalDate datum = LocalDate.now().plusWeeks(2);
 
 
