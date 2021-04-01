@@ -49,7 +49,6 @@ public class AccountAanmakenLeerlingController {
             errorLocatie.setText("Selecteer je klas");
         } else {
             Leerling nieuw = new Leerling(studentnummer.getText(), klassenList.getSelectionModel().getSelectedItem(), wachtwoord.getText(), naam.getText());
-            System.out.println(nieuw);
             BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
             writeLeerling.write(studentnummer.getText() + ":" + wachtwoord.getText());
             writeLeerling.newLine();

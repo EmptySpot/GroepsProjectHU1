@@ -10,7 +10,6 @@ public class Docent extends Persoon{
 
     public Docent(String docentNaam, String docentCode){
         super(docentCode);
-        System.out.println(docentNaam);
         this.docentNaam=docentNaam;
         School.docentenAppenden(this);
     }

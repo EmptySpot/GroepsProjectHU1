@@ -15,7 +15,7 @@ public class Leerling extends Persoon{
     private SimpleStringProperty leerlingNaam;
     private ArrayList<Aanwezigheid> aanwezigheidlist = new ArrayList<>();
 
-    public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam) throws IOException, ClassNotFoundException {
+    public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam){
         super(leerlingNummer);
         this.klas = klas;
         this.leerlingNaam = new SimpleStringProperty(naam);
