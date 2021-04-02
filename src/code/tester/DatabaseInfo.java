@@ -53,9 +53,14 @@ public class DatabaseInfo {
 
             OnlineLes les = klas.getLes(resultSet.getString(1));
 
+
             if (les == null) {
                 new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3));
             } else if (!SelectedStatics.controleLes(les, resultSet.getDate(2), resultSet.getTime(3))) {
+                OnlineLes vergelijkLes = docent.getLes(resultSet.getString(1));
+                if(vergelijkLes == null){
+                    docent.lessenAppenden(les);
+                }
                 docent.updateLes(les, resultSet.getDate(2), resultSet.getTime(3));
             }
         }

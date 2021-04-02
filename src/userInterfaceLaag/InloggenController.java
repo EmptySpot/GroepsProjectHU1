@@ -38,7 +38,7 @@ public class InloggenController {
 
     public void initialize() {
         //VERWIJDEREN BIJ RELEASE
-        gebruikersnaamInput.setText("1");
+        gebruikersnaamInput.setText("69");
         wachtwoordInput.setText("ww");
     }
 
