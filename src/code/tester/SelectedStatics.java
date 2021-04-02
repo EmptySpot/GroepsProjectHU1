@@ -45,4 +45,13 @@ public class SelectedStatics {
         }
         return null;
     }
+
+    public static Leerling getLeerling(String string, ArrayList<Leerling> leerlingen) {
+        for(Leerling leerling : leerlingen){
+            if(leerling.getLeerlingnummer().equals(string)){
+                return leerling;
+            }
+        }
+        return null;
+    }
 }

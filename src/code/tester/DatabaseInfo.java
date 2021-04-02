@@ -53,10 +53,53 @@ public class DatabaseInfo {
 
             OnlineLes les = klas.getLes(resultSet.getString(1));
 
+
             if (les == null) {
                 new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3));
             } else if (!SelectedStatics.controleLes(les, resultSet.getDate(2), resultSet.getTime(3))) {
+                OnlineLes vergelijkLes = docent.getLes(resultSet.getString(1));
+                if(vergelijkLes == null){
+                    docent.lessenAppenden(les);
+                }
                 docent.updateLes(les, resultSet.getDate(2), resultSet.getTime(3));
+            }
+        }
+    }
+
+    public static void klasLeerlingen() throws SQLException {
+        OnlineLes les = SelectedStatics.getLes();
+        Klas klas = les.getKlas();
+
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM persoon WHERE klasklasnaam ='" + klas + "'");
+        while(resultSet.next()){
+            Leerling leerling = klas.getLeerling(resultSet.getString(1));
+            if (leerling == null) {
+                new Leerling(resultSet.getString(1), klas, resultSet.getString(3), resultSet.getString(2));
+            }
+        }
+    }
+
+    public static void absentieLeerlingen() throws SQLException {
+        OnlineLes les = SelectedStatics.getLes();
+        Klas klas = les.getKlas();
+
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        for(Leerling leerling : klas.getLeerlingen()){
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + leerling.getLeerlingnummer() + "' AND leslescode ='" + les.getLesCode() +"'");
+            if(resultSet.next()){
+                Aanwezigheid aanwezigheid = leerling.getAanwezigheidLes(les);
+                if(aanwezigheid == null){
+                    aanwezigheid = new Aanwezigheid(leerling, resultSet.getString(3), resultSet.getString(4), les);
+                    leerling.aanwezigheidToevoegen(aanwezigheid);
+                }
+            } else {
+                Aanwezigheid aanwezigheid = new Aanwezigheid(leerling, "", "Aanwezig", les);
+                leerling.aanwezigheidToevoegen(aanwezigheid);
             }
         }
     }
