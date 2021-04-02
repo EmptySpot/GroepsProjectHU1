@@ -35,8 +35,4 @@ public class GeschiedenisController {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
         }
     }
-
-    public int getAfwezigheidPerLes(){
-        
-    }
 }
