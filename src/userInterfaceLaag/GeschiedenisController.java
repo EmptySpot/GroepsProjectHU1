@@ -16,9 +16,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class GeschiedenisController {
-    @FXML
-    private Label afwezigCounterLabel;
-//    @FXML private ListView afwezigheidPerLes;
+    @FXML private Label afwezigCounterLabel;
+    @FXML private Label afwezigheidPerLesLabel;
+
 
     public void initialize() {
         if (SelectedStatics.getStatus().equals("Leerling")) {
@@ -33,22 +33,6 @@ public class GeschiedenisController {
             afwezigCounterLabel.setText("" + afwezigheidCounter);
         } else if (SelectedStatics.getStatus().equals("Docent")) {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
-
-        }
-    }
-
-    public int getAanwezigheidPerLes() {
-        if (SelectedStatics.getStatus().equals("Leerling")) {       // set user op 'leerling'
-            Leerling leerling = (Leerling) SelectedStatics.getPersoon();    // set user op specifieke leerling
-            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();      //krijg aanwezigheid van specifieke leerling
-//          maak for-aantal vakken afwezigheidstabellen
-//          double percentage = getAantalLessen() - afwezigheidPerVak() =/ getAantalLessen()
-            int afwezigheidPerLesCounter = 0;
-            for (Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
-                if (aanwezigheidInList.getAanwezig().equals("Absent")) {
-                    afwezigheidPerLesCounter += 1;
-                }
-            }
         }
     }
 }
