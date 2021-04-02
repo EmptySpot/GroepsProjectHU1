@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
@@ -17,11 +18,12 @@ import java.util.List;
 
 public class KalenderController {
     @FXML private DatePicker overzichtDatePicker;
-
+    @FXML private Button nieuweLesButton;
 
     public ListView<OnlineLes> listViewTest;
 
     public void initialize() throws SQLException {
+        buttonCheck();
         overzichtDatePicker.setValue(LocalDate.now());
         toonLessen();
     }
@@ -81,8 +83,16 @@ public class KalenderController {
         }
         listViewTest.setItems(data);
     }
+    public void buttonCheck(){
+        String status = SelectedStatics.getStatus();
+        if(status.equals("Docent")){
+            nieuweLesButton.setVisible(true);
+        }
+    }
 
-    public void nieuweLes(ActionEvent actionEvent) {
+    public void nieuweLes(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NieuweLesMaken.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 }
 
