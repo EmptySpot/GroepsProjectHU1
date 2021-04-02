@@ -5,8 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -49,6 +51,11 @@ public class KlassenLijstController {
 
 
         }
+    }
+
+    public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
     public void updateTable(){

@@ -27,6 +27,11 @@ public class DocentKeuzeAfmeldenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
+    public void mousePressedCancel(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
+
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

@@ -34,6 +34,9 @@ public class GeschiedenisController {
         } else if (SelectedStatics.getStatus().equals("Docent")) {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
         }
-        return 0;
+    }
+
+    public int getAfwezigheidPerLes(){
+        
     }
 }
