@@ -59,10 +59,5 @@ public class Klas {
         return (les.getTime() == time && les.getDatum() == date);
     }
 
-    public void updateLes(OnlineLes les, Date date, Time time) {
-    int arrayListIndex = lessen.indexOf(les);
-    les.setDatum(date);
-    les.setTime(time);
-    lessen.set(arrayListIndex, les);
-    }
+
 }

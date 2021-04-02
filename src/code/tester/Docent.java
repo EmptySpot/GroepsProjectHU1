@@ -42,9 +42,11 @@ public class Docent extends Persoon{
     }
 
     public void updateLes(OnlineLes les, Date date, Time time) {
+        System.out.println(lessen);
         int arrayListIndex = lessen.indexOf(les);
         les.setDatum(date);
         les.setTime(time);
+
         lessen.set(arrayListIndex, les);
     }
 
