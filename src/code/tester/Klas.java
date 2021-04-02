@@ -1,5 +1,7 @@
 package code.tester;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +14,10 @@ public class Klas {
     public Klas(String naam) {
         this.naam = naam;
         School.klassenAppenden(this);
+    }
+
+    public String getNaam() {
+        return naam;
     }
 
     public List<OnlineLes> getLessen() {
@@ -36,5 +42,16 @@ public class Klas {
     @Override
     public String toString() {
         return naam;
+    }
+
+    public OnlineLes getLes(String string) {
+        return SelectedStatics.getLes(string, lessen);
+    }
+
+    public void updateLes(OnlineLes les, Date date, Time time) {
+    int arrayListIndex = lessen.indexOf(les);
+    les.setDatum(date);
+    les.setTime(time);
+    lessen.set(arrayListIndex, les);
     }
 }

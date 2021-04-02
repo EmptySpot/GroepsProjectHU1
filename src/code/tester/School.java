@@ -29,4 +29,21 @@ public class School {
         return Collections.unmodifiableList(docenten);
     }
 
+    public static Docent getDocent(String string) {
+        for(Docent docent : docenten){
+            if(docent.getDocentCode().equals(string)){
+                return docent;
+            }
+        }
+        return null;
+    }
+
+    public static Klas getKlas(String string) {
+        for(Klas klas : klassen){
+            if(klas.getNaam().equals(string)){
+                return klas;
+            }
+        }
+        return null;
+    }
 }
