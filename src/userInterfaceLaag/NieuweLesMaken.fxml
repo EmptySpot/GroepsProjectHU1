@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.NieuweLesMakenController">
+   <children>
+      <HBox layoutX="42.0" layoutY="40.0" prefHeight="35.0" prefWidth="200.0" spacing="5.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="56.0" text="Datum:" />
+            <DatePicker prefHeight="25.0" prefWidth="146.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="42.0" layoutY="75.0" prefHeight="35.0" prefWidth="200.0" spacing="12.0">
+         <children>
+            <Label text="Lescode:" />
+            <TextField prefHeight="25.0" prefWidth="143.0" />
+         </children></HBox>
+      <HBox layoutX="42.0" layoutY="110.0" prefHeight="25.0" prefWidth="200.0" spacing="7.0">
+         <children>
+            <Label text="Verplicht:" />
+            <RadioButton mnemonicParsing="false" text="Ja" />
+            <RadioButton mnemonicParsing="false" text="Nee" />
+         </children>
+      </HBox>
+      <HBox layoutX="42.0" layoutY="138.0" prefHeight="25.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="92.0" text="Lesnaam:" />
+            <TextField prefHeight="25.0" prefWidth="178.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="42.0" layoutY="172.0" prefHeight="25.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="82.0" text="Vaknaam:" />
+            <TextField prefHeight="25.0" prefWidth="168.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="42.0" layoutY="200.0" prefHeight="25.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="119.0" text="Klas:" />
+            <ComboBox fx:id="klasComboBox" prefHeight="25.0" prefWidth="206.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="42.0" layoutY="232.0" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="48.0" text="Tijd:" />
+            <ComboBox prefHeight="25.0" prefWidth="70.0" />
+            <ComboBox layoutX="68.0" layoutY="10.0" prefHeight="25.0" prefWidth="70.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
