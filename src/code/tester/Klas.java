@@ -44,6 +44,10 @@ public class Klas {
         return naam;
     }
 
+    public Leerling getLeerling(String string) {
+        return SelectedStatics.getLeerling(string, leerlingen);
+    }
+
     public OnlineLes getLes(String string) {
         return SelectedStatics.getLes(string, lessen);
     }

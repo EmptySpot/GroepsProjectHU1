@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class KlassenLijstController {
@@ -26,11 +27,14 @@ public class KlassenLijstController {
     @FXML
     TableColumn<Aanwezigheid, ComboBox> RadioButtonColumn;
 
-    public void initialize() throws IOException {
+    public void initialize() throws IOException, SQLException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         Docent docent = (Docent) huidigeGebruiker;
         OnlineLes les = SelectedStatics.getLes();
+        DatabaseInfo.klasLeerlingen();
+        DatabaseInfo.absentieLeerlingen();
         List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
+        System.out.println(leerlingenHuidigeKlas);
         ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
         for (Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
             for (Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()) {
