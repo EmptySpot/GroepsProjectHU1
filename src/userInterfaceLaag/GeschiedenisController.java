@@ -17,8 +17,6 @@ import java.util.List;
 
 public class GeschiedenisController {
     @FXML private Label afwezigCounterLabel;
-    @FXML private Label afwezigheidPerLesLabel;
-
 
     public void initialize() {
         if (SelectedStatics.getStatus().equals("Leerling")) {
@@ -35,4 +33,18 @@ public class GeschiedenisController {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
         }
     }
+
+//    public String AfwezigheidPerLes(){
+//        if (SelectedStatics.getStatus().equals("Leerling")) {
+//            Leerling leerling = (Leerling) SelectedStatics.getPersoon();
+//            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
+//            int afwezigheidCounter = 0;
+//            for (Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
+//                if (aanwezigheidInList.getAanwezig().equals("Absent")) {
+//                    afwezigheidCounter += 1;
+//                }
+//            }
+//            afwezigCounterLabel.setText("" + afwezigheidCounter);
+//        }
+//    }
 }
