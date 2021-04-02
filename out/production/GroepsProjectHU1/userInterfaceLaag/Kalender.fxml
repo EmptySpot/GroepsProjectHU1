@@ -32,7 +32,7 @@
                       <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" visible="false" onAction="#nieuweLes" text="Nieuwe les" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="nieuweLesButton" mnemonicParsing="false" onMousePressed="#nieuweLes" text="Nieuwe les" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="1">
                            <children>
                               <Button mnemonicParsing="false" onAction="#toonVorigeDag" text="&lt;&lt;" />
