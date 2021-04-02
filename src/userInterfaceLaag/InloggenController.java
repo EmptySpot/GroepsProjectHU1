@@ -16,7 +16,13 @@ import javafx.scene.control.TextField;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+
+import static java.sql.DriverManager.getConnection;
 
 public class InloggenController {
     @FXML
@@ -28,67 +34,54 @@ public class InloggenController {
 
     public void initialize() {
         //VERWIJDEREN BIJ RELEASE
-        gebruikersnaamInput.setText("112");
-        wachtwoordInput.setText("bb");
+        gebruikersnaamInput.setText("1");
+        wachtwoordInput.setText("ww");
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException {
         SelectedStatics.setPersoon(null);
-//        FXMLLoader loader =
-//                            new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-//                    Parent root = loader.load();
-//
-//                    Scene homePage = new Scene(root);
-//                    Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-//                    appStage.setScene(homePage);
-//                    appStage.show();
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/textfiles/leerlingen.txt")) ;
-        String line;
-        while ((line = reader.readLine()) != null) {
-                String[] splitted = line.split(":");
-                String inlognaam = gebruikersnaamInput.getText();
-                if(inlognaam.equals(splitted[0]) && wachtwoordInput.getText().equals(splitted[1])) {
-                    List<Klas> klassen = School.getKlassen();
-                    for(Klas klas: klassen) {
-                        List<Leerling> leerlingen = klas.getLeerlingen();
-                        for (Leerling leerling : leerlingen) {
-                            if (leerling.getLeerlingnummer().equals(inlognaam)) {
-                                SelectedStatics.setStatus("Leerling");
-                                SelectedStatics.setPersoon(leerling);
-                                break;
-                            }
-                        }
-                    }
-                    System.out.println(SelectedStatics.getPersoon());
-                    if(SelectedStatics.getPersoon() == null){
-                        List<Docent> docenten = School.getDocenten();
-                        System.out.println(docenten);
-                        for(Docent docent : docenten){
-                            if(docent.getDocentCode().equals(inlognaam)) {
-                                SelectedStatics.setStatus("Docent");
-                                SelectedStatics.setPersoon(docent);
-                                break;
-                            }
-                        }
-                    }
-                    FXMLLoader loader =
-                            new FXMLLoader(getClass().getResource("MainView.fxml"));
-                    Parent root = loader.load();
+        String inlognaam = gebruikersnaamInput.getText();
+        String wachtwoord = wachtwoordInput.getText();
 
-                    //TODO: Mensen aanmaken weer aanzetten + unieke personen codes.
+        try {
+            DatabaseQuerry.setDBConnection();
+            Connection connection = DatabaseQuerry.getDBConnection();
 
-                    Scene homePage = new Scene(root);
-                    Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    appStage.setScene(homePage);
-                    appStage.setMinWidth(appStage.getWidth()+100);
-                    appStage.setMinHeight(appStage.getHeight());
-                    appStage.show();
-                } else {
-                    foutmeldingLabel.setText("verkeerd wachtwoord");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from persoon WHERE persoonID = '" + inlognaam + "'");
+            resultSet.next();
+            if (wachtwoord.equals(resultSet.getString(3))) {
+                SelectedStatics.setStatus(resultSet.getString(4));
+                if (resultSet.getString(4).equals("Docent")) {
+                    Docent docent = new Docent(resultSet.getString(2), resultSet.getString(1));
+                    SelectedStatics.setPersoon(docent);
+                } else if (resultSet.getString(4).equals("Leerling")) {
+                    Klas klas = new Klas(resultSet.getString(5));
+                    Leerling leerling = new Leerling(resultSet.getString(1), klas, resultSet.getString(3), resultSet.getString(2));
+                    SelectedStatics.setPersoon(leerling);
                 }
+                FXMLLoader loader =
+                        new FXMLLoader(getClass().getResource("MainView.fxml"));
+                Parent root = loader.load();
+                Scene homePage = new Scene(root);
+                Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                appStage.setScene(homePage);
+                appStage.setMinWidth(appStage.getWidth());
+                appStage.setMinHeight(appStage.getHeight());
+                appStage.show();
+            } else {
+                foutmeldingLabel.setText("Wachtwoord / inlognaam onjuist.");
             }
+        } catch (SQLException e) {
+            try {
+                DatabaseQuerry.closeDBConnection();
+            } catch (SQLException throwables) {
+                foutmeldingLabel.setText("Error met de database");
+            }
+            foutmeldingLabel.setText("Wachtwoord / inlognaam onjuist.");
         }
+    }
 
     public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountAanmakenLeerling.fxml"));

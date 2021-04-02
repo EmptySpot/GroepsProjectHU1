@@ -1,5 +1,7 @@
 package code.tester;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +12,6 @@ public class Docent extends Persoon{
 
     public Docent(String docentNaam, String docentCode){
         super(docentCode);
-        System.out.println(docentNaam);
         this.docentNaam=docentNaam;
         School.docentenAppenden(this);
     }
@@ -34,6 +35,17 @@ public class Docent extends Persoon{
     public void setAanwezigheid(String extraInformatie, String aanwezigheid, OnlineLes les){
         les.setStatus(aanwezigheid);
         System.out.println(extraInformatie);
+    }
+
+    public OnlineLes getLes(String string) {
+        return SelectedStatics.getLes(string, lessen);
+    }
+
+    public void updateLes(OnlineLes les, Date date, Time time) {
+        int arrayListIndex = lessen.indexOf(les);
+        les.setDatum(date);
+        les.setTime(time);
+        lessen.set(arrayListIndex, les);
     }
 
     @Override

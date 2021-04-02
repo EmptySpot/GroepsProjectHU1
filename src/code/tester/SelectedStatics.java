@@ -1,5 +1,9 @@
 package code.tester;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
+
 public class SelectedStatics {
     private static OnlineLes les;
     private static Persoon persoon;
@@ -27,5 +31,18 @@ public class SelectedStatics {
 
     public static String getStatus(){
         return status;
+    }
+
+    public static boolean controleLes(OnlineLes les, Date date, Time time) {
+        return (les.getTime() == time && les.getDatum() == date);
+    }
+
+    public static OnlineLes getLes(String string, ArrayList<OnlineLes> lessen) {
+        for(OnlineLes les : lessen){
+            if(les.getLesCode().equals(string)){
+                return les;
+            }
+        }
+        return null;
     }
 }
