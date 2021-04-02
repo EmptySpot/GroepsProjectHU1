@@ -34,7 +34,6 @@ public class KlassenLijstController {
         DatabaseInfo.klasLeerlingen();
         DatabaseInfo.absentieLeerlingen();
         List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
-        System.out.println(leerlingenHuidigeKlas);
         ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
         for (Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
             for (Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()) {

@@ -81,16 +81,11 @@ public class DatabaseInfo {
                 new Leerling(resultSet.getString(1), klas, resultSet.getString(3), resultSet.getString(2));
             }
         }
-        System.out.println(klas.getNaam());
-        for(Leerling leerling : klas.getLeerlingen()){
-            System.out.println(leerling.getLeerlingNaam());
-        }
     }
 
     public static void absentieLeerlingen() throws SQLException {
         OnlineLes les = SelectedStatics.getLes();
         Klas klas = les.getKlas();
-        System.out.println(klas);
 
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
