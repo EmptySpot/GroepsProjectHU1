@@ -38,9 +38,9 @@ public class GeschiedenisController {
     }
 
     public int getAanwezigheidPerLes() {
-        if (SelectedStatics.getStatus().equals("Leerling")) {
-            Leerling leerling = (Leerling) SelectedStatics.getPersoon();
-            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
+        if (SelectedStatics.getStatus().equals("Leerling")) {       // set user op 'leerling'
+            Leerling leerling = (Leerling) SelectedStatics.getPersoon();    // set user op specifieke leerling
+            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();      //krijg aanwezigheid van specifieke leerling
 //          maak for-aantal vakken afwezigheidstabellen
 //          double percentage = getAantalLessen() - afwezigheidPerVak() =/ getAantalLessen()
             int afwezigheidPerLesCounter = 0;
@@ -52,5 +52,3 @@ public class GeschiedenisController {
         }
     }
 }
-// student kan zelf zien welke lessen hij/zij afwezig was + hoeveel % v/d lessen die afwezig was
-// docent moet vak, daarna klas kunnen kiezen
