@@ -12,7 +12,7 @@
             <Image url="@../Pictures/HU_Logo_Groot.png" />
          </image>
       </ImageView>
-      <Label fx:id="foutmeldingLabel" layoutX="105.0" layoutY="322.0" prefHeight="17.0" prefWidth="126.0" textFill="#ee0101" />
+      <Label fx:id="foutmeldingLabel" layoutX="105.0" layoutY="322.0" prefHeight="17.0" prefWidth="243.0" textFill="#ee0101" />
       <GridPane alignment="CENTER_RIGHT" layoutX="90.0" layoutY="181.0" prefHeight="141.0" prefWidth="421.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.0" minWidth="10.0" prefWidth="161.0" />
@@ -34,9 +34,10 @@
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin></PasswordField>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#inloggen" prefHeight="25.0" prefWidth="66.0" text="Log in" GridPane.rowIndex="2" />
-            <Hyperlink alignment="CENTER_RIGHT" onMousePressed="#tempAccountAanmaken" text="Wachtwoord vergeten" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Button fx:id="inlogButton" defaultButton="true" mnemonicParsing="false" onAction="#inloggen" prefHeight="25.0" prefWidth="66.0" text="Log in" GridPane.rowIndex="2" />
+            <Hyperlink alignment="CENTER_RIGHT" onMousePressed="#tempAccountAanmaken" text="Geen account?" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <Hyperlink layoutX="385.0" layoutY="319.0" onMousePressed="#tempWachtwoordVergeten" text="Wachtwoord vergeten" />
    </children>
 </AnchorPane>
