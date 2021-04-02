@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import static java.sql.DriverManager.getConnection;
 
 public class DatabaseQuerry {
-    private static String jdbcURL = "jdbc:postgresql://82.197.208.233:5432/postgres";
+//    "jdbc:postgresql://[82.197.208.233]:5432/postgres";
+    private static String jdbcURL = "jdbc:postgresql://192.168.178.44:5432/postgres";
     private static String username = "pi";
     private static String password = "GoedWachtwoord12";
     private static Connection connection;

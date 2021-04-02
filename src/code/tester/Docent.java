@@ -42,10 +42,14 @@ public class Docent extends Persoon{
     }
 
     public void updateLes(OnlineLes les, Date date, Time time) {
+        System.out.println(lessen);
+        System.out.println("crab rave stephan is gone");
         int arrayListIndex = lessen.indexOf(les);
         les.setDatum(date);
         les.setTime(time);
+
         lessen.set(arrayListIndex, les);
+
     }
 
     @Override

@@ -58,4 +58,10 @@ public class Klas {
     les.setTime(time);
     lessen.set(arrayListIndex, les);
     }
+
+    public boolean controleLes(OnlineLes les, Date date, Time time) {
+        return (les.getTime() == time && les.getDatum() == date);
+    }
+
+
 }
