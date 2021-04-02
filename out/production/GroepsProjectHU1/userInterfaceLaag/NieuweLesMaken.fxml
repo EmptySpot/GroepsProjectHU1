@@ -8,31 +8,34 @@
       <HBox layoutX="42.0" layoutY="40.0" prefHeight="35.0" prefWidth="200.0" spacing="5.0">
          <children>
             <Label prefHeight="17.0" prefWidth="56.0" text="Datum:" />
-            <DatePicker prefHeight="25.0" prefWidth="146.0" />
+            <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="146.0" />
          </children>
       </HBox>
       <HBox layoutX="42.0" layoutY="75.0" prefHeight="35.0" prefWidth="200.0" spacing="12.0">
          <children>
             <Label text="Lescode:" />
-            <TextField prefHeight="25.0" prefWidth="143.0" />
+            <TextField fx:id="lescodeTextBox" prefHeight="25.0" prefWidth="143.0" />
          </children></HBox>
-      <HBox layoutX="42.0" layoutY="110.0" prefHeight="35.0" prefWidth="200.0" spacing="7.0">
+      <HBox layoutX="42.0" layoutY="110.0" prefHeight="25.0" prefWidth="200.0" spacing="7.0">
          <children>
             <Label text="Verplicht:" />
-            <RadioButton mnemonicParsing="false" text="Ja" />
-            <RadioButton mnemonicParsing="false" text="Nee" />
+            <RadioButton mnemonicParsing="false" selected="true" text="Ja">
+               <toggleGroup>
+                  <ToggleGroup fx:id="verplichtToggleGroup" />
+               </toggleGroup></RadioButton>
+            <RadioButton mnemonicParsing="false" text="Nee" toggleGroup="$verplichtToggleGroup" />
          </children>
       </HBox>
       <HBox layoutX="42.0" layoutY="138.0" prefHeight="25.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="92.0" text="Lesnaam:" />
-            <TextField prefHeight="25.0" prefWidth="178.0" />
+            <TextField fx:id="lesnaamTextBox" prefHeight="25.0" prefWidth="178.0" />
          </children>
       </HBox>
       <HBox layoutX="42.0" layoutY="172.0" prefHeight="25.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="82.0" text="Vaknaam:" />
-            <TextField prefHeight="25.0" prefWidth="168.0" />
+            <TextField fx:id="vaknaamTextBox" prefHeight="25.0" prefWidth="168.0" />
          </children>
       </HBox>
       <HBox layoutX="42.0" layoutY="200.0" prefHeight="25.0" prefWidth="200.0">
@@ -44,8 +47,11 @@
       <HBox layoutX="42.0" layoutY="232.0" prefHeight="25.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Label prefHeight="17.0" prefWidth="48.0" text="Tijd:" />
-            <TextField prefHeight="25.0" prefWidth="144.0" />
+            <ComboBox fx:id="urenComboBox" prefHeight="25.0" prefWidth="70.0" />
+            <ComboBox fx:id="kwartierenComboBox" layoutX="68.0" layoutY="10.0" prefHeight="25.0" prefWidth="70.0" />
          </children>
       </HBox>
+      <Button fx:id="opslaanButton" layoutX="42.0" layoutY="278.0" mnemonicParsing="false" onAction="#opslaan" text="Opslaan" />
+      <Label fx:id="errorLabel" layoutX="112.0" layoutY="282.0" prefHeight="17.0" prefWidth="188.0" textFill="RED" />
    </children>
 </AnchorPane>
