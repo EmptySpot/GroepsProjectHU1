@@ -6,4 +6,5 @@ public abstract class Persoon {
     public Persoon(String persoonCode) {
         this.persoonCode = persoonCode;
     }
+
 }

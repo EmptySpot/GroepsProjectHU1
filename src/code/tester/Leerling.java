@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,32 +18,23 @@ public class Leerling extends Persoon{
 
     public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam){
         super(leerlingNummer);
-        System.out.println("ja?");
         this.klas = klas;
         this.leerlingNaam = new SimpleStringProperty(naam);
         klas.leerlingAppenden(this);
-
-//        BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
-//        writeLeerling.write(leerlingnummer + ":" + wachtWoord);
-//        writeLeerling.newLine();
-//        writeLeerling.close();
-
     }
 
     public void aanwezigheidToevoegen(Aanwezigheid aanwezigheid){
         aanwezigheidlist.add(aanwezigheid);
     }
 
+    public Aanwezigheid getAanwezigheid(OnlineLes les) throws SQLException {
+        return DatabaseInfo.getAbsentieLeerlingLes(les, this);
+    }
+
     public void setAanwezigheid(OnlineLes les){
         Aanwezigheid a = new Aanwezigheid(this, "", "Aanwezig", les);
         aanwezigheidlist.add(a);
     }
-
-//    public void setAanwezigheid(String extraI, String aanw, OnlineLes les){
-//
-//        Aanwezigheid a = new Aanwezigheid(this, extraI, aanw, les);
-//        aanwezigheidlist.add(a);
-//    }
 
     public Aanwezigheid getAanwezigheidLes(OnlineLes gevraagdeLes) {
         for (Aanwezigheid aanwezigheidLes : aanwezigheidlist) {
