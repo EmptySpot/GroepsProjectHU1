@@ -19,7 +19,10 @@ public class School {
     }
 
     public static List<Klas> getKlassen() throws SQLException {
-        return Collections.unmodifiableList(DatabaseInfo.getKlassen());
+        klassen = new ArrayList<>();
+        klassen.addAll(DatabaseInfo.getKlassen());
+        System.out.println(klassen);
+        return Collections.unmodifiableList(klassen);
     }
 
     public static void docentenAppenden(Docent docent){
@@ -40,8 +43,11 @@ public class School {
     }
 
     public static Klas getKlas(String string) {
+        System.out.println("HIEEEER");
         for(Klas klas : klassen){
+            System.out.println("HIEEEEEEEEEEEEEEEEEEEEER");
             if(klas.getNaam().equals(string)){
+                System.out.println(klas);
                 return klas;
             }
         }

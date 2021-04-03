@@ -13,6 +13,7 @@ public class Klas {
 
     public Klas(String naam) {
         this.naam = naam;
+        School.klassenAppenden(this);
     }
 
     public String getNaam() {

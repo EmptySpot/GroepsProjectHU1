@@ -73,7 +73,6 @@ public class DatabaseInfo {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
 
-
         ResultSet resultSet = statement.executeQuery("SELECT * FROM persoon WHERE klasklasnaam ='" + klas + "'");
         while(resultSet.next()){
             Leerling leerling = klas.getLeerling(resultSet.getString(1));
