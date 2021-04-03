@@ -161,14 +161,3 @@ public class DatabaseInfo {
                         vaknaam + "','" + persoonid + "','" + vakcode + "')");
     }
 }
-
-//    public static void getAbsentieLeerlingenLes() throws SQLException {
-//        OnlineLes les = SelectedStatics.getLes();
-//        Klas klas = les.getKlas();
-//        Connection connection = DatabaseQuerry.getDBConnection();
-//        Statement statement = connection.createStatement();
-//        ResultSet resultSet = statement.executeQuery("select * from persoon, aanwezigheid WHERE aanwezigheid.leslescode = 'SD-1' and persoon.klasklasnaam = 'VB1'");
-//
-//
-//    }
-

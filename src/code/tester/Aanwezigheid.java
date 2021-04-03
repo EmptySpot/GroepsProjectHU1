@@ -57,6 +57,7 @@ public class Aanwezigheid {
 
 
     public Button getButtonAanwezig() {
+        buttonAanwezig.setVisible(false);
         buttonAanwezig.setOnAction((ActionEvent event) -> {
             leerlingInfo.updateAanwezigheid(this, "Absent");
 
