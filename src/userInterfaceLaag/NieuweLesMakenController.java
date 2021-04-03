@@ -8,6 +8,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class NieuweLesMakenController {
     private ArrayList<String> urenArray = new ArrayList<>();
     private ArrayList<String> kwartierenArray = new ArrayList<>();
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         int counter = 0;
         while (counter < 24) {
             urenArray.add("" + counter);

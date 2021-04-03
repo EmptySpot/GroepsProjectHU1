@@ -1,5 +1,6 @@
 package code.tester;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +18,9 @@ public class School {
         klassen.add(klas);
     }
 
-    public static List<Klas> getKlassen() {
+    public static List<Klas> getKlassen() throws SQLException {
+        klassen.clear();
+        DatabaseInfo.getKlassen();
         return Collections.unmodifiableList(klassen);
     }
 

@@ -79,6 +79,6 @@ public class OnlineLes {
 
     @Override
     public String toString() {
-        return String.format("%tR %s %s", time, lesNaam, docent);
+        return String.format("%tR %s %s %s", time, lesNaam, docent, klas);
     }
 }

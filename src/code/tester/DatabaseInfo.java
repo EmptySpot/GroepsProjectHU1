@@ -19,6 +19,7 @@ public class DatabaseInfo {
         Statement statement2 = connection.createStatement();
 
         ResultSet resultSet = statement.executeQuery("SELECT * from les WHERE klasklasnaam = '" + klas + "'");
+
         while (resultSet.next()) {
             ResultSet docentSet = statement2.executeQuery("SELECT * from persoon WHERE persoonid = '" + resultSet.getString(7) + "'");
             docentSet.next();
@@ -46,6 +47,7 @@ public class DatabaseInfo {
         Statement statement = connection.createStatement();
 
         ResultSet resultSet = statement.executeQuery("SELECT * FROM les WHERE persoonpersoonid ='" + docentid + "'");
+        docent.clearLessen();
         while (resultSet.next()) {
             Klas klas = School.getKlas(resultSet.getString(8));
             if (klas == null) {
@@ -133,6 +135,26 @@ public class DatabaseInfo {
                     " VALUES ("+ aanwezigheid.getLeerlingInfo().getLeerlingnummer() +", '"+ aanwezigheid.getOnlineLes().getLesCode() +"', '" + aanwezigheid.getExtraInformatie() +"', '"+ aanwezigheid.getAanwezig()+"')");
         }
     }
+
+    public static void getKlassen() throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM klas");
+        while(resultSet.next()){
+            new Klas(resultSet.getString(1));
+        }
+    }
+
+    public static String setLeerling(String naam, String wachtwoord, Klas klas) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("INSERT INTO persoon(persoonnaam, persoonwachtwoord, persoonstatus, klasklasnaam)" +
+                "VALUES('"+ naam +"','"+ wachtwoord+"','Leerling','"+ klas.getNaam() +"')" +
+                " RETURNING persoonid");
+        resultSet.next();
+        return resultSet.getString(1);
+    }
+}
 
 //    public static void getAbsentieLeerlingenLes() throws SQLException {
 //        OnlineLes les = SelectedStatics.getLes();

@@ -36,19 +36,17 @@
                   <Insets right="30.0" />
                </GridPane.margin>
             </Button>
-            <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="42.0" text="Naam:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Studentnummer:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="42.0" text="Naam:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Klas:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Wachtwoord:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Herhaal wachtwoord:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="naam" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="studentnummer" prefHeight="26.0" prefWidth="146.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="naam" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField fx:id="wachtwoord" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <TextField fx:id="wachtwoordHerhaal" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <ChoiceBox fx:id="klassenList" prefHeight="27.0" prefWidth="9999.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label fx:id="errorLocatie" prefHeight="26.0" prefWidth="9999.0" textFill="RED" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" />
             <Hyperlink onMousePressed="#klikVoorwaarden" prefHeight="23.0" prefWidth="117.0" text="Toon voorwaarden" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <CheckBox fx:id="voorwaardenCheckbox" mnemonicParsing="false" prefHeight="17.0" prefWidth="213.0" text="Akkoord met voorwaarden" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <ComboBox fx:id="klassenList" prefHeight="25.0" prefWidth="229.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

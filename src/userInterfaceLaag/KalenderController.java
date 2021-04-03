@@ -58,6 +58,7 @@ public class KalenderController {
     public void toonLessen() throws SQLException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         List<OnlineLes> lessen;
+
         if(huidigeGebruiker instanceof  Leerling){
             DatabaseInfo.getLessenLeerling();
             Leerling leerling = (Leerling) huidigeGebruiker;

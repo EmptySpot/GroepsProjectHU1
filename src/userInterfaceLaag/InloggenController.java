@@ -97,9 +97,10 @@ public class InloggenController {
             inlogButton.setVisible(false);
             foutmeldingLabel.setText("Te veel foute inlogpogingen.");
         }
-        }
+    }
 
-    public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException {
+    public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException, SQLException {
+        DatabaseQuerry.setDBConnection();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AccountAanmakenLeerling.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
