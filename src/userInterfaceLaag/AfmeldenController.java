@@ -10,6 +10,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AfmeldenController {
     @FXML private Label vakNaam;
@@ -47,33 +48,13 @@ public class AfmeldenController {
     }
 
 
-    public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
-
-    public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
-
-    public void mousePressedGeschiedenis(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Geschiedenis.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
-
-
-    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
-        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-    }
 
     public void cancelButton(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void opslaanButton(MouseEvent mouseEvent) throws IOException {
+    public void opslaanButton(MouseEvent mouseEvent) throws IOException, SQLException {
 
         //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
         OnlineLes les = SelectedStatics.getLes();
@@ -86,7 +67,10 @@ public class AfmeldenController {
 
         if(huidigeGebruiker instanceof Leerling){
             Leerling huidigeLeerling = (Leerling) huidigeGebruiker;
+            System.out.println(huidigeLeerling);
             huidigeLeerling.updateAanwezigheid(huidigeLeerling.getAanwezigheidLes(les), aanwezigheidTekst, extrainformatie);
+            Aanwezigheid a = new Aanwezigheid(huidigeLeerling, extrainformatie, aanwezigheidTekst, les);
+            DatabaseInfo.setAbsentieLeerlingLes(a);
         }
         else if(huidigeGebruiker instanceof Docent){
             Docent huidigeDocent = (Docent) huidigeGebruiker;
