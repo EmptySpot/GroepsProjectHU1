@@ -16,9 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class GeschiedenisController {
-    @FXML
-    private Label afwezigCounterLabel;
-//    @FXML private ListView afwezigheidPerLes;
+    @FXML private Label afwezigCounterLabel;
 
     public void initialize() {
         if (SelectedStatics.getStatus().equals("Leerling")) {
@@ -33,25 +31,20 @@ public class GeschiedenisController {
             afwezigCounterLabel.setText("" + afwezigheidCounter);
         } else if (SelectedStatics.getStatus().equals("Docent")) {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
-
         }
     }
 
-    public int getAanwezigheidPerLes() {
-        if (SelectedStatics.getStatus().equals("Leerling")) {
-            Leerling leerling = (Leerling) SelectedStatics.getPersoon();
-            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
-//          maak for-aantal vakken afwezigheidstabellen
-//          double percentage = getAantalLessen() - afwezigheidPerVak() =/ getAantalLessen()
-            int afwezigheidPerLesCounter = 0;
-            for (Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
-                if (aanwezigheidInList.getAanwezig().equals("Absent")) {
-                    afwezigheidPerLesCounter += 1;
-                }
-            }
-        }
-        return 0;
-    }
+//    public String AfwezigheidPerLes(){
+//        if (SelectedStatics.getStatus().equals("Leerling")) {
+//            Leerling leerling = (Leerling) SelectedStatics.getPersoon();
+//            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
+//            int afwezigheidCounter = 0;
+//            for (Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
+//                if (aanwezigheidInList.getAanwezig().equals("Absent")) {
+//                    afwezigheidCounter += 1;
+//                }
+//            }
+//            afwezigCounterLabel.setText("" + afwezigheidCounter);
+//        }
+//    }
 }
-// student kan zelf zien welke lessen hij/zij afwezig was + hoeveel % v/d lessen die afwezig was
-// docent moet vak, daarna klas kunnen kiezen

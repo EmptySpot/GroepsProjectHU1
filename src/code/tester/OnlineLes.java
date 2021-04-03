@@ -16,7 +16,7 @@ public class OnlineLes {
     private Time time;
     private String status;
 
-    public OnlineLes (Date date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, Time time){
+    public OnlineLes(Date date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, Time time){
         this.datum = date;
         this.lesCode = lesC;
         this.verplicht = verpl;

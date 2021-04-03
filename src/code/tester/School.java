@@ -1,5 +1,6 @@
 package code.tester;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +18,10 @@ public class School {
         klassen.add(klas);
     }
 
-    public static List<Klas> getKlassen() {
+    public static List<Klas> getKlassen() throws SQLException {
+        klassen = new ArrayList<>();
+        klassen.addAll(DatabaseInfo.getKlassen());
+        System.out.println(klassen);
         return Collections.unmodifiableList(klassen);
     }
 
@@ -39,8 +43,11 @@ public class School {
     }
 
     public static Klas getKlas(String string) {
+        System.out.println("HIEEEER");
         for(Klas klas : klassen){
+            System.out.println("HIEEEEEEEEEEEEEEEEEEEEER");
             if(klas.getNaam().equals(string)){
+                System.out.println(klas);
                 return klas;
             }
         }
