@@ -116,6 +116,16 @@ public class DatabaseInfo {
             new Klas(resultSet.getString(1));
         }
     }
+
+    public static String setLeerling(String naam, String wachtwoord, Klas klas) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("INSERT INTO persoon(persoonnaam, persoonwachtwoord, persoonstatus, klasklasnaam)" +
+                "VALUES('"+ naam +"','"+ wachtwoord+"','Leerling','"+ klas.getNaam() +"')" +
+                " RETURNING persoonid");
+        resultSet.next();
+        return resultSet.getString(1);
+    }
 }
 
 //    public static void getAbsentieLeerlingenLes() throws SQLException {

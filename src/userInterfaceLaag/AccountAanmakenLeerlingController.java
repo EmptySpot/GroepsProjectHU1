@@ -1,8 +1,6 @@
 package userInterfaceLaag;
 
-import code.tester.Klas;
-import code.tester.Leerling;
-import code.tester.School;
+import code.tester.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,12 +50,10 @@ public class AccountAanmakenLeerlingController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void mousePressedAanmaken(MouseEvent mouseEvent) throws IOException, ClassNotFoundException {
+    public void mousePressedAanmaken(MouseEvent mouseEvent) throws IOException, ClassNotFoundException, SQLException {
         errorLocatie.setText("");
         if(naam.getText().equals("")){
             errorLocatie.setText("Geef een naam op");
-        } else if (studentnummer.getText().equals("")){
-            errorLocatie.setText("Geef een studentnummer");
         } else if (wachtwoord.getText().equals("")){
             errorLocatie.setText("Geef een wachtwoord");
         } else if(!wachtwoord.getText().equals(wachtwoordHerhaal.getText())){
@@ -67,11 +63,13 @@ public class AccountAanmakenLeerlingController {
         } else if(!voorwaardenCheckbox.isSelected()){
                 errorLocatie.setText("Ga akkoord met de voorwaarden");
         } else {
-            Leerling nieuw = new Leerling(studentnummer.getText(), klassenList.getSelectionModel().getSelectedItem(), wachtwoord.getText(), naam.getText());
-            BufferedWriter writeLeerling = new BufferedWriter(new FileWriter("src/textfiles/leerlingen.txt", true));
-            writeLeerling.write(studentnummer.getText() + ":" + wachtwoord.getText());
-            writeLeerling.newLine();
-            writeLeerling.close();
+            String studentid = DatabaseInfo.setLeerling(naam.getText(),wachtwoord.getText(),klassenList.getSelectionModel().getSelectedItem());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("HU agenda");
+            alert.setHeaderText("Dit is uw gebruikersnaam, vergeet dit niet!");
+            alert.setContentText("Gebruikersnaam: " + studentid);
+            Optional<ButtonType> result = alert.showAndWait();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
             mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
         }
