@@ -4,11 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class DatabaseInfo {
-    public static void lessenLeerling() throws SQLException {
+    //TODO: naam aanpassen
+    public static void getLessenLeerling() throws SQLException {
         Leerling leerling = (Leerling) SelectedStatics.getPersoon();
         Klas klas = leerling.getKlas();
 
@@ -37,7 +36,7 @@ public class DatabaseInfo {
         }
     }
 
-    public static void lessenDocent() throws SQLException {
+    public static void getLessenDocent() throws SQLException {
         Docent docent = (Docent) SelectedStatics.getPersoon();
         String docentid = docent.getDocentCode();
 
@@ -66,7 +65,7 @@ public class DatabaseInfo {
         }
     }
 
-    public static void klasLeerlingen() throws SQLException {
+    public static void getKlasLeerlingen() throws SQLException {
         OnlineLes les = SelectedStatics.getLes();
         Klas klas = les.getKlas();
 
@@ -83,24 +82,42 @@ public class DatabaseInfo {
         }
     }
 
-    public static void absentieLeerlingen() throws SQLException {
-        OnlineLes les = SelectedStatics.getLes();
-        Klas klas = les.getKlas();
-
+    public static Aanwezigheid getAbsentieLeerlingLes(OnlineLes les, Leerling leerling) throws SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-        for(Leerling leerling : klas.getLeerlingen()){
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + leerling.getLeerlingnummer() + "' AND leslescode ='" + les.getLesCode() +"'");
-            if(resultSet.next()){
-                Aanwezigheid aanwezigheid = leerling.getAanwezigheidLes(les);
-                if(aanwezigheid == null){
-                    aanwezigheid = new Aanwezigheid(leerling, resultSet.getString(3), resultSet.getString(4), les);
-                    leerling.aanwezigheidToevoegen(aanwezigheid);
-                }
-            } else {
-                Aanwezigheid aanwezigheid = new Aanwezigheid(leerling, "", "Aanwezig", les);
-                leerling.aanwezigheidToevoegen(aanwezigheid);
-            }
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + leerling.getLeerlingnummer() + "' AND leslescode ='" + les.getLesCode() +"'");
+        if(resultSet.next()){
+            return new Aanwezigheid(leerling, resultSet.getString(3), resultSet.getString(4), les);
+        } else {
+            return new Aanwezigheid(leerling, "", "Aanwezig", les);
         }
     }
+
+    public static void setAbsentieLeerlingLes(Aanwezigheid aanwezigheid) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        System.out.println(aanwezigheid);
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + aanwezigheid.getLeerlingInfo().getLeerlingnummer() + "' AND leslescode ='" + aanwezigheid.getOnlineLes().getLesCode() +"'");
+        if(resultSet.next()){
+            statement.execute("" +
+                    "UPDATE aanwezigheid" +
+                    " SET aanwezigheid = '"+ aanwezigheid.getAanwezig() +"', extrainformatie = '" + aanwezigheid.getExtraInformatie() + "'" +
+                    " WHERE persoonpersoonid = '"+ aanwezigheid.getLeerlingInfo().getLeerlingnummer() +"' AND leslescode = '" + aanwezigheid.getOnlineLes().getLesCode() + "'");
+
+        } else {
+            statement.execute("INSERT INTO aanwezigheid" +
+                    " VALUES ("+ aanwezigheid.getLeerlingInfo().getLeerlingnummer() +", '"+ aanwezigheid.getOnlineLes().getLesCode() +"', '" + aanwezigheid.getExtraInformatie() +"', '"+ aanwezigheid.getAanwezig()+"')");
+        }
+    }
+
+//    public static void getAbsentieLeerlingenLes() throws SQLException {
+//        OnlineLes les = SelectedStatics.getLes();
+//        Klas klas = les.getKlas();
+//        Connection connection = DatabaseQuerry.getDBConnection();
+//        Statement statement = connection.createStatement();
+//        ResultSet resultSet = statement.executeQuery("select * from persoon, aanwezigheid WHERE aanwezigheid.leslescode = 'SD-1' and persoon.klasklasnaam = 'VB1'");
+//
+//
+//    }
 }

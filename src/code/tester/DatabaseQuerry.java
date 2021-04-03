@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import static java.sql.DriverManager.getConnection;
 
 public class DatabaseQuerry {
+    //TODO Bestandnaam aanpassen
 //    "jdbc:postgresql://[82.197.208.233]:5432/postgres";
     private static String jdbcURL = "jdbc:postgresql://82.197.208.233:5432/postgres";
     private static String username = "pi";

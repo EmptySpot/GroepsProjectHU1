@@ -33,17 +33,12 @@ public class KlassenLijstController {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         Docent docent = (Docent) huidigeGebruiker;
         OnlineLes les = SelectedStatics.getLes();
-        DatabaseInfo.klasLeerlingen();
-        DatabaseInfo.absentieLeerlingen();
+        DatabaseInfo.getKlasLeerlingen();
+
         List<Leerling> leerlingenHuidigeKlas = les.getKlas().getLeerlingen();
         ObservableList<Aanwezigheid> data = FXCollections.observableArrayList();
         for (Leerling leerlingAanwezig : leerlingenHuidigeKlas) {
-            for (Aanwezigheid aanwezigheidPerLes : leerlingAanwezig.getAanwezigheidlist()) {
-                if (aanwezigheidPerLes.getOnlineLes() == les) {
-                    data.add(aanwezigheidPerLes);
-                    break;
-                }
-            }
+            data.add(leerlingAanwezig.getAanwezigheid(les));
             naamTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingNaam"));
             leerlingnummerTabel.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("leerlingInfo"));
             aanwezigheid.setCellValueFactory(new PropertyValueFactory<Aanwezigheid, String>("aanwezig"));
@@ -65,9 +60,10 @@ public class KlassenLijstController {
         leerlingenInLes.refresh();
     }
 
-    public void buttonOk(ActionEvent actionEvent) {
+    public void buttonOk(ActionEvent actionEvent) throws SQLException{
         for(Aanwezigheid aanwezigheid : leerlingenInLes.getItems()){
-            aanwezigheid.getLeerlingInfo().updateAanwezigheid(aanwezigheid, aanwezigheid.aanwezigheidComboBoxGetSelected());
+            aanwezigheid.setAanwezig(aanwezigheid.aanwezigheidComboBoxGetSelected());
+            DatabaseInfo.setAbsentieLeerlingLes(aanwezigheid);
             }
         updateTable();
     }

@@ -59,13 +59,13 @@ public class KalenderController {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         List<OnlineLes> lessen;
         if(huidigeGebruiker instanceof  Leerling){
-            DatabaseInfo.lessenLeerling();
+            DatabaseInfo.getLessenLeerling();
             Leerling leerling = (Leerling) huidigeGebruiker;
             lessen = leerling.getKlas().getLessen();
             listViewLessen(lessen);
         }
         else if(huidigeGebruiker instanceof Docent) {
-            DatabaseInfo.lessenDocent();
+            DatabaseInfo.getLessenDocent();
             Docent docent = (Docent) huidigeGebruiker;
             lessen = docent.getLessen();
             listViewLessen(lessen);
