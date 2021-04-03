@@ -67,5 +67,10 @@ public class KlassenLijstController {
             }
         updateTable();
     }
+
+    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
 }
 

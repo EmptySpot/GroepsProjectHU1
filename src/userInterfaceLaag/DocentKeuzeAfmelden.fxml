@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DocentKeuzeAfmeldenController">
     <children>
-        <HBox layoutX="9.0" onMousePressed="#mousePressedCancel" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
+        <HBox layoutX="9.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
             <children>
             <Region prefHeight="400.0" prefWidth="123.0" />
                 <VBox prefHeight="400.0" prefWidth="244.0">
