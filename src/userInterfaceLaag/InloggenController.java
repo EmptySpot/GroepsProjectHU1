@@ -38,7 +38,7 @@ public class InloggenController {
 
     public void initialize() {
         //VERWIJDEREN BIJ RELEASE
-        gebruikersnaamInput.setText("1");
+        gebruikersnaamInput.setText("69");
         wachtwoordInput.setText("ww");
     }
 
@@ -59,7 +59,7 @@ public class InloggenController {
                 resultSet.next();
                 if (wachtwoord.equals(resultSet.getString(3))) {
                     counter = 0;
-                    System.out.println(counter);
+
                     SelectedStatics.setStatus(resultSet.getString(4));
                     if (resultSet.getString(4).equals("Docent")) {
                         Docent docent = new Docent(resultSet.getString(2), resultSet.getString(1));
@@ -80,7 +80,7 @@ public class InloggenController {
                     appStage.show();
                 } else {
                     counter++;
-                    System.out.println(counter);
+
                     foutmeldingLabel.setText("Wachtwoord onjuist.");
                 }
             } catch (SQLException e) {
@@ -90,7 +90,6 @@ public class InloggenController {
                     foutmeldingLabel.setText("Error met de database");
                 }
                 counter++;
-                System.out.println(counter);
                 foutmeldingLabel.setText("Inlognaam onjuist.");
 
             }

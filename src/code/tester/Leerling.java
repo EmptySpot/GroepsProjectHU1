@@ -17,6 +17,7 @@ public class Leerling extends Persoon{
 
     public Leerling(String leerlingNummer, Klas klas, String wachtWoord, String naam){
         super(leerlingNummer);
+        System.out.println("ja?");
         this.klas = klas;
         this.leerlingNaam = new SimpleStringProperty(naam);
         klas.leerlingAppenden(this);
@@ -26,6 +27,10 @@ public class Leerling extends Persoon{
 //        writeLeerling.newLine();
 //        writeLeerling.close();
 
+    }
+
+    public void aanwezigheidToevoegen(Aanwezigheid aanwezigheid){
+        aanwezigheidlist.add(aanwezigheid);
     }
 
     public void setAanwezigheid(OnlineLes les){

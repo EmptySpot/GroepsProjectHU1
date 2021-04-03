@@ -44,6 +44,10 @@ public class Klas {
         return naam;
     }
 
+    public Leerling getLeerling(String string) {
+        return SelectedStatics.getLeerling(string, leerlingen);
+    }
+
     public OnlineLes getLes(String string) {
         return SelectedStatics.getLes(string, lessen);
     }
@@ -54,5 +58,11 @@ public class Klas {
     les.setTime(time);
     lessen.set(arrayListIndex, les);
     }
+
+    public boolean controleLes(OnlineLes les, Date date, Time time) {
+        return (les.getTime() == time && les.getDatum() == date);
+    }
+
+
 }
 

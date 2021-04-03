@@ -45,7 +45,9 @@ public class Docent extends Persoon{
         int arrayListIndex = lessen.indexOf(les);
         les.setDatum(date);
         les.setTime(time);
+
         lessen.set(arrayListIndex, les);
+
     }
 
     @Override

@@ -25,7 +25,6 @@ public class KalenderController {
     public void initialize() throws SQLException {
         buttonCheck();
         overzichtDatePicker.setValue(LocalDate.now());
-
         toonLessen();
     }
 
