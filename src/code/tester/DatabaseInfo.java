@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseInfo {
     //TODO: naam aanpassen
@@ -91,6 +93,27 @@ public class DatabaseInfo {
         } else {
             return new Aanwezigheid(leerling, "", "Aanwezig", les);
         }
+    }
+
+    public static ArrayList<Aanwezigheid> getAbsentieLeerling(Leerling leerling) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        String query = "SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + SelectedStatics.getPersoon().persoonCode+ "'";
+        ResultSet resultSet = statement.executeQuery(query);
+        ArrayList<Aanwezigheid> test = new ArrayList<Aanwezigheid>();
+        while(resultSet.next()) {
+            String lesCode = resultSet.getString(2);
+            //ResultSet resultSet2 = statement.executeQuery("SELECT * FROM les WHERE lescode = 'SD-1'");
+            //OnlineLes les = new OnlineLes(null, lesCode, false, resultSet2.getString(5), resultSet2.getString(6), null, null, null);
+            OnlineLes les = null;
+            test.add(new Aanwezigheid((Leerling)SelectedStatics.getPersoon(), resultSet.getString(3), resultSet.getString(4), les));
+        }
+        return test;
+//        if(resultSet.next()){
+//            return new Aanwezigheid(leerling, resultSet.getString(3), resultSet.getString(4), les);
+//        } else {
+//            return new Aanwezigheid(leerling, "", "Aanwezig", les);
+//        }
     }
 
     public static void setAbsentieLeerlingLes(Aanwezigheid aanwezigheid) throws SQLException {
