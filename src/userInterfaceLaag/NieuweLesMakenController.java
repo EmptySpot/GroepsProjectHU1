@@ -1,18 +1,17 @@
 package userInterfaceLaag;
 
-import code.tester.Klas;
-import code.tester.School;
+import code.tester.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 public class NieuweLesMakenController {
+    @FXML private ToggleGroup verplichtToggleGroup;
     @FXML
     private ComboBox<Klas> klasComboBox;
     @FXML
@@ -48,11 +47,11 @@ public class NieuweLesMakenController {
         klasComboBox.getItems().addAll(klassen);
     }
 
-    public void opslaan() {
+    public void opslaan() throws SQLException {
         if (datePicker.getValue() == null) {
             errorLabel.setText("Vul een datum in");
         } else if (lescodeTextBox.getText().equals("")) {
-            errorLabel.setText("Vul de lescode in");
+            errorLabel.setText("Vul de vakcode in");
         } else if (lesnaamTextBox.getText().equals("")) {
             errorLabel.setText("Vul een lesnaam in");
         } else if (vaknaamTextBox.getText().equals("")) {
@@ -61,8 +60,25 @@ public class NieuweLesMakenController {
             errorLabel.setText("Vul een klas in");
         } else if (urenComboBox.getSelectionModel().getSelectedItem() == null) {
             errorLabel.setText("Vul de tijden in");
-        } // todo else database {
+        } else {
+            String klasnaam = klasComboBox.getSelectionModel().getSelectedItem().getNaam();
+            Date datum = Date.valueOf(datePicker.getValue());
+            String selectedUren = urenComboBox.getSelectionModel().getSelectedItem();
+            String selectedMinuten = kwartierenComboBox.getSelectionModel().getSelectedItem();
+            Time tijd = Time.valueOf(selectedUren + ":" + selectedMinuten + ":00");
+            RadioButton oma = (RadioButton) verplichtToggleGroup.getSelectedToggle();
+            boolean verplicht = oma.getText().equals("Ja");
+            String lesnaam = lesnaamTextBox.getText();
+            String vaknaam = vaknaamTextBox.getText();
+            Docent docent = (Docent) SelectedStatics.getPersoon();
+            String persoonid = docent.getDocentCode();
+            String vakcode = lescodeTextBox.getText();
+
+            DatabaseInfo.setLes(klasnaam, datum, tijd, verplicht, lesnaam, vaknaam, persoonid, vakcode);
+        }
 
         //todo }
+
     }
+
 }

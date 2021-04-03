@@ -1,9 +1,6 @@
 package code.tester;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -154,6 +151,15 @@ public class DatabaseInfo {
         resultSet.next();
         return resultSet.getString(1);
     }
+
+    public static void setLes(String klasnaam, Date datum, Time tijd, boolean verplicht, String lesnaam, String vaknaam,
+                              String persoonid, String vakcode) throws SQLException{
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        statement.execute("insert into les(klasklasnaam, datum, time, verplicht, lesnaam, vaknaam, persoonpersoonid, vakcode)" +
+                "VALUES ('" + klasnaam + "','" + datum + "','" + tijd + "','" + verplicht + "','" + lesnaam + "','" +
+                        vaknaam + "','" + persoonid + "','" + vakcode + "')");
+    }
 }
 
 //    public static void getAbsentieLeerlingenLes() throws SQLException {
@@ -165,4 +171,4 @@ public class DatabaseInfo {
 //
 //
 //    }
-}
+
