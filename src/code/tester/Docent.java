@@ -19,7 +19,9 @@ public class Docent extends Persoon{
     public void lessenAppenden(OnlineLes les){
         lessen.add(les);
     }
-
+    public void clearLessen(){
+        lessen.clear();
+    }
     public String getDocentNaam() {
         return docentNaam;
     }
@@ -29,6 +31,7 @@ public class Docent extends Persoon{
     }
 
     public List<OnlineLes> getLessen() {
+
         return Collections.unmodifiableList(lessen);
     }
 

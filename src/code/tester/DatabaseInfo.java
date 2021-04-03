@@ -18,6 +18,7 @@ public class DatabaseInfo {
         Statement statement2 = connection.createStatement();
 
         ResultSet resultSet = statement.executeQuery("SELECT * from les WHERE klasklasnaam = '" + klas + "'");
+
         while (resultSet.next()) {
             ResultSet docentSet = statement2.executeQuery("SELECT * from persoon WHERE persoonid = '" + resultSet.getString(7) + "'");
             docentSet.next();
@@ -43,8 +44,8 @@ public class DatabaseInfo {
 
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-
         ResultSet resultSet = statement.executeQuery("SELECT * FROM les WHERE persoonpersoonid ='" + docentid + "'");
+        docent.clearLessen();
         while (resultSet.next()) {
             Klas klas = School.getKlas(resultSet.getString(8));
             if (klas == null) {
@@ -96,8 +97,6 @@ public class DatabaseInfo {
     public static void setAbsentieLeerlingLes(Aanwezigheid aanwezigheid) throws SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-        System.out.println(aanwezigheid);
-
         ResultSet resultSet = statement.executeQuery("SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + aanwezigheid.getLeerlingInfo().getLeerlingnummer() + "' AND leslescode ='" + aanwezigheid.getOnlineLes().getLesCode() +"'");
         if(resultSet.next()){
             statement.execute("" +
@@ -114,13 +113,12 @@ public class DatabaseInfo {
     public static void getKlassen() throws SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-        ArrayList<Klas> klassen = new ArrayList<>();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM klas");
         while(resultSet.next()){
             new Klas(resultSet.getString(1));
         }
-        connection.close();
     }
+}
 
 //    public static void getAbsentieLeerlingenLes() throws SQLException {
 //        OnlineLes les = SelectedStatics.getLes();
@@ -131,4 +129,4 @@ public class DatabaseInfo {
 //
 //
 //    }
-}
+

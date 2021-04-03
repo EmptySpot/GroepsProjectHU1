@@ -58,16 +58,19 @@ public class KalenderController {
     public void toonLessen() throws SQLException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         List<OnlineLes> lessen;
+
         if(huidigeGebruiker instanceof  Leerling){
             DatabaseInfo.getLessenLeerling();
             Leerling leerling = (Leerling) huidigeGebruiker;
             lessen = leerling.getKlas().getLessen();
+            System.out.println(lessen.size());
             listViewLessen(lessen);
         }
         else if(huidigeGebruiker instanceof Docent) {
             DatabaseInfo.getLessenDocent();
             Docent docent = (Docent) huidigeGebruiker;
             lessen = docent.getLessen();
+            System.out.println(lessen.size());
             listViewLessen(lessen);
         }
     }
@@ -75,6 +78,7 @@ public class KalenderController {
     public void listViewLessen(List<OnlineLes> lessen){
         ObservableList<OnlineLes> data = FXCollections.observableArrayList();
         LocalDate geselecteerdeDatum =  overzichtDatePicker.getValue();
+        System.out.println(lessen.size()+ "ja");
         for(OnlineLes les : lessen){
             LocalDate datum = les.getDatum().toLocalDate();
             if(geselecteerdeDatum.equals(datum)){

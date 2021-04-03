@@ -19,11 +19,8 @@ public class School {
     }
 
     public static List<Klas> getKlassen() throws SQLException {
-        System.out.println(klassen);
         klassen.clear();
-        System.out.println(klassen);
         DatabaseInfo.getKlassen();
-        System.out.println(klassen);
         return Collections.unmodifiableList(klassen);
     }
 
@@ -45,11 +42,8 @@ public class School {
     }
 
     public static Klas getKlas(String string) {
-        System.out.println("HIEEEER");
         for(Klas klas : klassen){
-            System.out.println("HIEEEEEEEEEEEEEEEEEEEEER");
             if(klas.getNaam().equals(string)){
-                System.out.println(klas);
                 return klas;
             }
         }
