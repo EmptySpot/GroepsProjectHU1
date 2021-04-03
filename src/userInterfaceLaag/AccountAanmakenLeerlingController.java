@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,7 @@ public class AccountAanmakenLeerlingController {
     @FXML private ChoiceBox<Klas> klassenList;
     @FXML private Label errorLocatie;
     @FXML private CheckBox voorwaardenCheckbox;
-    public void initialize() {
+    public void initialize() throws SQLException {
         List<Klas> klassen = School.getKlassen();
         klassenList.getItems().addAll(klassen);
     }

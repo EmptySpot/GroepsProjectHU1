@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DatabaseInfo {
     //TODO: naam aanpassen
@@ -109,6 +110,18 @@ public class DatabaseInfo {
             statement.execute("INSERT INTO aanwezigheid" +
                     " VALUES ("+ aanwezigheid.getLeerlingInfo().getLeerlingnummer() +", '"+ aanwezigheid.getOnlineLes().getLesCode() +"', '" + aanwezigheid.getExtraInformatie() +"', '"+ aanwezigheid.getAanwezig()+"')");
         }
+    }
+
+    public static ArrayList<Klas> getKlassen() throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ArrayList<Klas> klassen = new ArrayList<>();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM klas");
+        while(resultSet.next()){
+            klassen.add(new Klas(resultSet.getString(1)));
+        }
+        connection.close();
+        return klassen;
     }
 
 //    public static void getAbsentieLeerlingenLes() throws SQLException {
