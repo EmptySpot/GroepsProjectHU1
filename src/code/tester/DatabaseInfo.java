@@ -111,16 +111,15 @@ public class DatabaseInfo {
         }
     }
 
-    public static ArrayList<Klas> getKlassen() throws SQLException {
+    public static void getKlassen() throws SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
         ArrayList<Klas> klassen = new ArrayList<>();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM klas");
         while(resultSet.next()){
-            klassen.add(new Klas(resultSet.getString(1)));
+            new Klas(resultSet.getString(1));
         }
         connection.close();
-        return klassen;
     }
 
 //    public static void getAbsentieLeerlingenLes() throws SQLException {

@@ -19,8 +19,10 @@ public class School {
     }
 
     public static List<Klas> getKlassen() throws SQLException {
-        klassen = new ArrayList<>();
-        klassen.addAll(DatabaseInfo.getKlassen());
+        System.out.println(klassen);
+        klassen.clear();
+        System.out.println(klassen);
+        DatabaseInfo.getKlassen();
         System.out.println(klassen);
         return Collections.unmodifiableList(klassen);
     }
