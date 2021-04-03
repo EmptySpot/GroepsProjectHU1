@@ -21,7 +21,7 @@ public class AccountAanmakenLeerlingController {
     @FXML private TextField studentnummer;
     @FXML private TextField wachtwoord;
     @FXML private TextField wachtwoordHerhaal;
-    @FXML private ChoiceBox<Klas> klassenList;
+    @FXML private ComboBox<Klas> klassenList;
     @FXML private Label errorLocatie;
     @FXML private CheckBox voorwaardenCheckbox;
     public void initialize() {
@@ -32,7 +32,11 @@ public class AccountAanmakenLeerlingController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Algemene voorwaarden");
         alert.setHeaderText(null);
-        alert.setContentText("De minimum leeftijd om deze app te gebruiken is 16. \n Deze app wordt gebruikt voor het afmelden van leerlingen. \n Als u 3 keer verkeerd inlogd wordt uw account geblokkeerd");
+        alert.setContentText("-De minimum leeftijd om deze app te gebruiken is 16.\n" +
+                "-Deze app wordt gebruikt voor het afmelden van leerlingen.\n" +
+                "-Als u 3 keer verkeerd inlogd wordt uw account geblokkeerd.\n" +
+                "-Als u akkoord gaat met deze voorwaarden dan slaan wij uw persoonlijke gegevens op in de database.\n" +
+                "-In geval van problemen heeft u recht op een bepaalde servicekwaliteit en verschillende manieren om het probleem op te lossen.\n");
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == ButtonType.OK) {
