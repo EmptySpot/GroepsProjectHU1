@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GeschiedenisController {
@@ -21,30 +22,16 @@ public class GeschiedenisController {
     public void initialize() {
         if (SelectedStatics.getStatus().equals("Leerling")) {
             Leerling leerling = (Leerling) SelectedStatics.getPersoon();
-            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
-            int afwezigheidCounter = 0;
-            for (Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
-                if (aanwezigheidInList.getAanwezig().equals("Absent")) {
-                    afwezigheidCounter += 1;
+            try {
+                ArrayList<Aanwezigheid> test = DatabaseInfo.getAbsentieLeerling(leerling);
+                for(Aanwezigheid AanwezigheidInList:test){
+                    System.out.println(AanwezigheidInList);
                 }
+                afwezigCounterLabel.setText("" + test.size());
             }
-            afwezigCounterLabel.setText("" + afwezigheidCounter);
+            catch (Exception e ){};
         } else if (SelectedStatics.getStatus().equals("Docent")) {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
         }
     }
-
-//    public String AfwezigheidPerLes(){
-//        if (SelectedStatics.getStatus().equals("Leerling")) {
-//            Leerling leerling = (Leerling) SelectedStatics.getPersoon();
-//            List<Aanwezigheid> aanwezigheidslist = leerling.getAanwezigheidlist();
-//            int afwezigheidCounter = 0;
-//            for (Aanwezigheid aanwezigheidInList : aanwezigheidslist) {
-//                if (aanwezigheidInList.getAanwezig().equals("Absent")) {
-//                    afwezigheidCounter += 1;
-//                }
-//            }
-//            afwezigCounterLabel.setText("" + afwezigheidCounter);
-//        }
-//    }
 }
