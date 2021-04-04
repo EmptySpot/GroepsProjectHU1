@@ -29,6 +29,7 @@ public class KlassenLijstController {
     @FXML
     TableColumn<Aanwezigheid, ComboBox> RadioButtonColumn;
 
+
     public void initialize() throws IOException, SQLException {
         Persoon huidigeGebruiker = SelectedStatics.getPersoon();
         Docent docent = (Docent) huidigeGebruiker;
@@ -68,9 +69,14 @@ public class KlassenLijstController {
         updateTable();
     }
 
+
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
+
+    public void refreshButton(ActionEvent actionEvent) throws IOException, SQLException {
+        initialize();
     }
 }
 

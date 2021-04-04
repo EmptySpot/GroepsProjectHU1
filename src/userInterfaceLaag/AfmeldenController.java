@@ -8,7 +8,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -54,7 +53,7 @@ public class AfmeldenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void opslaanButton(MouseEvent mouseEvent) throws IOException, SQLException {
+    public void opslaanButton(MouseEvent mouseEvent) throws IOException, SQLException, InterruptedException {
 
         //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
         OnlineLes les = SelectedStatics.getLes();
@@ -71,6 +70,7 @@ public class AfmeldenController {
             huidigeLeerling.updateAanwezigheid(huidigeLeerling.getAanwezigheidLes(les), aanwezigheidTekst, extrainformatie);
             Aanwezigheid a = new Aanwezigheid(huidigeLeerling, extrainformatie, aanwezigheidTekst, les);
             DatabaseInfo.setAbsentieLeerlingLes(a);
+
         }
         else if(huidigeGebruiker instanceof Docent){
             Docent huidigeDocent = (Docent) huidigeGebruiker;

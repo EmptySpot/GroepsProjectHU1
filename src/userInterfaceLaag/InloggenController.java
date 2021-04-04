@@ -22,6 +22,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -42,7 +43,7 @@ public class InloggenController {
         wachtwoordInput.setText("ww");
     }
 
-    public void inloggen(ActionEvent actionEvent) throws IOException {
+    public void inloggen(ActionEvent actionEvent) throws IOException, InterruptedException {
         Path pad = Path.of("src/textfiles/attempts.txt");
         BufferedReader br = Files.newBufferedReader(pad);
         String regel = br.readLine();
@@ -96,7 +97,7 @@ public class InloggenController {
             if (counter >= attempt) {
             inlogButton.setVisible(false);
             foutmeldingLabel.setText("Te veel foute inlogpogingen.");
-        }
+            }
     }
 
     public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException, SQLException {

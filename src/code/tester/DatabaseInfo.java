@@ -15,7 +15,7 @@ public class DatabaseInfo {
         Statement statement = connection.createStatement();
         Statement statement2 = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT * from les WHERE klasklasnaam = '" + klas + "'");
+        ResultSet resultSet = statement.executeQuery("SELECT * from les WHERE klasklasnaam = '" + klas + "'ORDER BY time ASC");
 
         while (resultSet.next()) {
             ResultSet docentSet = statement2.executeQuery("SELECT * from persoon WHERE persoonid = '" + resultSet.getString(7) + "'");
@@ -43,7 +43,7 @@ public class DatabaseInfo {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM les WHERE persoonpersoonid ='" + docentid + "'");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM les WHERE persoonpersoonid ='" + docentid + "'ORDER BY time ASC ");
         docent.clearLessen();
         while (resultSet.next()) {
             Klas klas = School.getKlas(resultSet.getString(8));
