@@ -63,7 +63,7 @@ public class MainViewController {
 
     public void mousePressedGeschiedenis(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Geschiedenis.fxml"));
+        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
 //        System.out.println("Set main view to Geschiedenis");
         ViewContainer.getChildren().setAll(node);
         setIconColor(2);

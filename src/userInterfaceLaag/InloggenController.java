@@ -22,7 +22,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -43,7 +42,7 @@ public class InloggenController {
         wachtwoordInput.setText("ww");
     }
 
-    public void inloggen(ActionEvent actionEvent) throws IOException, InterruptedException {
+    public void inloggen(ActionEvent actionEvent) throws IOException, InterruptedException, SQLException {
         Path pad = Path.of("src/textfiles/attempts.txt");
         BufferedReader br = Files.newBufferedReader(pad);
         String regel = br.readLine();
@@ -58,7 +57,7 @@ public class InloggenController {
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("SELECT * from persoon WHERE persoonID = '" + inlognaam + "'");
                 resultSet.next();
-                if (wachtwoord.equals(resultSet.getString(3))) {
+                if (wachtwoord.equals(resultSet.getString(3))&& resultSet.getString(6) == null) {
                     counter = 0;
 
                     SelectedStatics.setStatus(resultSet.getString(4));
@@ -84,6 +83,9 @@ public class InloggenController {
 
                     foutmeldingLabel.setText("Wachtwoord onjuist.");
                 }
+                if (resultSet.getString(6) != null) {
+                    foutmeldingLabel.setText("Account is geblokkeerd.");
+                }
             } catch (SQLException e) {
                 try {
                     DatabaseQuerry.closeDBConnection();
@@ -95,9 +97,10 @@ public class InloggenController {
 
             }
             if (counter >= attempt) {
-            inlogButton.setVisible(false);
-            foutmeldingLabel.setText("Te veel foute inlogpogingen.");
-            }
+                foutmeldingLabel.setText("Te veel foute inlogpogingen.");
+                DatabaseInfo.setGeblokkeerd(gebruikersnaamInput.getText());
+        }
+
     }
 
     public void tempAccountAanmaken(MouseEvent mouseEvent) throws IOException, SQLException {
