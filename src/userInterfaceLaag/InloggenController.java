@@ -68,6 +68,8 @@ public class InloggenController {
                         Klas klas = new Klas(resultSet.getString(5));
                         Leerling leerling = new Leerling(resultSet.getString(1), klas, resultSet.getString(3), resultSet.getString(2));
                         SelectedStatics.setPersoon(leerling);
+                    } else if (resultSet.getString(4).equals("Admin")) {
+
                     }
                     FXMLLoader loader =
                             new FXMLLoader(getClass().getResource("MainView.fxml"));
