@@ -184,4 +184,12 @@ public class DatabaseInfo {
         resultSet.next();
         return resultSet.getString(1);
     }
+
+    public static void setKlas(String klasnaam) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO klas(klasnaam)" +
+                "VALUES('"+klasnaam+"')");
+
+    }
 }
