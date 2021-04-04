@@ -86,40 +86,41 @@ public class MainViewController {
         }
     }
 
-    public void setIconColor(int opt){
+    public void setIconColor(int paginaNummer){
 
         Pane dbvbox = (Pane) dashBoardVbox.getChildren().get(0);
-        Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
-        Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
-
         Label dbvlabel = (Label) dashBoardVbox.getChildren().get(1);
-        Label cdvlabel = (Label) calendarVbox.getChildren().get(1);
-        Label hsvlabel = (Label) historyVbox.getChildren().get(1);
-
         dbvbox.setId("dashboardShape");
-        cdvbox.setId("calendarShape");
-        hsvbox.setId("historyShape");
-
         dbvlabel.setId("fontNotSelected");
+
+
+        Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
+        Label cdvlabel = (Label) calendarVbox.getChildren().get(1);
+        cdvbox.setId("calendarShape");
         cdvlabel.setId("fontNotSelected");
+
+
+
+        Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
+        Label hsvlabel = (Label) historyVbox.getChildren().get(1);
+        hsvbox.setId("historyShape");
         hsvlabel.setId("fontNotSelected");
 
-       if(opt == 0) {
+
+
+       if(paginaNummer == 0) {
            dbvbox.setId("dashboardShapeSelected");
            dbvlabel.setId("fontSelected");
-       } else{
-           if (opt == 1) {
+       } else if (paginaNummer == 1) {
                cdvbox.setId("calendarShapeSelected");
                cdvlabel.setId("fontSelected");
-           } else{
-               if(opt == 2){
+           } else if(paginaNummer == 2) {
                    hsvbox.setId("historyShapeSelected");
                    hsvlabel.setId("fontSelected");
-               }
-           }
-       }
-  }
-
+                }
+        }
 }
+
+
 
 
