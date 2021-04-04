@@ -57,7 +57,7 @@ public class AdminSchermController{
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Dashboard.fxml"));
+        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(0);
     }
@@ -77,7 +77,7 @@ public class AdminSchermController{
     }
     public void mousePressedKlasMaken(MouseEvent mouseEvent)throws  IOException{
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
+        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/KlasAanmaken.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(3);
     }
