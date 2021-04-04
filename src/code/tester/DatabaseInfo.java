@@ -166,12 +166,12 @@ public class DatabaseInfo {
     public static void setGeblokkeerd(String leerlingid) throws SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("update persoon SET geblokkeerd = 'Geblokkeerd' WHERE persoonid =" + leerlingid + "" );
+        statement.execute("update persoon SET geblokkeerd = 'Geblokkeerd' WHERE persoonid =" + leerlingid + "" );
     }
 
     public static void setDeblokkeren(String id) throws  SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("update persoon SET geblokkeerd = null WHERE persoonid =" + id + "" );
+       statement.execute("update persoon SET geblokkeerd = null WHERE persoonid =" + id + "" );
     }
 }
