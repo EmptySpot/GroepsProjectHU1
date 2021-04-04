@@ -64,22 +64,40 @@ public class InloggenController {
                     if (resultSet.getString(4).equals("Docent")) {
                         Docent docent = new Docent(resultSet.getString(2), resultSet.getString(1));
                         SelectedStatics.setPersoon(docent);
+                        FXMLLoader loader =
+                                new FXMLLoader(getClass().getResource("MainView.fxml"));
+                        Parent root = loader.load();
+                        Scene homePage = new Scene(root);
+                        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                        appStage.setScene(homePage);
+                        appStage.setMinWidth(appStage.getWidth());
+                        appStage.setMinHeight(appStage.getHeight());
+                        appStage.show();
                     } else if (resultSet.getString(4).equals("Leerling")) {
                         Klas klas = new Klas(resultSet.getString(5));
                         Leerling leerling = new Leerling(resultSet.getString(1), klas, resultSet.getString(3), resultSet.getString(2));
                         SelectedStatics.setPersoon(leerling);
+                        FXMLLoader loader =
+                                new FXMLLoader(getClass().getResource("MainView.fxml"));
+                        Parent root = loader.load();
+                        Scene homePage = new Scene(root);
+                        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                        appStage.setScene(homePage);
+                        appStage.setMinWidth(appStage.getWidth());
+                        appStage.setMinHeight(appStage.getHeight());
+                        appStage.show();
                     } else if (resultSet.getString(4).equals("Admin")) {
-
+                        FXMLLoader loader =
+                                new FXMLLoader(getClass().getResource("AdminScherm.fxml"));
+                        Parent root = loader.load();
+                        Scene homePage = new Scene(root);
+                        Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                        appStage.setScene(homePage);
+                        appStage.setMinWidth(appStage.getWidth());
+                        appStage.setMinHeight(appStage.getHeight());
+                        appStage.show();
                     }
-                    FXMLLoader loader =
-                            new FXMLLoader(getClass().getResource("MainView.fxml"));
-                    Parent root = loader.load();
-                    Scene homePage = new Scene(root);
-                    Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    appStage.setScene(homePage);
-                    appStage.setMinWidth(appStage.getWidth());
-                    appStage.setMinHeight(appStage.getHeight());
-                    appStage.show();
+
                 } else {
                     counter++;
 

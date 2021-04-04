@@ -39,33 +39,33 @@ public class GeschiedenisController {
         }
     }
 
-    public void toonLessen() throws SQLException {
-        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
-        List<Aanwezigheid> aanwezigheidList;
-
-        if(huidigeGebruiker instanceof  Leerling){
-            DatabaseInfo.getLessenLeerling();
-            Leerling leerling = (Leerling) huidigeGebruiker;
-            afwezigheid = leerling.getAanwezigheidLes().equals("abscent");
-            listViewLessen(afwezigheid);
-        }
-        else if(huidigeGebruiker instanceof Docent) {
-//            DatabaseInfo.getLessenDocent();
-//            Docent docent = (Docent) huidigeGebruiker;
-//            lessen = docent.getLessen();
+//    public void toonLessen() throws SQLException {
+//        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
+//        List<OnlineLes> lessen;
+//
+//        if(huidigeGebruiker instanceof  Leerling){
+//            DatabaseInfo.getLessenLeerling();
+//            Leerling leerling = (Leerling) huidigeGebruiker;
+//            lessen = leerling.getKlas().getLessen();
 //            listViewLessen(lessen);
-        }
-    }
-
-    public void listViewLessen(List<OnlineLes> lessen){
-        ObservableList<OnlineLes> data = FXCollections.observableArrayList();
-        for(OnlineLes les : lessen){
-            if(getOnlinesles.getAanwezigheid().equals("Absent")){
-                data.add(les);
-            }
-        }
-        aanwezigheidView.setItems(data);
-    }
+//        }
+//        else if(huidigeGebruiker instanceof Docent) {
+////            DatabaseInfo.getLessenDocent();
+////            Docent docent = (Docent) huidigeGebruiker;
+////            lessen = docent.getLessen();
+////            listViewLessen(lessen);
+//        }
+//    }
+//
+//    public void listViewLessen(List<OnlineLes> lessen){
+//        ObservableList<OnlineLes> data = FXCollections.observableArrayList();
+//        for(OnlineLes les : lessen){
+//            if(getOnlinesles.getAanwezigheid().equals("Absent")){
+//                data.add(les);
+//            }
+//        }
+//        aanwezigheidView.setItems(data);
+//    }
 
 
 }
