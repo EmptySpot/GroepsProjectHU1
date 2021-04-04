@@ -7,31 +7,67 @@
 package userInterfaceLaag;
 
 import code.tester.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GeschiedenisController {
     @FXML private Label afwezigCounterLabel;
 
+    public ListView<Aanwezigheid> aanwezigheidView;
+
     public void initialize() {
         if (SelectedStatics.getStatus().equals("Leerling")) {
             Leerling leerling = (Leerling) SelectedStatics.getPersoon();
             try {
                 ArrayList<Aanwezigheid> test = DatabaseInfo.getAbsentieLeerling(leerling);
-                for(Aanwezigheid AanwezigheidInList:test){
-                    System.out.println(AanwezigheidInList);
+                for (Aanwezigheid AanwezigheidInList : test) {
                 }
                 afwezigCounterLabel.setText("" + test.size());
-            }
-            catch (Exception e ){};
+            } catch (Exception e) {}
         } else if (SelectedStatics.getStatus().equals("Docent")) {
 //            Docent docent = (Docent) SelectedStatics.getPersoon();
         }
     }
+
+    public void toonLessen() throws SQLException {
+        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
+        List<Aanwezigheid> aanwezigheidList;
+
+        if(huidigeGebruiker instanceof  Leerling){
+            DatabaseInfo.getLessenLeerling();
+            Leerling leerling = (Leerling) huidigeGebruiker;
+            afwezigheid = leerling.getAanwezigheidLes().equals("abscent");
+            listViewLessen(afwezigheid);
+        }
+        else if(huidigeGebruiker instanceof Docent) {
+//            DatabaseInfo.getLessenDocent();
+//            Docent docent = (Docent) huidigeGebruiker;
+//            lessen = docent.getLessen();
+//            listViewLessen(lessen);
+        }
+    }
+
+    public void listViewLessen(List<OnlineLes> lessen){
+        ObservableList<OnlineLes> data = FXCollections.observableArrayList();
+        for(OnlineLes les : lessen){
+            if(getOnlinesles.getAanwezigheid().equals("Absent")){
+                data.add(les);
+            }
+        }
+        aanwezigheidView.setItems(data);
+    }
+
+
 }
+
+
