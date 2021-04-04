@@ -16,6 +16,6 @@
       </TableView>
       <Button layoutX="524.0" layoutY="298.0" mnemonicParsing="false" onAction="#buttonOk" text="Ok" />
       <Button layoutX="514.0" layoutY="349.0" mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" text="Cancel" />
-      <Button layoutX="514.0" layoutY="323.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="514.0" layoutY="323.0" mnemonicParsing="false" onAction="#refreshButton" text="Refresh" />
     </children>
 </AnchorPane>
