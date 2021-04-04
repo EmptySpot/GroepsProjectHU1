@@ -87,9 +87,9 @@ public class InloggenController {
                         appStage.setMinHeight(appStage.getHeight());
                         appStage.show();
                     } else if (resultSet.getString(4).equals("Admin")) {
-                        FXMLLoader loader =
+                        FXMLLoader loader2 =
                                 new FXMLLoader(getClass().getResource("AdminScherm.fxml"));
-                        Parent root = loader.load();
+                        Parent root = loader2.load();
                         Scene homePage = new Scene(root);
                         Stage appStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
                         appStage.setScene(homePage);

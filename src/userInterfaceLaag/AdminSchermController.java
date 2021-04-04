@@ -1,6 +1,7 @@
 package userInterfaceLaag;
 
 import code.tester.DatabaseQuerry;
+import code.tester.Klas;
 import code.tester.OnlineLes;
 import code.tester.SelectedStatics;
 import javafx.fxml.FXML;
@@ -24,10 +25,16 @@ import java.util.Optional;
 public class AdminSchermController{
     @FXML
     private AnchorPane ViewContainer;
-    @FXML private GridPane sideBarGrid;
-    @FXML private VBox dashBoardVbox;
-    @FXML private VBox calendarVbox;
-    @FXML private VBox historyVbox;
+    @FXML
+    private VBox dashBoardVbox;
+    @FXML
+    private VBox DocentAanmakenVbox;
+    @FXML
+    private VBox BeveiligingVbox;
+    @FXML
+    private VBox klasMakenVbox;
+    @FXML
+    private VBox uitloggenVbox;
 
 
     public ListView<OnlineLes> listViewTest;
@@ -55,19 +62,24 @@ public class AdminSchermController{
         setIconColor(0);
     }
 
-    public void mousePressedKalender(MouseEvent mouseEvent) throws IOException {
+    public void mousePressedDocentAanmaken(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
+        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/DocentAanmaken.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(1);
     }
 
-    public void mousePressedGeschiedenis(MouseEvent mouseEvent) throws IOException {
+    public void mousePressedBeveiliging(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Geschiedenis.fxml"));
-//        System.out.println("Set main view to Geschiedenis");
+        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Deblokkeren.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(2);
+    }
+    public void mousePressedKlasMaken(MouseEvent mouseEvent)throws  IOException{
+        Node node;
+        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
+        ViewContainer.getChildren().setAll(node);
+        setIconColor(3);
     }
 
 
@@ -87,40 +99,48 @@ public class AdminSchermController{
         }
     }
 
-    public void setIconColor(int opt){
+    public void setIconColor(int nummer){
+        Pane dashboardbox = (Pane) dashBoardVbox.getChildren().get(0);
+        Label dashboardLabel = (Label) dashBoardVbox.getChildren().get(1);
+        dashboardbox.setId("dashboard");
+        dashboardLabel.setId("uit");
 
-        Pane dbvbox = (Pane) dashBoardVbox.getChildren().get(0);
-        Pane cdvbox = (Pane) calendarVbox.getChildren().get(0);
-        Pane hsvbox = (Pane) historyVbox.getChildren().get(0);
+        Pane docentAanmakenbox = (Pane) DocentAanmakenVbox.getChildren().get(0);
+        Label docentMakenLabel = (Label) DocentAanmakenVbox.getChildren().get(1);
+        docentAanmakenbox.setId("DocentMaken");
+        docentMakenLabel.setId("uit");
 
-        Label dbvlabel = (Label) dashBoardVbox.getChildren().get(1);
-        Label cdvlabel = (Label) calendarVbox.getChildren().get(1);
-        Label hsvlabel = (Label) historyVbox.getChildren().get(1);
+        Pane beveiligingbox = (Pane) BeveiligingVbox.getChildren().get(0);
+        Label beveiligingLabel = (Label) BeveiligingVbox.getChildren().get(1);
+        beveiligingbox.setId("Beveiliging");
+        beveiligingLabel.setId("uit");
 
-        dbvbox.setId("dashboardShape");
-        cdvbox.setId("calendarShape");
-        hsvbox.setId("historyShape");
+        Pane klasMakenbox = (Pane) klasMakenVbox.getChildren().get(0);
+        Label klasMakenLabel = (Label)klasMakenVbox.getChildren().get(1);
+        klasMakenbox.setId("klasMaken");
+        klasMakenLabel.setId("uit");
 
-        dbvlabel.setId("fontNotSelected");
-        cdvlabel.setId("fontNotSelected");
-        hsvlabel.setId("fontNotSelected");
+        Pane uitloggenBox = (Pane) uitloggenVbox.getChildren().get(0);
+        Label uitloggenLabel = (Label) uitloggenVbox.getChildren().get(1);
+        uitloggenBox.setId("uitloggen");
+        uitloggenLabel.setId("uit");
 
-        if(opt == 0) {
-            dbvbox.setId("dashboardShapeSelected");
-            dbvlabel.setId("fontSelected");
-        } else{
-            if (opt == 1) {
-                cdvbox.setId("calendarShapeSelected");
-                cdvlabel.setId("fontSelected");
-            } else{
-                if(opt == 2){
-                    hsvbox.setId("historyShapeSelected");
-                    hsvlabel.setId("fontSelected");
-                }
-            }
+        if(nummer == 0) {
+            dashboardbox.setId("dashboardAan");
+            dashboardLabel.setId("aan");
+        } else if (nummer == 1) {
+            docentAanmakenbox.setId("DocentMakenAan");
+                docentMakenLabel.setId("aan");
+            } else if(nummer == 2){
+                    beveiligingbox.setId("BeveiligingAan");
+                    beveiligingLabel.setId("aan");
+                }else if(nummer == 3){
+                       klasMakenbox.setId("klasMakenAan");
+                       klasMakenLabel.setId("aan");
         }
     }
-
 }
+
+
 
 
