@@ -1,5 +1,7 @@
 package code.tester;
 
+import javax.swing.plaf.nimbus.State;
+import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -159,5 +161,17 @@ public class DatabaseInfo {
         statement.execute("insert into les(klasklasnaam, datum, time, verplicht, lesnaam, vaknaam, persoonpersoonid, vakcode)" +
                 "VALUES ('" + klasnaam + "','" + datum + "','" + tijd + "','" + verplicht + "','" + lesnaam + "','" +
                         vaknaam + "','" + persoonid + "','" + vakcode + "')");
+    }
+
+    public static void setGeblokkeerd(String leerlingid) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("update persoon SET geblokkeerd = 'Geblokkeerd' WHERE persoonid =" + leerlingid + "" );
+    }
+
+    public static void setDeblokkeren(String id) throws  SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("update persoon SET geblokkeerd = null WHERE persoonid =" + id + "" );
     }
 }
