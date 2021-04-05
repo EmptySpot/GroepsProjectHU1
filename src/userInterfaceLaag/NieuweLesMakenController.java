@@ -11,23 +11,16 @@ import java.sql.Date;
 import java.util.List;
 
 public class NieuweLesMakenController {
+    @FXML private ComboBox tijdAanduider;
     @FXML private ToggleGroup verplichtToggleGroup;
-    @FXML
-    private ComboBox<Klas> klasComboBox;
-    @FXML
-    private ComboBox<String> urenComboBox;
-    @FXML
-    private ComboBox<String> kwartierenComboBox;
-    @FXML
-    private DatePicker datePicker;
-    @FXML
-    private Label errorLabel;
-    @FXML
-    private TextField lescodeTextBox;
-    @FXML
-    private TextField lesnaamTextBox;
-    @FXML
-    private TextField vaknaamTextBox;
+    @FXML private ComboBox<Klas> klasComboBox;
+    @FXML private ComboBox<String> urenComboBox;
+    @FXML private ComboBox<String> kwartierenComboBox;
+    @FXML private DatePicker datePicker;
+    @FXML private Label errorLabel;
+    @FXML private TextField lescodeTextBox;
+    @FXML private TextField lesnaamTextBox;
+    @FXML private TextField vaknaamTextBox;
     private ArrayList<String> urenArray = new ArrayList<>();
     private ArrayList<String> kwartierenArray = new ArrayList<>();
 
@@ -45,6 +38,8 @@ public class NieuweLesMakenController {
         urenComboBox.getItems().addAll(urenArray);
         List<Klas> klassen = School.getKlassen();
         klasComboBox.getItems().addAll(klassen);
+        tijdAanduider.getItems().addAll("uur", "minuten");
+        tijdAanduider.setValue("uur");
     }
 
     public void opslaan() throws SQLException {
@@ -58,7 +53,7 @@ public class NieuweLesMakenController {
             errorLabel.setText("Vul een vaknaam in");
         } else if (klasComboBox.getSelectionModel().getSelectedItem() == null) {
             errorLabel.setText("Vul een klas in");
-        } else if (urenComboBox.getSelectionModel().getSelectedItem() == null) {
+        } else if (urenComboBox.getSelectionModel().getSelectedItem() == null || kwartierenComboBox.getSelectionModel().getSelectedItem() == null) {
             errorLabel.setText("Vul de tijden in");
         } else {
             String klasnaam = klasComboBox.getSelectionModel().getSelectedItem().getNaam();
@@ -72,9 +67,9 @@ public class NieuweLesMakenController {
             String vaknaam = vaknaamTextBox.getText();
             Docent docent = (Docent) SelectedStatics.getPersoon();
             String persoonid = docent.getDocentCode();
-            String vakcode = lescodeTextBox.getText();
+            String duratie = lescodeTextBox.getText() + " " + tijdAanduider.getSelectionModel().getSelectedItem();
 
-            DatabaseInfo.setLes(klasnaam, datum, tijd, verplicht, lesnaam, vaknaam, persoonid, vakcode);
+            DatabaseInfo.setLes(klasnaam, datum, tijd, verplicht, lesnaam, vaknaam, persoonid, duratie);
         }
 
         //todo }

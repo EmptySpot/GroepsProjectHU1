@@ -78,5 +78,12 @@ public class KlassenLijstController {
     public void refreshButton(ActionEvent actionEvent) throws IOException, SQLException {
         initialize();
     }
+
+    public void buttonSluiten(ActionEvent actionEvent) throws SQLException {
+        Docent huidigeDocent = (Docent) SelectedStatics.getPersoon();
+        OnlineLes les = SelectedStatics.getLes();
+        Aanwezigheid a = new Aanwezigheid(huidigeDocent, "Gesloten", les);
+        DatabaseInfo.setAbsentieLeerlingLes(a);
+    }
 }
 

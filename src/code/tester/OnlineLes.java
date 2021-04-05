@@ -1,6 +1,7 @@
 package code.tester;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -15,8 +16,9 @@ public class OnlineLes {
     private Docent docent;
     private Time time;
     private String status;
+    private String duratie;
 
-    public OnlineLes(Date date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, Time time){
+    public OnlineLes(Date date, String lesC, boolean verpl, String lesN, String vakN, Klas klas, Docent docent, Time time, String duratie){
         this.datum = date;
         this.lesCode = lesC;
         this.verplicht = verpl;
@@ -27,6 +29,7 @@ public class OnlineLes {
         docent.lessenAppenden(this);
         klas.lessenAppenden(this);
         this.time = time;
+        this.duratie = duratie;
     }
 
     public Date getDatum() {
@@ -35,6 +38,14 @@ public class OnlineLes {
 
     public String getLesCode() {
         return lesCode;
+    }
+
+    public String getDuratie() {
+        return duratie;
+    }
+
+    public void setDuratie(String duratie) {
+        this.duratie = duratie;
     }
 
     public String getLesNaam() {
@@ -61,8 +72,8 @@ public class OnlineLes {
         return time;
     }
 
-    public String getStatus() {
-        return status;
+    public String getStatus() throws SQLException {
+        return DatabaseInfo.getStatus(lesCode, docent.getDocentCode());
     }
 
     public void setDatum(Date datum) {
@@ -71,10 +82,6 @@ public class OnlineLes {
 
     public void setTime(Time time) {
         this.time = time;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     @Override
