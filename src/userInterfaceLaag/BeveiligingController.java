@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class BeveiligingController {
     @FXML private TextField pogingenTextfield;
@@ -21,7 +22,7 @@ public class BeveiligingController {
     @FXML private Label geenInvoer;
     public void deblokkeren(MouseEvent mouseEvent) throws SQLException, IOException {
 
-        if(gebruikersnaamInput.getText()==""){
+        if(gebruikersnaamInput.getText()=="" || !gebruikersnaamInput.getText().matches("-?(0|[1-9]\\d*)")){
             geenInvoer.setText("Voer een leerlingnummer in!");
         }else{
         DatabaseInfo.setDeblokkeren(gebruikersnaamInput.getText());

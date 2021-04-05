@@ -218,4 +218,18 @@ public class DatabaseInfo {
         return "Aanwezig";
     }
 
+    public static ArrayList<OnlineLes> getAbsentieLessen(Leerling leerling) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ArrayList<OnlineLes> lessen = new ArrayList<>();
+        String code = leerling.getLeerlingnummer();
+        Klas klas = leerling.getKlas();
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM aanwezigheid WHERE persoonpersoonid ='" + code + "' AND aanwezigheid ='Absent'");
+        while(resultSet.next()){
+            lessen.add(klas.getLes(resultSet.getString(2)));
+        }
+        return lessen;
+    }
+
 }

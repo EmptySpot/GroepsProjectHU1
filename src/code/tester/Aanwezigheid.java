@@ -67,7 +67,7 @@ public class Aanwezigheid {
 
 
     public Button getButtonAanwezig() {
-        if(extraInformatie.equals("")){
+        if(extraInformatie.equals("") || extraInformatie == null){
            buttonAanwezig.setVisible(false);
         } else {
             buttonAanwezig.setOnAction((ActionEvent event) -> {
