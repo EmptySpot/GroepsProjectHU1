@@ -73,6 +73,7 @@ public class KalenderController {
         }
     }
 
+
     public void listViewLessen(List<OnlineLes> lessen){
         ObservableList<OnlineLes> data = FXCollections.observableArrayList();
         LocalDate geselecteerdeDatum =  overzichtDatePicker.getValue();
