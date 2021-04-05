@@ -7,4 +7,5 @@ public abstract class Persoon {
         this.persoonCode = persoonCode;
     }
 
+
 }

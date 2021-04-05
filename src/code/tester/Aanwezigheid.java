@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 
 public class Aanwezigheid {
     private Leerling leerlingInfo;
+    private Docent docentInfo;
     private String extraInformatie;
     private SimpleStringProperty aanwezig;
     private OnlineLes onlineLes;
@@ -18,6 +19,14 @@ public class Aanwezigheid {
     public Aanwezigheid(Leerling leerling, String extraI, String aanwezigheid, OnlineLes les){
         this.leerlingInfo = leerling;
         this.extraInformatie = extraI;
+        this.aanwezig = new SimpleStringProperty(aanwezigheid);
+        this.onlineLes = les;
+        this.buttonAanwezig = new Button("Extra informatie");
+        this.aanwezigheidComboBox = new ComboBox<String>();
+    }
+    
+    public Aanwezigheid(Docent docent, String aanwezigheid, OnlineLes les){
+        this.docentInfo = docent;
         this.aanwezig = new SimpleStringProperty(aanwezigheid);
         this.onlineLes = les;
         this.buttonAanwezig = new Button("Absent");
@@ -81,6 +90,14 @@ public class Aanwezigheid {
 
     public String aanwezigheidComboBoxGetSelected() {
         return aanwezigheidComboBox.getSelectionModel().getSelectedItem();
+    }
+
+    public String getNummer() {
+        if(leerlingInfo!=null){
+            return leerlingInfo.getLeerlingnummer();
+        } else {
+            return docentInfo.getDocentCode();
+        }
     }
 }
 //arraylist van leerlingen lessen reden en aanwezigheid

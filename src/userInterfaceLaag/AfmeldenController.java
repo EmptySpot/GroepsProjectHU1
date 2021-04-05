@@ -3,10 +3,7 @@ package userInterfaceLaag;
 import code.tester.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,19 +19,29 @@ public class AfmeldenController {
     @FXML private Label statusLabel;
     @FXML private TextArea redeneringTextArea;
     @FXML private ToggleGroup aanwezigheid;
+    @FXML private Button opslaanButton;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         OnlineLes l = SelectedStatics.getLes();
         if (l != null) {
             vakNaam.setText(l.getVakNaam());
             lesNaam.setText(l.getLesNaam());
             lesgetal.setText(l.getLesCode());
+            lesgetal.setText("haha");
+            lesgetal.setText(l.getDuratie());
             datum.setText(l.getDatum().toString() + " " + l.getTime());
             docentNaam.setText(l.getDocent().toString());
             klasNaam.setText(l.getKlas().toString());
-            if(l.getStatus()!=null){
-                statusLabel.setText("Docent is: " + l.getStatus());
+            String status = l.getStatus();
+            if(!status.equals("Aanwezig")){
+                if(status.equals("Gesloten")){
+                    opslaanButton.setVisible(false);
+                    statusLabel.setText("Deze les is gesloten");
+                } else {
+                    statusLabel.setText("Docent is: " + l.getStatus());
+                }
             }
+
             boolean verplichting = l.getVerplicht();
             if (verplichting) {
                 verplicht.setText("Ja");
@@ -53,9 +60,8 @@ public class AfmeldenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void opslaanButton(MouseEvent mouseEvent) throws IOException, SQLException, InterruptedException {
+    public void opslaanButton(MouseEvent mouseEvent) throws IOException, SQLException {
 
-        //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
         OnlineLes les = SelectedStatics.getLes();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
@@ -66,7 +72,6 @@ public class AfmeldenController {
 
         if(huidigeGebruiker instanceof Leerling){
             Leerling huidigeLeerling = (Leerling) huidigeGebruiker;
-            System.out.println(huidigeLeerling);
             huidigeLeerling.updateAanwezigheid(huidigeLeerling.getAanwezigheidLes(les), aanwezigheidTekst, extrainformatie);
             Aanwezigheid a = new Aanwezigheid(huidigeLeerling, extrainformatie, aanwezigheidTekst, les);
             DatabaseInfo.setAbsentieLeerlingLes(a);
@@ -74,8 +79,8 @@ public class AfmeldenController {
         }
         else if(huidigeGebruiker instanceof Docent){
             Docent huidigeDocent = (Docent) huidigeGebruiker;
-            les.setStatus(aanwezigheidTekst);
+            Aanwezigheid a = new Aanwezigheid(huidigeDocent, aanwezigheidTekst, les);
+            DatabaseInfo.setAbsentieLeerlingLes(a);
         }
-        //TODO: Niet aan de error zitten, hij is bekend en huidig correct.
     }
 }

@@ -35,11 +35,6 @@ public class Docent extends Persoon{
         return Collections.unmodifiableList(lessen);
     }
 
-    public void setAanwezigheid(String extraInformatie, String aanwezigheid, OnlineLes les){
-        les.setStatus(aanwezigheid);
-        System.out.println(extraInformatie);
-    }
-
     public OnlineLes getLes(String string) {
         return SelectedStatics.getLes(string, lessen);
     }
