@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane onMousePressed="#opslaan" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.KlasAanmakenController">
+   <children>
+      <Label layoutX="64.0" layoutY="52.0" text="Hier kunt u een nieuwe klas aanmaken" />
+      <HBox layoutX="66.0" layoutY="84.0" prefHeight="30.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Label text="Klasnaam:" />
+            <TextField fx:id="klasnaam" prefHeight="25.0" prefWidth="55.0" />
+         </children>
+      </HBox>
+      <Button layoutX="64.0" layoutY="120.0" mnemonicParsing="false" text="Opslaan" />
+      <Button layoutX="140.0" layoutY="120.0" mnemonicParsing="false" onMousePressed="#cancelButton" text="Cancel" />
+      <Label fx:id="errorLocatie" layoutX="66.0" layoutY="154.0" textFill="RED" />
+   </children>
+</AnchorPane>
