@@ -14,24 +14,13 @@
                 <TableColumn fx:id="RadioButtonColumn" editable="false" prefWidth="150.0" text="Aanwezig" />
           </columns>
       </TableView>
-      <VBox prefHeight="200.0" prefWidth="100.0" />
-      <VBox layoutX="507.0" layoutY="275.0" prefHeight="111.0" prefWidth="71.0">
+      <VBox layoutX="502.0" layoutY="289.0" prefHeight="111.0" prefWidth="84.0">
          <children>
-            <VBox prefHeight="40.0" prefWidth="71.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#buttonOk" prefHeight="25.0" prefWidth="81.0" text="Ok" />
-               </children>
-            </VBox>
-            <VBox prefHeight="39.0" prefWidth="71.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#refreshButton" prefHeight="25.0" prefWidth="121.0" text="Refresh" />
-               </children>
-            </VBox>
-            <VBox prefHeight="42.0" prefWidth="100.0">
-               <children>
-                  <Button mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" prefHeight="25.0" prefWidth="131.0" text="Cancel" />
-               </children>
-            </VBox>
-         </children></VBox>
+            <Button mnemonicParsing="false" onAction="#buttonOk" prefHeight="25.0" prefWidth="178.0" text="Ok" />
+            <Button mnemonicParsing="false" onAction="#refreshButton" prefHeight="25.0" prefWidth="155.0" text="Refresh" />
+            <Button mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" prefHeight="25.0" prefWidth="129.0" text="Cancel" />
+            <Button layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#buttonSluiten" prefHeight="25.0" prefWidth="133.0" text="Les sluiten" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
