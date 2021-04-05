@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="userInterfaceLaag.WachtwoordOpvragenController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.WachtwoordOpvragenController">
+   <children>
+      <HBox layoutX="52.0" layoutY="67.0" prefHeight="37.0" prefWidth="220.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="198.0" text="Gebruikersnaam:" />
+            <TextField fx:id="gebruikersnaamTextfield" prefHeight="25.0" prefWidth="230.0" />
+         </children>
+      </HBox>
+      <Button layoutX="52.0" layoutY="104.0" mnemonicParsing="false" onMousePressed="#wachtwoordOpvragen" text="Wachtwoord opvragen" />
+      <Label layoutX="52.0" layoutY="32.0" text="Hier kunt u het wachtwoord opvragen van een account" />
+   </children>
 </AnchorPane>
