@@ -225,4 +225,13 @@ public class DatabaseInfo {
         return absentlessen;
     }
 
+    public static int getLeerling()throws SQLException{
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM inlogattempts WHERE inlogid = 1");
+        resultSet.next();
+        int pogingen =resultSet.getInt(1);
+        return pogingen;
+    }
+
 }

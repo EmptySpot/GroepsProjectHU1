@@ -24,24 +24,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeschiedenisController {
+    @FXML private Button zoekButton;
+    @FXML private TextField zoekNaam;
     @FXML private Label afwezigCounterLabel;
-
     @FXML private ListView<OnlineLes> aanwezigheidView;
 
     public void initialize() throws SQLException {
         if (SelectedStatics.getStatus().equals("Leerling")) {
-            listViewLessen();
+            zoekNaam.setVisible(false);
+            zoekButton.setVisible(false);
+            Persoon huidigeGebruiker = SelectedStatics.getPersoon();
+            Leerling leerling = (Leerling) huidigeGebruiker;
+            listViewLessen(leerling);
         }
     }
 
-    public void listViewLessen() throws SQLException {
+    public void listViewLessen(Leerling leerling) throws SQLException {
         ObservableList<OnlineLes> data = FXCollections.observableArrayList();
-        Persoon huidigeGebruiker = SelectedStatics.getPersoon();
-        Leerling leerling = (Leerling) huidigeGebruiker;
+
         ArrayList<OnlineLes> absentlessen = DatabaseInfo.getAbsentieLessen(leerling);
         data.addAll(absentlessen);
         aanwezigheidView.setItems(data);
         afwezigCounterLabel.setText("" + data.size());
+    }
+
+    public void mousePressedZoek(MouseEvent mouseEvent) {
+//        Leerling leerling = zoekNaam.getText();
+//        listViewLessen(leerling);
     }
 }
 
