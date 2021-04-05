@@ -14,8 +14,13 @@
                 <TableColumn fx:id="RadioButtonColumn" editable="false" prefWidth="150.0" text="Aanwezig" />
           </columns>
       </TableView>
-      <Button layoutX="524.0" layoutY="298.0" mnemonicParsing="false" onAction="#buttonOk" text="Ok" />
-      <Button layoutX="514.0" layoutY="349.0" mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" text="Cancel" />
-      <Button layoutX="514.0" layoutY="323.0" mnemonicParsing="false" onAction="#refreshButton" text="Refresh" />
+      <VBox layoutX="502.0" layoutY="289.0" prefHeight="111.0" prefWidth="84.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#buttonOk" prefHeight="25.0" prefWidth="178.0" text="Ok" />
+            <Button mnemonicParsing="false" onAction="#refreshButton" prefHeight="25.0" prefWidth="155.0" text="Refresh" />
+            <Button mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" prefHeight="25.0" prefWidth="129.0" text="Cancel" />
+            <Button layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#buttonSluiten" prefHeight="25.0" prefWidth="133.0" text="Les sluiten" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

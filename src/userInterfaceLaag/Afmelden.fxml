@@ -48,12 +48,12 @@
                         </HBox>
                         <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="431.0" spacing="10.0">
                            <children>
-                              <Label prefHeight="27.0" prefWidth="76.0" text="Les:">
+                              <Label prefHeight="27.0" prefWidth="76.0" text="Duratie:">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="lesgetal" prefHeight="27.0" prefWidth="177.0" text="lesgetal">
+                              <Label fx:id="lesgetal" prefHeight="27.0" prefWidth="177.0" text="tijd">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -117,7 +117,7 @@
                   <HBox prefHeight="33.0" prefWidth="431.0" spacing="20.0">
                      <children>
                         <Region prefHeight="33.0" prefWidth="108.0" />
-                        <Button mnemonicParsing="false" onMousePressed="#opslaanButton" prefHeight="25.0" prefWidth="69.0" text="Opslaan" />
+                        <Button fx:id="opslaanButton" mnemonicParsing="false" onMousePressed="#opslaanButton" prefHeight="25.0" prefWidth="69.0" text="Opslaan" />
                         <Button layoutX="138.0" layoutY="10.0" mnemonicParsing="false" onMousePressed="#cancelButton" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
                      </children>
                   </HBox>

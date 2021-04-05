@@ -4,11 +4,23 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DeblokkerenController">
-   <children>
-      <Label layoutX="78.0" layoutY="83.0" text="Gebruikersnaam:" />
-      <TextField fx:id="gebruikersnaamInput" layoutX="179.0" layoutY="79.0" />
-      <Button layoutX="78.0" layoutY="129.0" mnemonicParsing="false" onMousePressed="#deblokkeren" text="Deblokkeren" />
-      <Button layoutX="179.0" layoutY="129.0" mnemonicParsing="false" onMousePressed="#cancelButton" text="Cancel" />
-      <Label layoutX="78.0" layoutY="23.0" text="Vul de gebruikersnaam in van het persoon die je wilt deblokkeren" />
-   </children>
+   <AnchorPane prefHeight="180.0" prefWidth="600.0">
+      <children>
+         <Label layoutX="65.0" layoutY="74.0" text="Gebruikersnaam:" />
+         <TextField fx:id="gebruikersnaamInput" layoutX="166.0" layoutY="70.0" />
+         <Button layoutX="65.0" layoutY="120.0" mnemonicParsing="false" onMousePressed="#deblokkeren" text="Deblokkeren" />
+         <Label layoutX="65.0" layoutY="14.0" text="Vul de gebruikersnaam in van het persoon die je wilt deblokkeren" />
+         <ComboBox layoutX="350.0" layoutY="70.0" prefWidth="150.0" />
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutY="188.0" prefHeight="236.0" prefWidth="600.0">
+      <children>
+         <Label layoutX="69.0" layoutY="33.0" text="Vul hier het aantal pogingen om in te loggen in voor het blokkeren" />
+         <Label layoutX="69.0" layoutY="75.0" text="Pogingen:" />
+         <TextField fx:id="pogingenTextfield" layoutX="131.0" layoutY="71.0" prefHeight="25.0" prefWidth="83.0" />
+         <Button layoutX="66.0" layoutY="118.0" mnemonicParsing="false" onAction="#opslaan" text="Opslaan" />
+         <Label fx:id="meldingLabel" layoutX="85.0" layoutY="153.0" textFill="#6fe873" />
+      </children>
+</AnchorPane>
+
 </AnchorPane>

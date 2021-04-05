@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -14,6 +15,8 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class DeblokkerenController {
+    @FXML private TextField pogingenTextfield;
+    @FXML private Label meldingLabel;
     @FXML private TextField gebruikersnaamInput;
     public void deblokkeren(MouseEvent mouseEvent) throws SQLException, IOException {
         DatabaseInfo.setDeblokkeren(gebruikersnaamInput.getText());
@@ -29,5 +32,16 @@ public class DeblokkerenController {
     public void cancelButton(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminDashboard.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
+
+
+    public void cancelButton1(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminDashboard.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
+
+    public void opslaan(ActionEvent actionEvent) throws SQLException {
+        DatabaseInfo.setBlokkeerAttempts(Integer.parseInt(pogingenTextfield.getText()));
+        meldingLabel.setText("U heeft succesvol het aantal pogingen aangepast naar: " + pogingenTextfield.getText());
     }
 }
