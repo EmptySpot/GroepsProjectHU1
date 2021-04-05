@@ -130,19 +130,12 @@ public class InloggenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void tempWachtwoordVergeten(MouseEvent mouseEvent) throws IOException {
+    public void tempWachtwoordVergeten(MouseEvent mouseEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("HU agenda");
         alert.setHeaderText("Neem contact op met het volgende E-mail adress om u wachtwoord te herstellen");
         alert.setContentText("HUHelpdesk@outlook.com");
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-            alert.hide();
-        } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
-            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-        }
+        alert.show();
 
     }
 
