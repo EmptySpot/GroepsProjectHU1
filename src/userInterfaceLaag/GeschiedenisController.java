@@ -48,9 +48,16 @@ public class GeschiedenisController {
         afwezigCounterLabel.setText("" + data.size());
     }
 
-    public void mousePressedZoek(MouseEvent mouseEvent) {
-//        Leerling leerling = zoekNaam.getText();
-//        listViewLessen(leerling);
+    public void mousePressedZoek(MouseEvent mouseEvent) throws SQLException {
+        if(zoekNaam.getText().matches("-?(0|[1-9]\\d*)")){
+            Leerling leerling = DatabaseInfo.getLeerling(zoekNaam.getText());
+            if(leerling!=null) {
+                Docent docent = (Docent) SelectedStatics.getPersoon();
+                SelectedStatics.setPersoon(leerling);
+                listViewLessen(leerling);
+                SelectedStatics.setPersoon(docent);
+            }
+        }
     }
 }
 
