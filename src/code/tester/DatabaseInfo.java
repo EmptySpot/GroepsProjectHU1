@@ -31,12 +31,42 @@ public class DatabaseInfo {
             }
 
             if (les == null) {
-                new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3), resultSet.getString(9));
+                new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3),resultSet.getString(9));
+            } else if (!SelectedStatics.controleLes(les, resultSet.getDate(2), resultSet.getTime(3))) {
+                klas.updateLes(les, resultSet.getDate(2), resultSet.getTime(3));
+            }
+        }
+    }public static void getAbsentLessenLeerling() throws SQLException {
+        Leerling leerling = (Leerling) SelectedStatics.getPersoon();
+        Klas klas = leerling.getKlas();
+
+        Connection connection = DatabaseQuerry.getDBConnection();
+
+        Statement statement = connection.createStatement();
+        Statement statement2 = connection.createStatement();
+
+        ResultSet resultSet = statement.executeQuery("SELECT aanwezigheid.persoonpersoonid,aanwezigheid.leslescode,aanwezigheid.extrainformatie,aanwezigheid.aanwezigheid from aanwezigheid, les WHERE klasklasnaam = '" + klas + "' AND aanwezigheid.persoonpersoonid= "+leerling+" ORDER BY time ASC");
+
+        while (resultSet.next()) {
+            ResultSet docentSet = statement2.executeQuery("SELECT * from persoon WHERE persoonid = '" + resultSet.getString(7) + "'");
+            docentSet.next();
+
+            OnlineLes les = klas.getLes(resultSet.getString(1));
+            String docentid = resultSet.getString(7);
+            Docent docent = School.getDocent(docentid);
+            if (docent == null) {
+                docent = new Docent(docentSet.getString(2), docentSet.getString(1));
+            }
+
+            if (les == null) {
+                new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3),resultSet.getString(9));
             } else if (!SelectedStatics.controleLes(les, resultSet.getDate(2), resultSet.getTime(3))) {
                 klas.updateLes(les, resultSet.getDate(2), resultSet.getTime(3));
             }
         }
     }
+//    ResultSet resultSet = statement.executeQuery("SELECT * FROM  aanwezigheid\n" +
+//            "    WHERE aanwezigheid.aanwezigheid = 'Absent' and aanwezigheid.persoonpersoonid = "+leerling+" and leslescode = "+les.getLesCode());
 
     public static void getLessenDocent() throws SQLException {
         Docent docent = (Docent) SelectedStatics.getPersoon();
@@ -57,7 +87,7 @@ public class DatabaseInfo {
 
 
             if (les == null) {
-                new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3), resultSet.getString(9));
+                new OnlineLes(resultSet.getDate(2), resultSet.getString(1), resultSet.getBoolean(4), resultSet.getString(5), resultSet.getString(6), klas, docent, resultSet.getTime(3),resultSet.getString(9));
             } else if (!SelectedStatics.controleLes(les, resultSet.getDate(2), resultSet.getTime(3))) {
                 OnlineLes vergelijkLes = docent.getLes(resultSet.getString(1));
                 if(vergelijkLes == null){
@@ -192,7 +222,21 @@ public class DatabaseInfo {
                 "VALUES('"+klasnaam+"')");
 
     }
+    public static void setBlokkeerAttempts(int pogingen) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        statement.execute("UPDATE inlogattempts set toegestanepogingen = "+pogingen+" WHERE inlogid = 1");
 
+    }
+    public static int getBlokkeerAttempts()throws SQLException{
+        DatabaseQuerry.setDBConnection();
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM inlogattempts WHERE inlogid = 1");
+        resultSet.next();
+        int pogingen =resultSet.getInt(1);
+        return pogingen;
+    }
     public static String getStatus(String les, String docentcode) throws SQLException {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
@@ -203,4 +247,15 @@ public class DatabaseInfo {
         }
         return "Aanwezig";
     }
+
+    public static String getWachtwoord(String gebruikersnaam) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT persoonwachtwoord FROM persoon WHERE persoonid = '"+ gebruikersnaam + "'");
+        resultSet.next();
+        String wachtwoord = resultSet.getString(1);
+        return wachtwoord;
+
+    }
+
 }

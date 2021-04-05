@@ -22,12 +22,13 @@
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="70.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="72.0" minHeight="61.0" prefHeight="69.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="79.0" minHeight="64.0" prefHeight="73.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="84.0" minHeight="59.0" prefHeight="84.0" vgrow="NEVER" />
-                        <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="223.0" minHeight="10.0" prefHeight="207.0" vgrow="NEVER" />
-                  <RowConstraints maxHeight="171.0" minHeight="10.0" prefHeight="91.0" vgrow="NEVER" />
+                        <RowConstraints maxHeight="75.0" minHeight="61.0" prefHeight="75.0" vgrow="NEVER" />
+                        <RowConstraints maxHeight="79.0" minHeight="55.0" prefHeight="70.0" vgrow="NEVER" />
+                        <RowConstraints maxHeight="92.0" minHeight="59.0" prefHeight="92.0" vgrow="NEVER" />
+                        <RowConstraints maxHeight="186.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="237.0" minHeight="10.0" prefHeight="74.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="116.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="96.0" vgrow="NEVER" />
                     </rowConstraints>
                     <children>
                         <ImageView fitHeight="69.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
@@ -78,7 +79,7 @@
                                 <Label alignment="CENTER" contentDisplay="CENTER" text="Klas Maken" textAlignment="CENTER" />
                             </children>
                         </VBox>
-                        <VBox id="vboxStyle" fx:id="uitloggenVbox" alignment="CENTER" onMousePressed="#mousePressedUitloggen" prefHeight="33.0" prefWidth="104.0" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.vgrow="NEVER">
+                        <VBox id="vboxStyle" fx:id="uitloggenVbox" alignment="CENTER" onMousePressed="#mousePressedUitloggen" prefHeight="74.0" prefWidth="105.0" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER">
                             <children>
                                 <Pane id="uitloggen" fx:id="uitloggen" prefHeight="31.0" prefWidth="43.0">
                                     <VBox.margin>
@@ -88,6 +89,16 @@
                                 <Label alignment="CENTER" contentDisplay="CENTER" text="Uitloggen" textAlignment="CENTER" />
                             </children>
                         </VBox>
+                  <VBox id="vboxStyle" fx:id="klasMakenVbox1" alignment="CENTER" layoutX="10.0" layoutY="306.0" onMousePressed="#mousePressedKlasMaken" prefHeight="161.0" prefWidth="105.0" GridPane.rowIndex="5">
+                     <children>
+                        <Pane id="klasMaken" fx:id="klasMaken1" prefHeight="31.0" prefWidth="43.0">
+                           <VBox.margin>
+                              <Insets bottom="8.0" left="35.0" right="35.0" top="16.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Klas Maken" textAlignment="CENTER" />
+                     </children>
+                  </VBox>
                     </children>
                 </GridPane>
                 <AnchorPane fx:id="ViewContainer" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="570.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />

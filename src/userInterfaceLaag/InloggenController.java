@@ -35,18 +35,19 @@ public class InloggenController {
     @FXML
     private Button inlogButton;
     private int counter = 0;
-
-    public void initialize() {
+    private int attempt;
+    public void initialize() throws SQLException {
         //VERWIJDEREN BIJ RELEASE
-        gebruikersnaamInput.setText("69");
+//        gebruikersnaamInput.setText("69");
         wachtwoordInput.setText("ww");
+        attempt = DatabaseInfo.getBlokkeerAttempts();
     }
 
     public void inloggen(ActionEvent actionEvent) throws IOException, InterruptedException, SQLException {
-        Path pad = Path.of("src/textfiles/attempts.txt");
-        BufferedReader br = Files.newBufferedReader(pad);
-        String regel = br.readLine();
-        int attempt = Integer.parseInt(regel);
+//        Path pad = Path.of("src/textfiles/attempts.txt");
+//        BufferedReader br = Files.newBufferedReader(pad);
+//        String regel = br.readLine();
+
             SelectedStatics.setPersoon(null);
             String inlognaam = gebruikersnaamInput.getText();
             String wachtwoord = wachtwoordInput.getText();
@@ -129,19 +130,12 @@ public class InloggenController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void tempWachtwoordVergeten(MouseEvent mouseEvent) throws IOException {
+    public void tempWachtwoordVergeten(MouseEvent mouseEvent) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("HU agenda");
         alert.setHeaderText("Neem contact op met het volgende E-mail adress om u wachtwoord te herstellen");
         alert.setContentText("HUHelpdesk@outlook.com");
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.get() == ButtonType.OK) {
-            alert.hide();
-        } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Inloggen.fxml"));
-            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-        }
+        alert.show();
 
     }
 
