@@ -1,7 +1,6 @@
 package userInterfaceLaag;
 
 import code.tester.DatabaseQuerry;
-import code.tester.Klas;
 import code.tester.OnlineLes;
 import code.tester.SelectedStatics;
 import javafx.fxml.FXML;
@@ -13,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -71,7 +69,7 @@ public class AdminSchermController{
 
     public void mousePressedBeveiliging(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Deblokkeren.fxml"));
+        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Beveiliging.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(2);
     }
