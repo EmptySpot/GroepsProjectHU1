@@ -155,12 +155,12 @@ public class DatabaseInfo {
     }
 
     public static void setLes(String klasnaam, Date datum, Time tijd, boolean verplicht, String lesnaam, String vaknaam,
-                              String persoonid, String vakcode) throws SQLException{
+                              String persoonid, String duratie) throws SQLException{
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
-        statement.execute("insert into les(klasklasnaam, datum, time, verplicht, lesnaam, vaknaam, persoonpersoonid, vakcode)" +
+        statement.execute("insert into les(klasklasnaam, datum, time, verplicht, lesnaam, vaknaam, persoonpersoonid, duratie)" +
                 "VALUES ('" + klasnaam + "','" + datum + "','" + tijd + "','" + verplicht + "','" + lesnaam + "','" +
-                        vaknaam + "','" + persoonid + "','" + vakcode + "')");
+                        vaknaam + "','" + persoonid + "','" + duratie + "')");
     }
 
     public static void setGeblokkeerd(String leerlingid) throws SQLException {
@@ -191,5 +191,20 @@ public class DatabaseInfo {
         statement.execute("INSERT INTO klas(klasnaam)" +
                 "VALUES('"+klasnaam+"')");
 
+    }
+    public static void setBlokkeerAttempts(int pogingen) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        statement.execute("UPDATE inlogattempts set toegestanepogingen = "+pogingen+" WHERE inlogid = 1");
+
+    }
+    public static int getBlokkeerAttempts()throws SQLException{
+        DatabaseQuerry.setDBConnection();
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM inlogattempts WHERE inlogid = 1");
+        resultSet.next();
+        int pogingen =resultSet.getInt(1);
+        return pogingen;
     }
 }

@@ -1,5 +1,7 @@
 package userInterfaceLaag;
 
+import code.tester.DatabaseInfo;
+import code.tester.DatabaseQuerry;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +14,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 
 public class BlokkeerAttemptsController {
     @FXML private TextField pogingenTextfield;
@@ -21,12 +24,8 @@ public class BlokkeerAttemptsController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
-    public void opslaan(ActionEvent actionEvent) throws IOException {
-        Path pad = Path.of("src/textfiles/attempts.txt");
-        BufferedWriter write = Files.newBufferedWriter(pad);
-
-        write.write(pogingenTextfield.getText());
-        write.close();
+    public void opslaan(ActionEvent actionEvent) throws SQLException {
+        DatabaseInfo.setBlokkeerAttempts(Integer.parseInt(pogingenTextfield.getText()));
         meldingLabel.setText("U heeft succesvol het aantal pogingen aangepast naar: " + pogingenTextfield.getText());
     }
 }
