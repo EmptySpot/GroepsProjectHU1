@@ -28,6 +28,7 @@ public class NieuweLesMakenController {
     private TextField lesnaamTextBox;
     @FXML
     private TextField vaknaamTextBox;
+    //@FXML private TextField minimumTextBox;
     private ArrayList<String> urenArray = new ArrayList<>();
     private ArrayList<String> kwartierenArray = new ArrayList<>();
 
@@ -60,6 +61,8 @@ public class NieuweLesMakenController {
             errorLabel.setText("Vul een klas in");
         } else if (urenComboBox.getSelectionModel().getSelectedItem() == null) {
             errorLabel.setText("Vul de tijden in");
+//        } else if {minimumTextBox.getText().equals("")) {
+//            errorLabel.setText("Vul een minimum aantal uren in");
         } else {
             String klasnaam = klasComboBox.getSelectionModel().getSelectedItem().getNaam();
             Date datum = Date.valueOf(datePicker.getValue());
@@ -73,6 +76,7 @@ public class NieuweLesMakenController {
             Docent docent = (Docent) SelectedStatics.getPersoon();
             String persoonid = docent.getDocentCode();
             String vakcode = lescodeTextBox.getText();
+//            int minimum = minimumTextBox.getText();
 
             DatabaseInfo.setLes(klasnaam, datum, tijd, verplicht, lesnaam, vaknaam, persoonid, vakcode);
         }
