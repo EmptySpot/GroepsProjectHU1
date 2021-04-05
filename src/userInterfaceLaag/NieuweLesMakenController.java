@@ -2,8 +2,11 @@ package userInterfaceLaag;
 
 import code.tester.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -46,7 +49,7 @@ public class NieuweLesMakenController {
         if (datePicker.getValue() == null) {
             errorLabel.setText("Vul een datum in");
         } else if (lescodeTextBox.getText().equals("")) {
-            errorLabel.setText("Vul de vakcode in");
+            errorLabel.setText("Vul de duratie in");
         } else if (lesnaamTextBox.getText().equals("")) {
             errorLabel.setText("Vul een lesnaam in");
         } else if (vaknaamTextBox.getText().equals("")) {
@@ -74,6 +77,11 @@ public class NieuweLesMakenController {
 
         //todo }
 
+    }
+
+    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
 }

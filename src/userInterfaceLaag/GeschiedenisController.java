@@ -60,14 +60,12 @@ public class GeschiedenisController {
 //    public void listViewLessen(List<OnlineLes> lessen){
 //        ObservableList<OnlineLes> data = FXCollections.observableArrayList();
 //        for(OnlineLes les : lessen){
-//            if(getOnlinesles.getAanwezigheid().equals("Absent")){
+//            if(Aanwezigheid aanwezigheidInList:Aanwezigheidslist){
 //                data.add(les);
 //            }
 //        }
 //        aanwezigheidView.setItems(data);
 //    }
-
-
 }
 
 

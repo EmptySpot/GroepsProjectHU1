@@ -57,27 +57,27 @@ public class AdminSchermController{
 
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
+        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(0);
     }
 
     public void mousePressedDocentAanmaken(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/DocentAanmaken.fxml"));
+        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/DocentAanmaken.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(1);
     }
 
     public void mousePressedBeveiliging(MouseEvent mouseEvent) throws IOException {
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Deblokkeren.fxml"));
+        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/Deblokkeren.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(2);
     }
     public void mousePressedKlasMaken(MouseEvent mouseEvent)throws  IOException{
         Node node;
-        node = (Node)FXMLLoader.load(getClass().getResource("/userInterfaceLaag/KlasAanmaken.fxml"));
+        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/KlasAanmaken.fxml"));
         ViewContainer.getChildren().setAll(node);
         setIconColor(3);
     }
