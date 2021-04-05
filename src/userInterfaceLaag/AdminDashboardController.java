@@ -19,7 +19,7 @@ public class AdminDashboardController {
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
     public void deblokkerenButton(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Deblokkeren.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Beveiliging.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
