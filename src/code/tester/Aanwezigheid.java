@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
@@ -21,7 +22,7 @@ public class Aanwezigheid {
         this.extraInformatie = extraI;
         this.aanwezig = new SimpleStringProperty(aanwezigheid);
         this.onlineLes = les;
-        this.buttonAanwezig = new Button("Extra informatie");
+        this.buttonAanwezig = new Button("Info");
         this.aanwezigheidComboBox = new ComboBox<String>();
     }
     
@@ -66,11 +67,18 @@ public class Aanwezigheid {
 
 
     public Button getButtonAanwezig() {
-        buttonAanwezig.setVisible(false);
-        buttonAanwezig.setOnAction((ActionEvent event) -> {
-            leerlingInfo.updateAanwezigheid(this, "Absent");
+        if(extraInformatie.equals("")){
+           buttonAanwezig.setVisible(false);
+        } else {
+            buttonAanwezig.setOnAction((ActionEvent event) -> {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle(getLeerlingNaam());
+                alert.setContentText(extraInformatie);
+                alert.setHeaderText(null);
+                alert.show();
 
-        });
+            });
+        }
         return buttonAanwezig;
     }
 
