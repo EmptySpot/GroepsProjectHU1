@@ -15,15 +15,24 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Region prefHeight="100.0" prefWidth="34.0" />
-                        <ImageView fitHeight="156.0" fitWidth="200.0" onMousePressed="#mousePressedKlas" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="263.0" fitWidth="185.0" onMousePressed="#mousePressedSelf" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="156.0" fitWidth="200.0" onMousePressed="#mousePressedKlas" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Pictures/noun_person_2733078.png" />
+                              <Image url="@../Pictures/new_groep_afbeelding.png" />
+                           </image></ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" onMousePressed="#mousePressedSelf" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/new_persoon_2.png" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onMousePressed="#mousePressedCancel" text="Cancel" />
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="35.0" layoutY="121.0" mnemonicParsing="false" onMousePressed="#mousePressedCancel" text="Cancel" />
+                        <Label layoutX="50.0" layoutY="15.0" text="Klas" />
+                        <Label layoutX="209.0" layoutY="15.0" text="Leerling" />
+                     </children>
+                  </Pane>
                </children></VBox>
             </children>
         </HBox>
