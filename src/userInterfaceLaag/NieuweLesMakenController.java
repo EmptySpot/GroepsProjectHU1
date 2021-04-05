@@ -2,8 +2,11 @@ package userInterfaceLaag;
 
 import code.tester.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -83,6 +86,11 @@ public class NieuweLesMakenController {
 
         //todo }
 
+    }
+
+    public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
+        mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
     }
 
 }

@@ -53,5 +53,6 @@
       </HBox>
       <Button fx:id="opslaanButton" layoutX="42.0" layoutY="278.0" mnemonicParsing="false" onAction="#opslaan" text="Opslaan" />
       <Label fx:id="errorLabel" layoutX="112.0" layoutY="282.0" prefHeight="17.0" prefWidth="188.0" textFill="RED" />
+      <Button layoutX="128.0" layoutY="278.0" mnemonicParsing="false" text="Cancel" />
    </children>
 </AnchorPane>
