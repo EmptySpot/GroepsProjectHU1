@@ -248,4 +248,14 @@ public class DatabaseInfo {
         return "Aanwezig";
     }
 
+    public static String getWachtwoord(String gebruikersnaam) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT persoonwachtwoord FROM persoon WHERE persoonid = '"+ gebruikersnaam + "'");
+        resultSet.next();
+        String wachtwoord = resultSet.getString(1);
+        return wachtwoord;
+
+    }
+
 }
