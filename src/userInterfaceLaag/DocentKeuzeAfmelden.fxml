@@ -14,13 +14,9 @@
                   <Region prefHeight="100.0" prefWidth="211.0" />
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="98.0" fitWidth="123.0" onMousePressed="#mousePressedKlas" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/noun_people_1168360.png" />
-                           </image>
-                        </ImageView>
                         <Region prefHeight="100.0" prefWidth="34.0" />
-                        <ImageView fitHeight="100.0" fitWidth="113.0" onMousePressed="#mousePressedSelf" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="156.0" fitWidth="200.0" onMousePressed="#mousePressedKlas" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="263.0" fitWidth="185.0" onMousePressed="#mousePressedSelf" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Pictures/noun_person_2733078.png" />
                            </image>
