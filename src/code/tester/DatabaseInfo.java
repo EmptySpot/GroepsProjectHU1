@@ -174,4 +174,22 @@ public class DatabaseInfo {
         Statement statement = connection.createStatement();
        statement.execute("update persoon SET geblokkeerd = null WHERE persoonid =" + id + "" );
     }
+
+    public static String setDocent(String naam, String wachtwoord) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("INSERT INTO persoon(persoonnaam, persoonwachtwoord, persoonstatus)" +
+                "VALUES('"+ naam +"','"+ wachtwoord+"','Docent')" +
+                " RETURNING persoonid");
+        resultSet.next();
+        return resultSet.getString(1);
+    }
+
+    public static void setKlas(String klasnaam) throws SQLException {
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        statement.execute("INSERT INTO klas(klasnaam)" +
+                "VALUES('"+klasnaam+"')");
+
+    }
 }
