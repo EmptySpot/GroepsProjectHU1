@@ -88,11 +88,11 @@
     -fx-background-size: 10px;
 }
 #fontSelected{
-        -fx-text-fill: red;
+        -fx-text-fill: #e6331c;
 }
 
 #fontNotSelected{
-        -fx-text-fill: DodgerBlue;
+        -fx-text-fill: #0092d2;
 }
 
 #vboxStyle{

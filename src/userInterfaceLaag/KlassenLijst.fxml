@@ -14,8 +14,24 @@
                 <TableColumn fx:id="RadioButtonColumn" editable="false" prefWidth="150.0" text="Aanwezig" />
           </columns>
       </TableView>
-      <Button layoutX="524.0" layoutY="298.0" mnemonicParsing="false" onAction="#buttonOk" text="Ok" />
-      <Button layoutX="514.0" layoutY="349.0" mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" text="Cancel" />
-      <Button layoutX="514.0" layoutY="323.0" mnemonicParsing="false" onAction="#refreshButton" text="Refresh" />
+      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <VBox layoutX="507.0" layoutY="275.0" prefHeight="111.0" prefWidth="71.0">
+         <children>
+            <VBox prefHeight="40.0" prefWidth="71.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#buttonOk" prefHeight="25.0" prefWidth="81.0" text="Ok" />
+               </children>
+            </VBox>
+            <VBox prefHeight="39.0" prefWidth="71.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#refreshButton" prefHeight="25.0" prefWidth="121.0" text="Refresh" />
+               </children>
+            </VBox>
+            <VBox prefHeight="42.0" prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" onMousePressed="#mousePressedUitloggen" prefHeight="25.0" prefWidth="131.0" text="Cancel" />
+               </children>
+            </VBox>
+         </children></VBox>
     </children>
 </AnchorPane>
