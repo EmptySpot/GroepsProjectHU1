@@ -7,10 +7,10 @@
     <children>
         <HBox layoutX="7.0" layoutY="4.0" prefHeight="400.0" prefWidth="591.0" style="-fx-background-color: white;">
             <children>
-            <GridPane>
+            <GridPane prefHeight="400.0" prefWidth="430.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="130.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="1.0" prefWidth="70.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="311.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="0.0" prefWidth="78.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
@@ -18,9 +18,20 @@
                 <RowConstraints maxHeight="313.0" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label prefHeight="57.0" prefWidth="126.0" text="  Aantal keren afwezig: " />
-                  <ListView prefHeight="313.0" prefWidth="198.0" GridPane.rowIndex="2" />
-                  <Label fx:id="afwezigCounterLabel" GridPane.columnIndex="1" />
+                  <ListView fx:id="aanwezigheidView" prefHeight="313.0" prefWidth="198.0" GridPane.rowIndex="2" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="124.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="211.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="138.0" text="  Aantal keren afwezig: " />
+                        <Label fx:id="afwezigCounterLabel" prefHeight="17.0" prefWidth="68.0" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
                </children>
             </GridPane>
             </children>
