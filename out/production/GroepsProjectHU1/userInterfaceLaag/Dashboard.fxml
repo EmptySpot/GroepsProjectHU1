@@ -54,7 +54,7 @@
                            <Font name="System Italic" size="12.0" />
                         </font>
                      </Label>
-                     <Hyperlink text="hier">
+                     <Hyperlink onMousePressed="#HulpScherm" text="hier">
                         <font>
                            <Font name="System Italic" size="12.0" />
                         </font>
