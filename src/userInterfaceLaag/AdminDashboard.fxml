@@ -10,9 +10,9 @@
          <font>
             <Font size="32.0" />
          </font></Label>
-      <Button layoutX="111.0" layoutY="193.0" mnemonicParsing="false" onMousePressed="#BlokkeerAttemptsButton" prefHeight="53.0" prefWidth="179.0" text="Blokkeer attempts instellen" />
-      <Button layoutX="111.0" layoutY="106.0" mnemonicParsing="false" onMousePressed="#docentAanmakenButton" prefHeight="53.0" prefWidth="179.0" text="Docent account aanmaken" />
-      <Button layoutX="334.0" layoutY="106.0" mnemonicParsing="false" onMousePressed="#wachtwoordOpvragenButton" prefHeight="53.0" prefWidth="179.0" text="Wachtwoord opvragen" />
-      <Button layoutX="335.0" layoutY="193.0" mnemonicParsing="false" onMousePressed="#deblokkerenButton" prefHeight="53.0" prefWidth="172.0" text="Accounts deblokkeren" />
+<!--      <Button layoutX="111.0" layoutY="193.0" mnemonicParsing="false" onMousePressed="#BlokkeerAttemptsButton" prefHeight="53.0" prefWidth="179.0" text="Blokkeer attempts instellen" />-->
+<!--      <Button layoutX="111.0" layoutY="106.0" mnemonicParsing="false" onMousePressed="#docentAanmakenButton" prefHeight="53.0" prefWidth="179.0" text="Docent account aanmaken" />-->
+<!--      <Button layoutX="334.0" layoutY="106.0" mnemonicParsing="false" onMousePressed="#wachtwoordOpvragenButton" prefHeight="53.0" prefWidth="179.0" text="Wachtwoord opvragen" />-->
+<!--      <Button layoutX="335.0" layoutY="193.0" mnemonicParsing="false" onMousePressed="#deblokkerenButton" prefHeight="53.0" prefWidth="172.0" text="Accounts deblokkeren" />-->
    </children>
 </AnchorPane>
