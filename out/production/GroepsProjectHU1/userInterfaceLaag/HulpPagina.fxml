@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.HulpPaginaController">
+   <children>
+      <Label layoutX="43.0" layoutY="38.0" prefHeight="31.0" prefWidth="56.0" text="HUlp" />
+      <Label layoutX="43.0" layoutY="225.0" text="Met de geschiedenis knop kan je zien hoe vaak, en bij welke lessen, je op afwezig staat" />
+      <Label layoutX="43.0" layoutY="280.0" text="Met uitloggen log je uit op je account" />
+      <Label layoutX="43.0" layoutY="162.0" text="De kalenderknop laat zien welke lessen je op welke dag hebt" />
+      <Label layoutX="43.0" layoutY="340.0" text="Voor nog meer informatie," />
+      <Hyperlink layoutX="184.0" layoutY="337.0" onMousePressed="#extraHulp" text="klik hier" />
+   </children>
+</AnchorPane>
