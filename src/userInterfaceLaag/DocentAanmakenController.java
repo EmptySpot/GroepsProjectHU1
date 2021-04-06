@@ -17,15 +17,15 @@ import java.util.Optional;
 public class DocentAanmakenController {
     @FXML private Label errorLocatie;
     @FXML private TextField docentnaam;
-    @FXML private TextField wachtwoord;
+    @FXML private TextField wachtwoordField;
     public void opslaan(MouseEvent mouseEvent) throws IOException, SQLException {
         errorLocatie.setText("");
         if(docentnaam.getText().equals("")){
             errorLocatie.setText("Geef een docentnaam op");
-        } else if (wachtwoord.getText().equals("")){
+        } else if (wachtwoordField.getText().equals("")){
             errorLocatie.setText("Geef een wachtwoord");
         } else {
-            String docentid = DatabaseInfo.setDocent(docentnaam.getText(),wachtwoord.getText());
+            String docentid = DatabaseInfo.setDocent(docentnaam.getText(),wachtwoordField.getText());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("HU agenda");
             alert.setHeaderText("Dit is de gebruikersnaam van de docent");

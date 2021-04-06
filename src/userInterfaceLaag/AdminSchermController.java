@@ -32,6 +32,8 @@ public class AdminSchermController{
     @FXML
     private VBox klasMakenVbox;
     @FXML
+    private VBox wachtwoordVbox;
+    @FXML
     private VBox uitloggenVbox;
 
 
@@ -79,6 +81,12 @@ public class AdminSchermController{
         ViewContainer.getChildren().setAll(node);
         setIconColor(3);
     }
+    public void mousePressedWachtwoordOpvragen(MouseEvent mouseEvent)throws  IOException{
+        Node node;
+        node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/WachtwoordOpvragen.fxml"));
+        ViewContainer.getChildren().setAll(node);
+        setIconColor(4);
+    }
 
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException, SQLException {
@@ -108,15 +116,20 @@ public class AdminSchermController{
         docentAanmakenbox.setId("DocentMaken");
         docentMakenLabel.setId("uit");
 
-        Pane beveiligingbox = (Pane) BeveiligingVbox.getChildren().get(0);
+        Pane beveiligingBox = (Pane) BeveiligingVbox.getChildren().get(0);
         Label beveiligingLabel = (Label) BeveiligingVbox.getChildren().get(1);
-        beveiligingbox.setId("Beveiliging");
+        beveiligingBox.setId("Beveiliging");
         beveiligingLabel.setId("uit");
 
-        Pane klasMakenbox = (Pane) klasMakenVbox.getChildren().get(0);
+        Pane klasMakenBox = (Pane) klasMakenVbox.getChildren().get(0);
         Label klasMakenLabel = (Label)klasMakenVbox.getChildren().get(1);
-        klasMakenbox.setId("klasMaken");
+        klasMakenBox.setId("klasMaken");
         klasMakenLabel.setId("uit");
+
+        Pane wachtwoordBox = (Pane) wachtwoordVbox.getChildren().get(0);
+        Label wachtwoordLabel = (Label) wachtwoordVbox.getChildren().get(1);
+        wachtwoordBox.setId("wachtwoord");
+        wachtwoordLabel.setId("uit");
 
         Pane uitloggenBox = (Pane) uitloggenVbox.getChildren().get(0);
         Label uitloggenLabel = (Label) uitloggenVbox.getChildren().get(1);
@@ -130,11 +143,14 @@ public class AdminSchermController{
             docentAanmakenbox.setId("DocentMakenAan");
                 docentMakenLabel.setId("aan");
             } else if(nummer == 2){
-                    beveiligingbox.setId("BeveiligingAan");
+                    beveiligingBox.setId("BeveiligingAan");
                     beveiligingLabel.setId("aan");
                 }else if(nummer == 3){
-                       klasMakenbox.setId("klasMakenAan");
+                       klasMakenBox.setId("klasMakenAan");
                        klasMakenLabel.setId("aan");
+                    }else if(nummer == 4){
+                            wachtwoordBox.setId("wachtwoordAan");
+                            wachtwoordLabel.setId("aan");
         }
     }
 }
