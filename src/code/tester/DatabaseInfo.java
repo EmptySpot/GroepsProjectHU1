@@ -225,4 +225,14 @@ public class DatabaseInfo {
         return absentlessen;
     }
 
+    public static Leerling getLeerling(String id)throws SQLException{
+        Connection connection = DatabaseQuerry.getDBConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM persoon WHERE persoonid ='"+ id +"'");
+        if(resultSet.next()){
+            return new Leerling(resultSet.getString(1), new Klas(resultSet.getString(5)), resultSet.getString(3), resultSet.getString(2));
+        }
+        return null;
+    }
+
 }
