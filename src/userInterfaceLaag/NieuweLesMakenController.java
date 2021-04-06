@@ -73,15 +73,23 @@ public class NieuweLesMakenController {
             String duratie = lescodeTextBox.getText() + " " + tijdAanduider.getSelectionModel().getSelectedItem();
 
             DatabaseInfo.setLes(klasnaam, datum, tijd, verplicht, lesnaam, vaknaam, persoonid, duratie);
+            clearFields();
         }
-
-        //todo }
-
     }
 
     public void mousePressedUitloggen(MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Kalender.fxml"));
         mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
+    }
+
+    public void clearFields(){
+        tijdAanduider.setValue("uur");
+        urenComboBox.setValue(null);
+        kwartierenComboBox.setValue(null);
+        lescodeTextBox.setText("");
+        lesnaamTextBox.setText("");
+        vaknaamTextBox.setText("");
+        klasComboBox.setValue(null);
     }
 
 }

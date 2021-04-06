@@ -202,9 +202,11 @@ public class DatabaseInfo {
         Connection connection = DatabaseQuerry.getDBConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT persoonwachtwoord FROM persoon WHERE persoonid = '"+ gebruikersnaam + "'");
-        resultSet.next();
-        String wachtwoord = resultSet.getString(1);
-        return wachtwoord;
+        if(resultSet.next()){
+            String wachtwoord = resultSet.getString(1);
+            return wachtwoord;
+        }
+        return null;
 
     }
 
