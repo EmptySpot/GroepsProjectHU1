@@ -37,9 +37,6 @@ public class InloggenController {
     private int counter = 0;
     private int attempt;
     public void initialize() throws SQLException {
-        //VERWIJDEREN BIJ RELEASE
-//        gebruikersnaamInput.setText("69");
-        wachtwoordInput.setText("ww");
         attempt = DatabaseInfo.getBlokkeerAttempts();
     }
 
