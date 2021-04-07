@@ -26,7 +26,6 @@ public class HUApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         String fxmlPagina = "userInterfaceLaag/Inloggen.fxml";
-        //fxmlPagina = "userInterfaceLaag/MainView.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPagina));
 
         Parent root = loader.load();
