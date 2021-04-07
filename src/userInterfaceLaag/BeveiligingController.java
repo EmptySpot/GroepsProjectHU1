@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
-import java.util.regex.Pattern;
+
 
 public class BeveiligingController {
     @FXML private TextField pogingenTextfield;

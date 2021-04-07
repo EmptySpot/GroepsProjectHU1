@@ -1,8 +1,5 @@
 package userInterfaceLaag;
 
-
-import javafx.scene.control.Hyperlink;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;

@@ -1,7 +1,6 @@
 package userInterfaceLaag;
 
 import code.tester.DatabaseInfo;
-import code.tester.DatabaseQuerry;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,10 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.SQLException;
 
 public class BlokkeerAttemptsController {

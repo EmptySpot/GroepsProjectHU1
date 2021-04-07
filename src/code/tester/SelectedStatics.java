@@ -54,15 +54,4 @@ public class SelectedStatics {
         }
         return null;
     }
-
-    public static boolean controleAanwezigheid(Aanwezigheid aanwezigheid, String extraInfo, String aanwezigheidStatus) {
-        if(aanwezigheidStatus == null){
-            aanwezigheidStatus = "";
-        }
-        String extraInfoAlBestaand = aanwezigheid.getExtraInformatie();
-        if(extraInfoAlBestaand == null){
-            extraInfoAlBestaand = "";
-        }
-        return(aanwezigheid.getAanwezig().equals(aanwezigheidStatus) && extraInfoAlBestaand.equals(extraInfo));
-    }
 }

@@ -11,19 +11,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
-import java.util.Optional;
-
-import static java.sql.DriverManager.getConnection;
 
 public class InloggenController {
     @FXML
@@ -33,18 +26,13 @@ public class InloggenController {
     @FXML
     private Label foutmeldingLabel;
     @FXML
-    private Button inlogButton;
     private int counter = 0;
     private int attempt;
     public void initialize() throws SQLException {
         attempt = DatabaseInfo.getBlokkeerAttempts();
     }
 
-    public void inloggen(ActionEvent actionEvent) throws IOException, InterruptedException, SQLException {
-//        Path pad = Path.of("src/textfiles/attempts.txt");
-//        BufferedReader br = Files.newBufferedReader(pad);
-//        String regel = br.readLine();
-
+    public void inloggen(ActionEvent actionEvent) throws IOException, SQLException {
             SelectedStatics.setPersoon(null);
             String inlognaam = gebruikersnaamInput.getText();
             String wachtwoord = wachtwoordInput.getText();

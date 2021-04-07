@@ -108,4 +108,3 @@ public class Aanwezigheid {
         }
     }
 }
-//arraylist van leerlingen lessen reden en aanwezigheid

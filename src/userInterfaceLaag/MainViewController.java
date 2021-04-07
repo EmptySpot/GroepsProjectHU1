@@ -1,8 +1,6 @@
 package userInterfaceLaag;
 
 import code.tester.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,7 +16,6 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.MessageFormat;
 import java.util.*;
 
 public class MainViewController {

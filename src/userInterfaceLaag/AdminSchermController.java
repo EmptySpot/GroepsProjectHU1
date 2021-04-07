@@ -45,16 +45,6 @@ public class AdminSchermController{
         setIconColor(0);
     }
 
-    public void handleMouseClick(MouseEvent mouseEvent) throws IOException {
-        OnlineLes l = listViewTest.getSelectionModel().getSelectedItem();
-        if(l!=null){
-            SelectedStatics.setLes(l);
-            testLabel.setText(String.valueOf(listViewTest.getSelectionModel().getSelectedItem()));
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Afmelden.fxml"));
-            mousePressedControle.mousePressedVerwerker(mouseEvent, loader);
-        }
-    }
-
     public void mousePressedDashboard(MouseEvent mouseEvent) throws IOException {
         Node node;
         node = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/AdminDashboard.fxml"));
