@@ -22,6 +22,7 @@ public class HUApp extends Application {
         stage.setScene(new Scene(root));
         stage.getIcons().add(new Image("Pictures/cropped-cropped-hogeschool-utrecht-logo.png"));
         stage.show();
+
     }
 }
 
